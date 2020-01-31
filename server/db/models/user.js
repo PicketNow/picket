@@ -3,6 +3,20 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  fullName: {
+    type: Sequelize.VIRTUAL,
+    get() {
+      return `${this.firstName} ${this.lastName}`
+    }
+  },
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -15,6 +29,15 @@ const User = db.define('user', {
     get() {
       return () => this.getDataValue('password')
     }
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue:
+      'https://www.pngkey.com/png/full/230-2301779_best-classified-apps-default-user-profile.png'
   },
   salt: {
     type: Sequelize.STRING,
