@@ -62,7 +62,6 @@
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.21.3",
     "socket.io": "^2.3.0"
-
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
