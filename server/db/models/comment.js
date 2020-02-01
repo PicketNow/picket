@@ -1,17 +1,17 @@
 const {Sequelize, DataTypes} = require('sequelize')
 const db = require('../db')
 
-const Comment = (db.define = db.define('Comment', {
+const Comment = db.define('comment', {
   text: {
     type: Sequelize.TEXT
   },
-  timestamps: true,
-  createdAt: true,
-  updatedAt: false,
-  date: {
-    type: DataTypes.DATEONLY,
+  // timestamps: true,
+  // createdAt: true,
+  // updatedAt: false,
+  timestamp: {
+    type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
   }
-}))
+})
 
 module.exports = Comment
