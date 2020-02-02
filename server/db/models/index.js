@@ -11,14 +11,14 @@ const Interest = require('./interest')
  */
 User.belongsToMany(Event, {through: Comment})
 Event.belongsToMany(User, {through: Comment})
-User.belongsToMany(Event, {through: 'RSVP'})
-Event.belongsToMany(User, {through: 'RSVP'})
+User.belongsToMany(Event, {through: 'rsvp'})
+Event.belongsToMany(User, {through: 'rsvp'})
 
+Event.belongsTo(Interest)
 Interest.hasMany(Event)
-Event.hasOne(Interest)
 
-Interest.belongsToMany(User, {through: 'Subscribe'})
-User.belongsToMany(Interest, {through: 'Subscribe'})
+Interest.belongsToMany(User, {through: 'subscribe'})
+User.belongsToMany(Interest, {through: 'subscribe'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
