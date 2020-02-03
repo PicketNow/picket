@@ -9,7 +9,7 @@ import styled from 'styled-components'
 const Styles = styled.div`
   .navbar {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     justify-content: space-between;
     background-color: #5dbb63;
   }
@@ -17,9 +17,9 @@ const Styles = styled.div`
     font-size: 175%;
   }
 
-  .nav {
+  .navbar-nav {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
   }
 
   a,
@@ -34,45 +34,46 @@ const Styles = styled.div`
 
 const Navibar = ({handleClick, isLoggedIn}) => (
   <Styles>
-    <Navbar bg="dark" variant="dark" sticky="top">
+    <Navbar sticky="top">
       <Navbar.Brand>
-        {' '}
-        <Link to="/">Picket</Link>{' '}
+        <Link to="/">Picket</Link>
       </Navbar.Brand>
 
-      <Nav className="mr-auto">
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <Nav.Item>
-              <Nav.Link>
-                <Link to="/home"> Home </Link>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <Link to="/login" onClick={handleClick}>
-                  Logout
-                </Link>
-              </Nav.Link>
-            </Nav.Item>
-          </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Nav.Item>
-              <Nav.Link>
-                <Link to="/login">Login</Link>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <Link to="/signup">Sign Up</Link>
-              </Nav.Link>
-            </Nav.Item>
-          </div>
-        )}
-      </Nav>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav>
+          {isLoggedIn ? (
+            <div>
+              {/* The navbar will show these links after you log in */}
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/home"> Home </Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/login" onClick={handleClick}>
+                    Logout
+                  </Link>
+                </Nav.Link>
+              </Nav.Item>
+            </div>
+          ) : (
+            <div>
+              {/* The navbar will show these links before you log in */}
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/login">Login</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                  <Link to="/signup">Sign Up</Link>
+                </Nav.Link>
+              </Nav.Item>
+            </div>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   </Styles>
 )
