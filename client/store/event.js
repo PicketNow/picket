@@ -7,6 +7,7 @@ const viewEvents = events => ({type: ALL_EVENTS, events})
 export const getAllEvents = () => {
   return async dispatch => {
     try {
+      console.log('here in the thunk')
       const result = await axios.get('/api/events')
       dispatch(viewEvents(result.data))
     } catch (err) {
@@ -15,13 +16,17 @@ export const getAllEvents = () => {
   }
 }
 
-const manageEvents = (state = [], action) => {
+const initialState = {
+  events: []
+}
+
+const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_EVENTS:
-      return action.events
+      return {...state, events: action.events}
     default:
       return state
   }
 }
 
-export default manageEvents
+export default eventsReducer
