@@ -8,7 +8,7 @@ import AllInterests from './allInterests'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>BOILERMAKER</h1>
+    <h1>Picket</h1>
     <AllEvents />
     <AllInterests />
     <nav>
