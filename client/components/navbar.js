@@ -3,29 +3,78 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {Nav, Navbar} from 'react-bootstrap'
+import styled from 'styled-components'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>BOILERMAKER</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
+const Styles = styled.div`
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #5dbb63;
+  }
+  .navbar-brand {
+    font-size: 175%;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  a,
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #c7ea46;
+    &:hover {
+      color: white;
+    }
+  }
+`
+
+const Navibar = ({handleClick, isLoggedIn}) => (
+  <Styles>
+    <Navbar bg="dark" variant="dark" sticky="top">
+      <Navbar.Brand>
+        {' '}
+        <Link to="/">Picket</Link>{' '}
+      </Navbar.Brand>
+
+      <Nav className="mr-auto">
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+            <Nav.Item>
+              <Nav.Link>
+                <Link to="/home"> Home </Link>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link>
+                <Link to="/login" onClick={handleClick}>
+                  Logout
+                </Link>
+              </Nav.Link>
+            </Nav.Item>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <Nav.Item>
+              <Nav.Link>
+                <Link to="/login">Login</Link>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link>
+                <Link to="/signup">Sign Up</Link>
+              </Nav.Link>
+            </Nav.Item>
+          </div>
+        )}
+      </Nav>
+    </Navbar>
+  </Styles>
 )
 
 /**
@@ -45,12 +94,12 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(Navibar)
 
 /**
  * PROP TYPES
  */
-Navbar.propTypes = {
+Navibar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
