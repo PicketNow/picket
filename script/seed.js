@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Event} = require('../server/db/models')
+const {User, Event, Interest} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -19,6 +19,57 @@ async function seed() {
       lastName: 'Cat',
       email: 'murphy@email.com',
       password: '123'
+    })
+  ])
+
+  const interests = await Promise.all([
+    Interest.create({
+      name: 'Human Rights'
+    }),
+    Interest.create({
+      name: 'LGBTQIA'
+    }),
+    Interest.create({
+      name: 'Environmental'
+    }),
+    Interest.create({
+      name: 'Anti-war'
+    }),
+    Interest.create({
+      name: 'Immigration'
+    }),
+    Interest.create({
+      name: 'Drug Reform'
+    }),
+    Interest.create({
+      name: 'Policing Reform'
+    }),
+    Interest.create({
+      name: 'Voting Rights'
+    }),
+    Interest.create({
+      name: 'Judicial Activism'
+    }),
+    Interest.create({
+      name: 'Criminal Justice'
+    }),
+    Interest.create({
+      name: 'Women'
+    }),
+    Interest.create({
+      name: 'Economic'
+    }),
+    Interest.create({
+      name: 'Anti-poverty'
+    }),
+    Interest.create({
+      name: 'Childrens Rights'
+    }),
+    Interest.create({
+      name: 'Healthcare Access'
+    }),
+    Interest.create({
+      name: 'Education'
     })
   ])
 
@@ -47,6 +98,7 @@ async function seed() {
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${events.length} events`)
+  console.log(`seeded ${interests.length} interests`)
   console.log(`seeded successfully`)
 }
 
