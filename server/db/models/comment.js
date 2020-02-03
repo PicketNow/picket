@@ -5,9 +5,6 @@ const Comment = db.define('comment', {
   text: {
     type: Sequelize.TEXT
   },
-  // timestamps: true,
-  // createdAt: true,
-  // updatedAt: false,
   timestamp: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW

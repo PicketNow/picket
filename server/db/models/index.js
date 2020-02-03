@@ -1,7 +1,7 @@
 const User = require('./user')
 const Comment = require('./comment')
-const Event = require('./events')
-const Interest = require('./interests')
+const Event = require('./event')
+const Interest = require('./interest')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -11,14 +11,14 @@ const Interest = require('./interests')
  */
 User.belongsToMany(Event, {through: Comment})
 Event.belongsToMany(User, {through: Comment})
-User.belongsToMany(Event, {through: 'RSVP'})
-Event.belongsToMany(User, {through: 'RSVP'})
+User.belongsToMany(Event, {through: 'rsvp'})
+Event.belongsToMany(User, {through: 'rsvp'})
 
-Interest.hasMany(Event)
 Event.belongsTo(Interest)
+Interest.hasMany(Event)
 
-Interest.belongsToMany(User, {through: 'Subscribe'})
-User.belongsToMany(Interest, {through: 'Subscribe'})
+Interest.belongsToMany(User, {through: 'subscribe'})
+User.belongsToMany(Interest, {through: 'subscribe'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
