@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, Router} from 'react-router-dom'
 import {logout} from '../store'
+
 import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
 
@@ -76,6 +77,7 @@ const Navibar = ({handleClick, isLoggedIn}) => (
       </Navbar.Collapse>
     </Navbar>
   </Styles>
+
 )
 
 /**
