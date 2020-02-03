@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link, Router} from 'react-router-dom'
 import {logout} from '../store'
+import AllEvents from './AllEvents'
 import AllInterests from './allInterests'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     <h1>BOILERMAKER</h1>
+    <AllEvents />
     <AllInterests />
     <nav>
       {isLoggedIn ? (
