@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const Interest = require('./interest')
 
 const Event = db.define('event', {
   title: {
@@ -46,7 +47,8 @@ Event.findByInterest = function(interest) {
   return this.findAll({
     where: {
       interestId: interest
-    }
+    },
+    include: [{model: Interest}]
   })
 }
 

@@ -27,10 +27,10 @@ export const getAllEvents = () => {
   }
 }
 
-export const getFilteredEvents = () => {
+export const getFilteredEvents = eventCategory => {
   return async dispatch => {
     try {
-      const result = await axios.get('/api/category/:eventCategory')
+      const result = await axios.get(`/api/events/category/${eventCategory}`)
       dispatch(filterEvents(result.data))
     } catch (err) {
       console.error(err)
