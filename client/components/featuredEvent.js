@@ -9,7 +9,8 @@ class FeaturedEvents extends React.Component {
     this.props.me()
     if (this.props.user.id) {
       this.props.getSubscribedEvents(this.props.user.id)
-    } else this.props.getUpcomingEvents()
+    }
+    //  else this.props.getUpcomingEvents()
   }
 
   render() {

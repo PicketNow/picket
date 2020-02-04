@@ -18,7 +18,6 @@ const gotSubscribedEvents = featuredEvents => ({
   featuredEvents
 })
 
-
 export const getAllEvents = () => {
   return async dispatch => {
     try {
@@ -41,7 +40,6 @@ export const getFilteredEvents = eventCategory => {
   }
 }
 
-
 export const getRsvpEvents = () => {
   return async dispatch => {
     try {
@@ -50,15 +48,17 @@ export const getRsvpEvents = () => {
     } catch (err) {
       console.error(err)
     }
-    
-export const getUpcomingEvents = () => async dispatch => {
-  try {
-    let events = await axios.get('/api/events/upcoming')
-    dispatch(gotUpcomingEvents(events.data))
-  } catch (err) {
-    console.error(err)
   }
 }
+
+// export const getUpcomingEvents = () => async dispatch => {
+//   try {
+//     let events = await axios.get('/api/events/upcoming')
+//     dispatch(gotUpcomingEvents(events.data))
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
 
 export const getSubscribedEvents = userId => async dispatch => {
   try {
@@ -66,13 +66,12 @@ export const getSubscribedEvents = userId => async dispatch => {
     dispatch(gotSubscribedEvents(events.data))
   } catch (err) {
     console.error(err)
-
   }
 }
 
 const initialState = {
   events: [],
-  rsvpEvents: []
+  rsvpEvents: [],
   featuredEvents: []
 }
 
