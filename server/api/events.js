@@ -11,8 +11,9 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('category/:eventCategory', async (req, res, next) => {
+router.get('/category/:eventCategory', async (req, res, next) => {
   try {
+    console.log('here')
     const category = req.params.eventCategory
     const categoryEvents = await Events.findByInterest(category)
     res.send(categoryEvents)
