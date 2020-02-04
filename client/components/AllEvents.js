@@ -3,16 +3,12 @@ import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
 
 class AllEvents extends React.Component {
+  // if(isLoggedIn)
   componentDidMount() {
-    console.log('this.props', this.props)
     this.props.getAllEvents()
-    console.log(this.props, 'hellooooo')
   }
 
   render() {
-    //let events = this.props.events
-    console.log(this.props, 'helllllllllllo')
-
     return (
       <div>
         <div className="all-events">
@@ -22,7 +18,6 @@ class AllEvents extends React.Component {
               <li key={event.id}>{event.title}</li>
             ))}
           </ul>
-
           {/* {events && <SingleEvent events={events} />} */}
         </div>
       </div>
