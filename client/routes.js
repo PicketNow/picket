@@ -8,6 +8,7 @@ import HomePage from './Pages/Homepage'
 import AllEvents from './components/AllEvents'
 import SingleEvent from './components/SingleEvent'
 import Profile from './Pages/Profile'
+import EventsByCategory from './components/EventByCategory'
 
 /**
  * COMPONENT
@@ -27,6 +28,11 @@ class Routes extends Component {
         {/* <Route exact path="/events" component={AllEvents} /> */}
         <Route path="/events/:eventId" component={SingleEvent} />
         <Route exact path="/home" component={Profile} />
+        <Route
+          exact
+          path="/events/category/:eventCategory"
+          component={EventsByCategory}
+        />
       </Switch>
     )
   }

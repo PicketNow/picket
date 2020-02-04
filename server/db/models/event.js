@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const Interest = require('./interest')
 
 const Event = db.define('event', {
   title: {
@@ -46,7 +47,8 @@ Event.findByInterest = function(interest) {
   return this.findAll({
     where: {
       interestId: interest
-    }
+    },
+    include: [{model: Interest}]
   })
 }
 
@@ -56,6 +58,14 @@ Event.findByZip = function(zip) {
       zipcode: zip
     }
   })
+}
+
+Event.findByRsvpArr = function(events) {
+  let array = []
+  for (let i = 0; i < events.length; i++) {
+    array.push(Event.findByPK(events[i]))
+  }
+  return array
 }
 
 module.exports = Event

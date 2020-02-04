@@ -5,16 +5,12 @@ import {Link} from 'react-router-dom'
 import SingleEvent from './SingleEvent'
 
 class AllEvents extends React.Component {
+  // if(isLoggedIn)
   componentDidMount() {
-    console.log('this.props', this.props)
     this.props.getAllEvents()
-    console.log(this.props, 'hellooooo')
   }
 
   render() {
-    //let events = this.props.events
-    console.log(this.props, 'helllllllllllo')
-
     return (
       <div>
         <div className="all-events">
@@ -28,7 +24,6 @@ class AllEvents extends React.Component {
               </div>
             ))}
           </ul>
-
           {/* {events && <SingleEvent events={events} />} */}
         </div>
       </div>
