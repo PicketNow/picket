@@ -6,6 +6,7 @@ import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import HomePage from './Pages/Homepage'
 import Profile from './Pages/Profile'
+import EventsByCategory from './components/EventByCategory'
 
 /**
  * COMPONENT
@@ -22,6 +23,11 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/home" component={Profile} />
+        <Route
+          exact
+          path="/events/category/:eventCategory"
+          component={EventsByCategory}
+        />
       </Switch>
     )
   }
