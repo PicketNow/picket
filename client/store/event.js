@@ -2,9 +2,11 @@ import axios from 'axios'
 
 const ALL_EVENTS = 'ALL_EVENTS'
 const FILTER_EVENTS = 'FILTER_EVENTS'
+const RSVP_EVENTS = 'RSVP_EVENTS'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
+const rsvpEvents = events => ({type: RSVP_EVENTS, events})
 
 export const getAllEvents = () => {
   return async dispatch => {
@@ -30,8 +32,20 @@ export const getFilteredEvents = () => {
   }
 }
 
+export const getRsvpEvents = () => {
+  return async dispatch => {
+    try {
+      const result = await axios.get(`/api/events/rsvp/${userId}`)
+      dispatch(rsvpEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 const initialState = {
-  events: []
+  events: [],
+  rsvpEvents: []
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -40,6 +54,8 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, events: action.events}
     case FILTER_EVENTS:
       return {...state, events: action.events}
+    case RSVP_EVENTS:
+      return {...state, rsvpEvents: action.events}
     default:
       return state
   }
