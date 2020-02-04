@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import HomePage from './Pages/Homepage'
+import Profile from './Pages/Profile'
 
 /**
  * COMPONENT
@@ -15,37 +16,12 @@ class Routes extends Component {
   }
 
   render() {
-    // const {isLoggedIn} = this.props
-
-    // <Switch>
-    // {/* Routes placed here are available to all visitors */}
-    // <Route path="/account" component={Account} />
-    // <Route path="/cart/checkout/complete" component={CompletedOrder} />
-    // {/* <Route path="/signup" component={Signup} /> */}
-    // <Route
-    //   exact
-    //   path="/products/tag/:productTag"
-    //   component={TaggedProducts}
-    // />
-    // <Route path="/products/update/:id" component={UpdateProduct} />
-    // <Route path="/products/:id" component={SingleProduct} />
-    // <Route path="/products/" component={AllProducts} />
-    // <Route path="/cart/checkout" component={Checkout} />
-    // <Route path="/cart" component={Cart} />
-    // <Route path="/admin" component={AdminView} /> */}
-    // <Route path="/about" component={About} />
-    // <Route path="/contactUs" component={ContactUs} />
-    // <Route path="/storeLocations" component={StoreLocations} />
-    // <Route path="/storeHours" component={StoreHours} />
-    // <Route path="/returns" component={Returns} />
-    // <Route path="/" component={HomePage} />
-
     return (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/profile" component={UserHome} />
+        <Route exact path="/home" component={Profile} />
       </Switch>
     )
   }
