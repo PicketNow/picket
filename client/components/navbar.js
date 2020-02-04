@@ -38,41 +38,35 @@ const Navibar = ({handleClick, isLoggedIn}) => (
         <Link to="/">Picket</Link>
       </Navbar.Brand>
 
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav>
-          {isLoggedIn ? (
-            <div>
-              {/* The navbar will show these links after you log in */}
-              <Nav.Item>
-                <Nav.Link>
-                  <Link to="/profile"> Profile </Link>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link>
-                  <Link to="/login" onClick={handleClick}>
-                    Logout
-                  </Link>
-                </Nav.Link>
-              </Nav.Item>
-            </div>
-          ) : (
-            <div>
-              {/* The navbar will show these links before you log in */}
-              <Nav.Item>
-                <Nav.Link>
-                  <Link to="/login">Login</Link>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link>
-                  <Link to="/signup">Sign Up</Link>
-                </Nav.Link>
-              </Nav.Item>
-            </div>
-          )}
-        </Nav>
-      </Navbar.Collapse>
+      <Nav>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+
+            <Nav.Link>
+              <Link to="/home"> Profile </Link>
+            </Nav.Link>
+
+            <Nav.Link>
+              <Link to="/" onClick={handleClick}>
+                Logout
+              </Link>
+            </Nav.Link>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+
+            <Nav.Link>
+              <Link to="/home">Login</Link>
+            </Nav.Link>
+
+            <Nav.Link>
+              <Link to="/home">Sign Up</Link>
+            </Nav.Link>
+          </div>
+        )}
+      </Nav>
     </Navbar>
   </Styles>
 )
