@@ -1,15 +1,15 @@
 import React from 'react'
 import AllInterests from '../components/AllInterests.js'
-import AllEvents from '../components/AllEvents.js'
+import FeaturedEvents from '../components/featuredEvent.js'
+import Jumbo from '../components/Jumbo.js'
 
 class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <h2>HOMEPAGE</h2>
+        <Jumbo />
+        <FeaturedEvents />
         <AllInterests />
-
-        <AllEvents />
       </div>
     )
   }

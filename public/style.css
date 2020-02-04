@@ -13,9 +13,31 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  width: 100%;
+  height: 100%;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.jumbotron-text {
+  color: black;
+  font-size: 500%;
+}
+
+.undercover {
+  color: black;
+}
+
+.jumbotron-cover-image {
+  position: relative;
+  background: #000000
+    url('https://www.democracynow.org/images/story/13/34813/full_hd/S_DCWomensMarchPackedStreet.jpg')
+    center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  color: #ffffff;
 }
