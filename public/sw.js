@@ -1,13 +1,8 @@
 const cacheName = 'cache-v1'
 const resourcesToPrecache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/Bullhorn192.png',
-  '/Bullhorn512.png',
-  '/favicon.ico',
-  '/bundle.js',
-  '/manifest.json'
+  '/offline.html',
+  '/manifest.json',
+  '/Bullhorn192.png'
 ]
 
 self.addEventListener('install', event => {
@@ -17,29 +12,43 @@ self.addEventListener('install', event => {
       return cache.addAll(resourcesToPrecache)
     })
   )
-  // self.skipWaiting();
+  self.skipWaiting()
 })
 
 self.addEventListener('activate', event => {
   console.log('Activate event!')
-  // event.waitUntil(
-  //   caches.keys().then((keyList) => {
-  //     return Promise.all(keyList.map((key) => {
-  //       if (key !== cacheName) {
-  //         console.log('Removing old cache', key);
-  //         return caches.delete(key);
-  //       }
-  //     }));
-  //   })
-  // );
-  // self.clients.claim();
+  event.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== cacheName) {
+            console.log('Removing old cache', key)
+            return caches.delete(key)
+          }
+        })
+      )
+    })
+  )
+  self.clients.claim()
 })
 
 self.addEventListener('fetch', event => {
   console.log('Fetch intercepted for:', event.request.url)
+  // event.respondWith(
+  //   caches.match(event.request).then(cachedResponse => {
+  //     return cachedResponse || fetch(event.request)
+  //   })
+  // )
+
+  if (event.request.mode !== 'navigate') {
+    // Not a page navigation, bail.
+    return
+  }
   event.respondWith(
-    caches.match(event.request).then(cachedResponse => {
-      return cachedResponse || fetch(event.request)
+    fetch(event.request).catch(() => {
+      return caches.open(cacheName).then(cache => {
+        return cache.match('offline.html')
+      })
     })
   )
 
