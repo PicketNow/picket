@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import HomePage from './Pages/Homepage'
+import AllEvents from './components/AllEvents'
+import SingleEvent from './components/SingleEvent'
 import Profile from './Pages/Profile'
 import EventsByCategory from './components/EventByCategory'
 
@@ -22,6 +24,9 @@ class Routes extends Component {
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/profile" component={UserHome} />
+        {/* <Route exact path="/events" component={AllEvents} /> */}
+        <Route path="/events/:eventId" component={SingleEvent} />
         <Route exact path="/home" component={Profile} />
         <Route
           exact

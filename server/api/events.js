@@ -16,6 +16,18 @@ router.get('/', async (req, res, next) => {
 })
 
 
+router.get('/:eventId', async (req, res, next) => {
+  try {
+    const event = await Events.findByPk(req.params.eventId)
+    console.log(event)
+    res.send(event)
+  } catch (error) {
+    next(error)
+  }
+})
+
+
+
 router.get('/subscribed/:userId', async (req, res, next) => {
   try {
     const user = await User.findAll({
@@ -44,6 +56,7 @@ router.get('/subscribed/:userId', async (req, res, next) => {
 // })
 
 router.get('/category/:eventCategory', async (req, res, next) => {
+
   try {
     console.log('here')
     const category = req.params.eventCategory
