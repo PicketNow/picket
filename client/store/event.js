@@ -9,7 +9,6 @@ const filterEvents = events => ({type: FILTER_EVENTS, events})
 export const getAllEvents = () => {
   return async dispatch => {
     try {
-      //console.log('here in the thunk')
       const result = await axios.get('/api/events')
       dispatch(viewEvents(result.data))
     } catch (err) {
@@ -21,9 +20,7 @@ export const getAllEvents = () => {
 export const getFilteredEvents = eventCategory => {
   return async dispatch => {
     try {
-      console.log('here in the filter thunk')
       const result = await axios.get(`/api/events/category/${eventCategory}`)
-      console.log('here in the filter thunk2')
       dispatch(filterEvents(result.data))
     } catch (err) {
       console.error(err)
