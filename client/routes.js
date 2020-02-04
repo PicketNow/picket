@@ -15,22 +15,37 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    // const {isLoggedIn} = this.props
+
+    // <Switch>
+    // {/* Routes placed here are available to all visitors */}
+    // <Route path="/account" component={Account} />
+    // <Route path="/cart/checkout/complete" component={CompletedOrder} />
+    // {/* <Route path="/signup" component={Signup} /> */}
+    // <Route
+    //   exact
+    //   path="/products/tag/:productTag"
+    //   component={TaggedProducts}
+    // />
+    // <Route path="/products/update/:id" component={UpdateProduct} />
+    // <Route path="/products/:id" component={SingleProduct} />
+    // <Route path="/products/" component={AllProducts} />
+    // <Route path="/cart/checkout" component={Checkout} />
+    // <Route path="/cart" component={Cart} />
+    // <Route path="/admin" component={AdminView} /> */}
+    // <Route path="/about" component={About} />
+    // <Route path="/contactUs" component={ContactUs} />
+    // <Route path="/storeLocations" component={StoreLocations} />
+    // <Route path="/storeHours" component={StoreHours} />
+    // <Route path="/returns" component={Returns} />
+    // <Route path="/" component={HomePage} />
 
     return (
       <Switch>
-        {/* Routes placed here are available to all visitors */}
-        <Route exact patch="/" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        {isLoggedIn && (
-          <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
-          </Switch>
-        )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        <Route path="/profile" component={UserHome} />
       </Switch>
     )
   }
@@ -63,6 +78,6 @@ export default withRouter(connect(mapState, mapDispatch)(Routes))
  * PROP TYPES
  */
 Routes.propTypes = {
-  loadInitialData: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  loadInitialData: PropTypes.func.isRequired
+  // isLoggedIn: PropTypes.bool.isRequired
 }

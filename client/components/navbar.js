@@ -45,7 +45,7 @@ const Navibar = ({handleClick, isLoggedIn}) => (
               {/* The navbar will show these links after you log in */}
               <Nav.Item>
                 <Nav.Link>
-                  <Link to="/home"> Home </Link>
+                  <Link to="/profile"> Profile </Link>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
