@@ -60,4 +60,12 @@ Event.findByZip = function(zip) {
   })
 }
 
+Event.findByRsvpArr = function(events) {
+  let array = []
+  for (let i = 0; i < events.length; i++) {
+    array.push(Event.findByPK(events[i]))
+  }
+  return array
+}
+
 module.exports = Event

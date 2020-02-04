@@ -1,7 +1,9 @@
 const router = require('express').Router()
 const Events = require('../db/models/event')
+const Rsvp = require('../db/models/Rsvp')
 const User = require('../db/models/user')
 const Interest = require('../db/models/interest')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -46,6 +48,17 @@ router.get('/category/:eventCategory', async (req, res, next) => {
     console.log('here')
     const category = req.params.eventCategory
     const categoryEvents = await Events.findByInterest(category)
+    res.send(categoryEvents)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/rsvp/:userId', async (req, res, next) => {
+  try {
+    const user = req.params.userId
+    const events = await Rsvp.findByUser(user)
+    //now query for
     res.send(categoryEvents)
   } catch (error) {
     next(error)
