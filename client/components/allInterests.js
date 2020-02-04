@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getInterestsFromServer} from '../store/interestReducer'
 import {Link, Router} from 'react-router-dom'
+import {Grid, Typography, Card} from '@material-ui/core'
 
 class AllInterests extends React.Component {
   componentDidMount() {
@@ -10,14 +11,16 @@ class AllInterests extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Categories:</h3>
-        <ul>
-          {this.props.interests.map(interest => (
-            <li key={interest.id}>{interest.name}</li>
-          ))}
-        </ul>
-      </div>
+      <Grid container spacing={4} className="main all-interests">
+        <Typography variant="h3" gutterBottom>
+          Categories:
+        </Typography>
+        {this.props.interests.map(interest => (
+          <Grid item xs={4} key={interest.id}>
+            <Card className="card">{interest.name}</Card>
+          </Grid>
+        ))}
+      </Grid>
     )
   }
 }

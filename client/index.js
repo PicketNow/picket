@@ -5,7 +5,7 @@ import {Router} from 'react-router-dom'
 import history from './history'
 import store from './store'
 import App from './app'
-import * as serviceWorker from './serviceWorker'
+// import 'typeface-roboto'
 
 // establishes socket connection
 import './socket'
@@ -19,15 +19,15 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker
-//       .register('/sw.js')
-//       .then(reg => {
-//         console.log('Registered! ', reg)
-//       })
-//       .catch(err => {
-//         console.log('Registration failed: ', err)
-//       })
-//   })
-// }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(reg => {
+        console.log('Registered! ', reg)
+      })
+      .catch(err => {
+        console.log('Registration failed: ', err)
+      })
+  })
+}
