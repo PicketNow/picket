@@ -42,4 +42,20 @@ const Event = db.define('event', {
   }
 })
 
+Event.findByInterest = function(interest) {
+  return this.findAll({
+    where: {
+      interestId: interest
+    }
+  })
+}
+
+Event.findByZip = function(zip) {
+  return this.findAll({
+    where: {
+      zipcode: zip
+    }
+  })
+}
+
 module.exports = Event

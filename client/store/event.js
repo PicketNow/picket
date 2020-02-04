@@ -1,8 +1,10 @@
 import axios from 'axios'
 
 const ALL_EVENTS = 'ALL_EVENTS'
+const FILTER_EVENTS = 'FILTER_EVENTS'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
+const filterEvents = events => ({type: FILTER_EVENTS, events})
 
 export const getAllEvents = () => {
   return async dispatch => {
@@ -31,6 +33,18 @@ export const getSingleEvent = eventId => {
   }
 }
 
+export const getFilteredEvents = () => {
+  return async dispatch => {
+    try {
+      console.log('here in the thunk')
+      const result = await axios.get('/api/category/:eventCategory')
+      dispatch(filterEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 const initialState = {
   events: [],
   singleEvent: {}
@@ -42,6 +56,8 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, events: action.events}
     case SINGLE_EVENT:
       return {...state, singleEvent: action.event}
+    case FILTER_EVENTS:
+      return {...state, events: action.events}
     default:
       return state
   }

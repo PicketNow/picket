@@ -20,3 +20,13 @@ router.get('/:eventId', async (req, res, next) => {
     next(error)
   }
 })
+
+router.get('category/:eventCategory', async (req, res, next) => {
+  try {
+    const category = req.params.eventCategory
+    const categoryEvents = await Events.findByInterest(category)
+    res.send(categoryEvents)
+  } catch (error) {
+    next(error)
+  }
+})

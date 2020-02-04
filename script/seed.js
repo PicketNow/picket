@@ -82,7 +82,8 @@ async function seed() {
       city: 'New York',
       zipcode: '10001',
       organizerId: 1,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)'
+      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
+      interestId: 10
     }),
     Event.create({
       title: 'Climate March',
@@ -92,7 +93,8 @@ async function seed() {
       city: 'Washington',
       zipcode: '20057',
       organizerId: 2,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)'
+      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
+      interestId: 3
     })
   ])
 
