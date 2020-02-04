@@ -3,73 +3,119 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
+import {makeStyles} from '@material-ui/core/styles'
 
-import {Nav, Navbar} from 'react-bootstrap'
-import styled from 'styled-components'
+// const Styled = styled.div`
+//   .links: {
+//     {
+//       color: #c7ea46;
+//       &:hover {
+//         color: white;
+//       }
+//   }
+//   `
 
-const Styles = styled.div`
-  .navbar {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    background-color: #5dbb63;
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
   }
-  .navbar-brand {
-    font-size: 175%;
-  }
-  .navbar-nav {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  a,
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #c7ea46;
-    &:hover {
-      color: white;
-    }
-  }
-`
+}))
 
-const Navibar = ({handleClick, isLoggedIn}) => (
-  <Styles>
-    <Navbar sticky="top">
-      <Navbar.Brand>
-        <Link to="/">Picket</Link>
-      </Navbar.Brand>
+const Navibar = ({handleClick, isLoggedIn}) => {
+  const classes = useStyles()
 
-      <Nav>
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            <Link to="/">Picket</Link>
+          </Typography>
 
-            <Nav.Link>
-              <Link to="/home"> Profile </Link>
-            </Nav.Link>
+          {isLoggedIn ? (
+            <div>
+              {/* The navbar will show these links after you log in */}
 
-            <Nav.Link>
-              <Link to="/" onClick={handleClick}>
-                Logout
-              </Link>
-            </Nav.Link>
-          </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
+              <Button color="inherit">
+                <Link to="/home"> Profile </Link>
+              </Button>
 
-            <Nav.Link>
-              <Link to="/home">Login</Link>
-            </Nav.Link>
+              <Button color="inherit">
+                <Link to="/" onClick={handleClick}>
+                  Logout
+                </Link>
+              </Button>
+            </div>
+          ) : (
+            <div>
+              {/* The navbar will show these links before you log in */}
 
-            <Nav.Link>
-              <Link to="/home">Sign Up</Link>
-            </Nav.Link>
-          </div>
-        )}
-      </Nav>
-    </Navbar>
-  </Styles>
-)
+              <Button color="inherit">
+                <Link to="/home">Login</Link>
+              </Button>
+
+              <Button color="inherit">
+                <Link to="/home">Sign Up</Link>
+              </Button>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
+}
+
+// const Navibar = ({handleClick, isLoggedIn}) => (
+
+//     <Navbar sticky="top">
+//       <Navbar.Brand>
+//         <Link to="/">Picket</Link>
+//       </Navbar.Brand>
+
+//       <Nav>
+//         {isLoggedIn ? (
+//           <div>
+//             {/* The navbar will show these links after you log in */}
+
+//             <Nav.Link>
+//               <Link to="/home"> Profile </Link>
+//             </Nav.Link>
+
+//             <Nav.Link>
+//               <Link to="/" onClick={handleClick}>
+//                 Logout
+//               </Link>
+//             </Nav.Link>
+//           </div>
+//         ) : (
+//           <div>
+//             {/* The navbar will show these links before you log in */}
+
+//             <Nav.Link>
+//               <Link to="/home">Login</Link>
+//             </Nav.Link>
+
+//             <Nav.Link>
+//               <Link to="/home">Sign Up</Link>
+//             </Nav.Link>
+//           </div>
+//         )}
+//       </Nav>
+//     </Navbar>
+
+// )
 
 /**
  * CONTAINER
