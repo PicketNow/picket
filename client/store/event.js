@@ -16,14 +16,32 @@ export const getAllEvents = () => {
   }
 }
 
+const SINGLE_EVENT = 'SINGLE_EVENT'
+
+const gotEvent = event => ({type: SINGLE_EVENT, event})
+
+export const getSingleEvent = eventId => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.get(`/api/events/${eventId}`)
+      dispatch(gotEvent(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 const initialState = {
-  events: []
+  events: [],
+  singleEvent: {}
 }
 
 const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_EVENTS:
       return {...state, events: action.events}
+    case SINGLE_EVENT:
+      return {...state, singleEvent: action.event}
     default:
       return state
   }

@@ -1,6 +1,8 @@
 import React from 'react'
 import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import SingleEvent from './SingleEvent'
 
 class AllEvents extends React.Component {
   componentDidMount() {
@@ -19,7 +21,11 @@ class AllEvents extends React.Component {
           <h1>Events:</h1>
           <ul>
             {this.props.events.map(event => (
-              <li key={event.id}>{event.title}</li>
+              <div key={event.id}>
+                <Link to={`/events/${event.id}`}>
+                  <li>{event.title}</li>
+                </Link>
+              </div>
             ))}
           </ul>
 
