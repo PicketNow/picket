@@ -2,10 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
+import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import RsvpEvents from '../components/rsvpEvents'
 import UserInterests from './userInterests'
@@ -26,7 +25,7 @@ class User extends React.Component {
           <Typography
             component="div"
             spacing={1}
-            style={{backgroundColor: '#cfe8fc', height: '100vh'}}
+            style={{backgroundColor: '#cfe8fc', height: '100%'}}
           >
             <Grid container spacing={1} justify="space-between">
               <Grid item xs={12}>
@@ -37,26 +36,30 @@ class User extends React.Component {
               </Grid>
 
               <Grid item xs={6}>
-                <br />
-                <Avatar alt={user.firstName} src={user.imageUrl} />{' '}
+                <Card variant="outlined">
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    width="200"
+                    image={user.imageUrl}
+                  />
+                  <div key={user.id} className="user-props-container">
+                    <br />
+                    <br />
+                    Name: {user.firstName} {user.lastName} <br />
+                    Account Email: {user.email} <br />
+                    <br />
+                    <br />
+                  </div>
+                </Card>
               </Grid>
 
               <Grid item xs={6}>
-                <Paper>
-                  {' '}
-                  <br />
-                  Name: {user.firstName} {user.lastName} <br />
-                  Account Email: {user.email} <br />
-                  <br />
-                  <br />
-                </Paper>
+                <UserInterests userId={userId} />
               </Grid>
 
               <Grid item xs={12}>
                 <RsvpEvents userId={userId} />
-              </Grid>
-              <Grid item xs={12}>
-                <UserInterests userId={userId} />
               </Grid>
             </Grid>
           </Typography>
