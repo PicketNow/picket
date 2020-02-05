@@ -21,14 +21,9 @@ router.get('/upcoming', async (req, res, next) => {
   const today = new Date()
   try {
     const upcoming = await Events.findAll({
-      where: {
-        date: {
-          [Op.gt]: today
-        }
-      }
+      where: {date: {[Op.gt]: today}}
     })
     res.send(upcoming)
-    console.log()
   } catch (err) {
     next(err)
   }
