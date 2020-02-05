@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getUpcomingEvents: () => dispatch(getUpcomingEvents()),
+  // getUpcomingEvents: () => dispatch(getUpcomingEvents()),
   getSubscribedEvents: userId => dispatch(getSubscribedEvents(userId)),
   me: () => dispatch(me())
 })
