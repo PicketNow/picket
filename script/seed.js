@@ -245,6 +245,7 @@ async function seed() {
   await event15.setInterest(interest16)
   await event16.setInterest(interest7)
 
+
   await user1.addInterest(interest7)
   await user1.addInterest(interest2)
   await user2.addInterest(interest16)
@@ -257,6 +258,7 @@ async function seed() {
   await user5.addInterest(interest5)
   await user6.addInterest(interest6)
   await user6.addInterest(interest12)
+
 
   await user1.addEvent(event16)
   await user1.addEvent(event10)

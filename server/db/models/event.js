@@ -60,10 +60,15 @@ Event.findByZip = function(zip) {
   })
 }
 
-Event.findByRsvpArr = function(events) {
+Event.findByRsvpArr = async function(rsvpArr) {
   let array = []
-  for (let i = 0; i < events.length; i++) {
-    array.push(Event.findByPK(events[i]))
+
+  for (let i = 0; i < rsvpArr.length; i++) {
+    let elem = rsvpArr[i]
+    let key = elem.eventId
+
+    let item = await Event.findByPk(key)
+    array.push(item)
   }
   return array
 }

@@ -16,6 +16,7 @@ Event.belongsToMany(User, {through: Rsvp})
 User.belongsToMany(Event, {through: Comment})
 Event.belongsToMany(User, {through: Comment})
 
+
 Event.belongsTo(Interest)
 Interest.hasMany(Event)
 
@@ -32,5 +33,6 @@ module.exports = {
   User,
   Comment,
   Event,
-  Interest
+  Interest,
+  Rsvp
 }
