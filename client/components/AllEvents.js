@@ -15,16 +15,7 @@ class AllEvents extends React.Component {
     return (
       <div>
         <div className="all-events">
-          <h1>Events:</h1>
-          {/* <ul>
-            {this.props.events.map(event => (
-              <div key={event.id}>
-                <Link to={`/events/${event.id}`}>
-                  <li>{event.title}</li>
-                </Link>
-              </div>
-            ))}
-          </ul> */}
+          <h1>All Events:</h1>
           {events && <EventCard events={events} />}
         </div>
       </div>
