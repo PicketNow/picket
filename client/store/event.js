@@ -65,7 +65,6 @@ export const getFilteredEvents = eventCategory => {
 export const getRsvpEvents = userId => async dispatch => {
   try {
     const result = await axios.get(`/api/events/rsvp/${userId}`)
-    console.log('HERE IN THE THUNK', result)
     dispatch(gotRsvpEvents(result.data))
   } catch (err) {
     console.error(err)
