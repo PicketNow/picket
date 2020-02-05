@@ -22,13 +22,16 @@ form div {
   display: inline-block;
 }
 
-
 /*
 SINGLE EVENT PAGE STYLING
 */
 
 .single-event-page-container {
   padding: 1em;
+}
+.user-props-container {
+  padding: 0.25em;
+  border-top: seagreen;
 }
 
 .event-info-container {

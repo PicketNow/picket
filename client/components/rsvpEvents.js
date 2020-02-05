@@ -11,7 +11,7 @@ class RsvpEvents extends React.Component {
   render() {
     return (
       <div>
-        <div className="featured-events">
+        <div className="rsvp-events">
           <h1>Events:</h1>
           <ul>
             {this.props.rsvpEvents.map(event => (

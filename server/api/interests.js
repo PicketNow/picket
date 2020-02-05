@@ -17,6 +17,7 @@ router.get('/:userId', async (req, res, next) => {
       include: [{model: Interest}]
     })
     const interests = user[0].interests.map(int => int.name)
+    console.log('APIIIIIIIIIIIIII', interests)
     res.json(interests)
   } catch (err) {
     next(err)
