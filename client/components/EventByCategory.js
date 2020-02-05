@@ -3,6 +3,7 @@ import {getFilteredEvents} from '../store/event'
 import {connect} from 'react-redux'
 //import event card
 import {Link} from 'react-router-dom'
+import EventCard from './EventCard'
 
 export class EventsByCategory extends React.Component {
   componentDidMount() {
@@ -25,7 +26,7 @@ export class EventsByCategory extends React.Component {
           </button>
         </Link>
 
-        <ul>{events.map(event => <li key={event.id}>{event.title}</li>)}</ul>
+        <div>{events && <EventCard events={events} />}</div>
       </div>
     )
   }

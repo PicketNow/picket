@@ -24,7 +24,6 @@ router.get('/upcoming', async (req, res, next) => {
       where: {
         date: {
           [Op.gt]: today
-          // , [Op.lt]: (today + 3000)
         }
       }
     })
@@ -75,9 +74,10 @@ router.get('/category/:eventCategory', async (req, res, next) => {
 router.get('/rsvp/:userId', async (req, res, next) => {
   try {
     const user = req.params.userId
-    const events = await Rsvp.findByUser(user)
-    //now query for
-    res.send(categoryEvents)
+    const rsvpArr = await Rsvp.findByUser(user)
+    const events = await Events.findByRsvpArr(rsvpArr)
+
+    res.send(events)
   } catch (error) {
     next(error)
   }

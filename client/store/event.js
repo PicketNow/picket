@@ -9,7 +9,7 @@ const SINGLE_EVENT = 'SINGLE_EVENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
-const rsvpEvents = events => ({type: RSVP_EVENTS, events})
+const gotRsvpEvents = rsvpEvents => ({type: RSVP_EVENTS, rsvpEvents})
 const gotUpcomingEvents = upcomingEvents => ({
   type: UPCOMING_EVENTS,
   upcomingEvents
@@ -62,14 +62,13 @@ export const getFilteredEvents = eventCategory => {
   }
 }
 
-export const getRsvpEvents = () => {
-  return async dispatch => {
-    try {
-      const result = await axios.get(`/api/events/rsvp/${userId}`)
-      dispatch(rsvpEvents(result.data))
-    } catch (err) {
-      console.error(err)
-    }
+export const getRsvpEvents = userId => async dispatch => {
+  try {
+    const result = await axios.get(`/api/events/rsvp/${userId}`)
+    console.log('HERE IN THE THUNK', result)
+    dispatch(gotRsvpEvents(result.data))
+  } catch (err) {
+    console.error(err)
   }
 }
 
@@ -101,7 +100,7 @@ const eventsReducer = (state = initialState, action) => {
     case FILTER_EVENTS:
       return {...state, events: action.events}
     case RSVP_EVENTS:
-      return {...state, rsvpEvents: action.events}
+      return {...state, rsvpEvents: action.rsvpEvents}
     case SUBSCRIBED_EVENTS:
       return {...state, subscribedEvents: action.subscribedEvents}
     default:

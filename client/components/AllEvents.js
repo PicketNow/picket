@@ -1,8 +1,8 @@
 import React from 'react'
 import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import SingleEvent from './SingleEvent'
+//import {Link} from 'react-router-dom'
+import EventCard from './EventCard'
 
 class AllEvents extends React.Component {
   // if(isLoggedIn)
@@ -11,20 +11,12 @@ class AllEvents extends React.Component {
   }
 
   render() {
+    const events = this.props.events
     return (
       <div>
         <div className="all-events">
-          <h1>Events:</h1>
-          <ul>
-            {this.props.events.map(event => (
-              <div key={event.id}>
-                <Link to={`/events/${event.id}`}>
-                  <li>{event.title}</li>
-                </Link>
-              </div>
-            ))}
-          </ul>
-          {/* {events && <SingleEvent events={events} />} */}
+          <h1>All Events:</h1>
+          {events && <EventCard events={events} />}
         </div>
       </div>
     )
