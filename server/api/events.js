@@ -15,7 +15,6 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-
 router.get('/:eventId', async (req, res, next) => {
   try {
     const event = await Events.findByPk(req.params.eventId)
@@ -25,8 +24,6 @@ router.get('/:eventId', async (req, res, next) => {
     next(error)
   }
 })
-
-
 
 router.get('/subscribed/:userId', async (req, res, next) => {
   try {
@@ -44,6 +41,17 @@ router.get('/subscribed/:userId', async (req, res, next) => {
   }
 })
 
+router.post('/:eventId', async (req, res, next) => {
+  try {
+    const event = await Events.findByPk(req.params.eventId)
+    const user = await User.findByPk(req.user.id)
+    user.setEvent(event)
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
+
 // router.get('/upcoming', async (req, res, next) => {
 //   try{
 //     const upcoming = await Event.findAll({
@@ -56,7 +64,6 @@ router.get('/subscribed/:userId', async (req, res, next) => {
 // })
 
 router.get('/category/:eventCategory', async (req, res, next) => {
-
   try {
     console.log('here')
     const category = req.params.eventCategory

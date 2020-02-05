@@ -12,6 +12,10 @@ class SingleEvent extends React.Component {
     this.props.getEvent(this.props.match.params.eventId)
   }
 
+  handleClick() {
+    this.props.rsvpToEvent()
+  }
+
   render() {
     console.log('in the render of singevent', this.props.event)
     return (
@@ -28,7 +32,11 @@ class SingleEvent extends React.Component {
             </div>
 
             <div className="event-info-right">
-              <button className="rsvp-button" type="button">
+              <button
+                className="rsvp-button"
+                type="button"
+                onClick={this.handleClick}
+              >
                 RSVP
               </button>
               <article>
