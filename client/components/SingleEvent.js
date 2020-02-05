@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getSingleEvent} from '../store/event'
+import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
 
 class SingleEvent extends React.Component {
   constructor(props) {
@@ -9,6 +10,10 @@ class SingleEvent extends React.Component {
 
   componentDidMount() {
     this.props.getEvent(this.props.match.params.eventId)
+  }
+
+  handleClick() {
+    this.props.rsvpToEvent()
   }
 
   render() {
@@ -27,7 +32,11 @@ class SingleEvent extends React.Component {
             </div>
 
             <div className="event-info-right">
-              <button className="rsvp-button" type="button">
+              <button
+                className="rsvp-button"
+                type="button"
+                onClick={this.handleClick}
+              >
                 RSVP
               </button>
               <article>
@@ -36,7 +45,30 @@ class SingleEvent extends React.Component {
                   {this.props.event.city} {this.props.event.zipcode}
                 </p>
               </article>
-              <img src="" alt="This is a map with a location" />
+              <LoadScript
+                id="script-loader"
+                googleMapsApiKey="AIzaSyA5UYy1PKTnyb9KXmr5K_gX2vAXoHJsRko"
+              >
+                <GoogleMap
+                  id="example-map"
+                  mapContainerStyle={{
+                    height: '250px',
+                    width: '250px'
+                  }}
+                  zoom={14}
+                  center={{
+                    lat: 40.7308,
+                    lng: -73.9973
+                  }}
+                >
+                  <Marker
+                    position={{
+                      lat: 40.7308,
+                      lng: -73.9973
+                    }}
+                  />
+                </GoogleMap>
+              </LoadScript>
             </div>
           </div>
 

@@ -23,6 +23,16 @@ form div {
 }
 
 /*
+INSTALL APP BUTTON*/
+#btnAdd {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 30px;
+}
+
+/*
 SINGLE EVENT PAGE STYLING
 */
 
