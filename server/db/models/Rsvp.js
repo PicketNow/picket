@@ -5,7 +5,7 @@ const Rsvp = db.define('rsvp', {
   userId: {
     type: Sequelize.INTEGER
   },
-  productId: {
+  eventId: {
     type: Sequelize.INTEGER
   },
   checkedIn: {

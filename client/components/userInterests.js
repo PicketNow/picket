@@ -6,16 +6,17 @@ import {connect} from 'react-redux'
 class UserInterests extends React.Component {
   componentDidMount() {
     this.props.getUserInterests(this.props.userId)
+    console.log('userInterests', this.props)
   }
 
   render() {
     return (
       <div>
-        <div className="featured-events">
+        <div className="user-interests">
           <h1>Your Interests:</h1>
           <ul>
-            {this.props.userInterests.map(event => (
-              <li key={event.id}>{event.name}</li>
+            {this.props.userInterests.map(interest => (
+              <li key={interest}>{interest}</li>
             ))}
           </ul>
         </div>

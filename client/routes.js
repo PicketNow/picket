@@ -21,10 +21,9 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/profile" component={UserHome} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/profile" component={UserHome} />
         <Route exact path="/events" component={AllEvents} />
         <Route exact path="/events/:eventId" component={SingleEvent} />
         <Route exact path="/home" component={Profile} />
@@ -33,6 +32,7 @@ class Routes extends Component {
           path="/events/category/:eventCategory"
           component={EventsByCategory}
         />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     )
   }
