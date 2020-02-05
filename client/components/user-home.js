@@ -6,19 +6,18 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import {makeStyles} from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
-import getRsvpEvents from '../store/event'
+import RsvpEvents from '../components/rsvpEvents'
+import UserInterests from './userInterests'
 
 class User extends React.Component {
   componentDidMount() {
     this.props.me()
-    const userId = this.props.user.id
-    // this.props.getRsvpEvents(userId)
   }
 
   render() {
     const user = this.props.user
+    const userId = this.props.user.id
 
     return (
       <React.Fragment>
@@ -36,10 +35,12 @@ class User extends React.Component {
                 <br />Hi, {user.firstName} - Thank you for using Picket! <br />
                 <br /> <br />
               </Grid>
+
               <Grid item xs={6}>
                 <br />
                 <Avatar alt={user.firstName} src={user.imageUrl} />{' '}
               </Grid>
+
               <Grid item xs={6}>
                 <Paper>
                   {' '}
@@ -50,14 +51,12 @@ class User extends React.Component {
                   <br />
                 </Paper>
               </Grid>
-              <Grid item xs={12}>
-                <br />
-                <br />Your Events: <br />
-                <br />
-              </Grid>
 
               <Grid item xs={12}>
-                LOOKIT DESE EVENTS, YO
+                <RsvpEvents userId={userId} />
+              </Grid>
+              <Grid item xs={12}>
+                <UserInterests userId={userId} />
               </Grid>
             </Grid>
           </Typography>
@@ -72,8 +71,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  me: () => dispatch(me()),
-  getRsvpEvents: userId => dispatch(getRsvpEvents(userId))
+  me: () => dispatch(me())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(User)

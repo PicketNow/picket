@@ -95,50 +95,6 @@ async function seed() {
       organizerId: 2,
       date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
       interestId: 3
-    }),
-    Event.create({
-      title: 'Climate March',
-      description:
-        "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
-      stAddress: 'Lafayette Park',
-      city: 'Washington',
-      zipcode: '20057',
-      organizerId: 2,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
-      interestId: 3
-    }),
-    Event.create({
-      title: 'Climate March',
-      description:
-        "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
-      stAddress: 'Lafayette Park',
-      city: 'Washington',
-      zipcode: '20057',
-      organizerId: 2,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
-      interestId: 3
-    }),
-    Event.create({
-      title: 'Climate March',
-      description:
-        "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
-      stAddress: 'Lafayette Park',
-      city: 'Washington',
-      zipcode: '20057',
-      organizerId: 2,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
-      interestId: 3
-    }),
-    Event.create({
-      title: 'Climate March',
-      description:
-        "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
-      stAddress: 'Lafayette Park',
-      city: 'Washington',
-      zipcode: '20057',
-      organizerId: 2,
-      date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)',
-      interestId: 3
     })
   ])
 

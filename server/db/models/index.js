@@ -2,6 +2,7 @@ const User = require('./user')
 const Comment = require('./comment')
 const Event = require('./event')
 const Interest = require('./interest')
+const Rsvp = require('./Rsvp')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -11,8 +12,8 @@ const Interest = require('./interest')
  */
 User.belongsToMany(Event, {through: Comment})
 Event.belongsToMany(User, {through: Comment})
-User.belongsToMany(Event, {through: 'rsvp'})
-Event.belongsToMany(User, {through: 'rsvp'})
+User.belongsToMany(Event, {through: Rsvp})
+Event.belongsToMany(User, {through: Rsvp})
 
 Event.belongsTo(Interest)
 Interest.hasMany(Event)
@@ -30,5 +31,6 @@ module.exports = {
   User,
   Comment,
   Event,
-  Interest
+  Interest,
+  Rsvp
 }
