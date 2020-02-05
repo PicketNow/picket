@@ -44,6 +44,17 @@ router.get('/:eventId', async (req, res, next) => {
   }
 })
 
+router.post('/:eventId', async (req, res, next) => {
+  try {
+    const event = await Events.findByPk(req.params.eventId)
+    const user = await User.findByPk(req.user.id)
+    user.setEvent(event)
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/subscribed/:userId', async (req, res, next) => {
   try {
     const user = await User.findAll({
