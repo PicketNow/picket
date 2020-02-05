@@ -3,6 +3,8 @@ const Events = require('../db/models/event')
 const Rsvp = require('../db/models/Rsvp')
 const User = require('../db/models/user')
 const Interest = require('../db/models/interest')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 module.exports = router
 
@@ -15,6 +17,23 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/upcoming', async (req, res, next) => {
+  const today = new Date()
+  try {
+    const upcoming = await Events.findAll({
+      where: {
+        date: {
+          [Op.gt]: today
+          // , [Op.lt]: (today + 3000)
+        }
+      }
+    })
+    res.send(upcoming)
+    console.log()
+  } catch (err) {
+    next(err)
+  }
+})
 
 router.get('/:eventId', async (req, res, next) => {
   try {
@@ -25,8 +44,6 @@ router.get('/:eventId', async (req, res, next) => {
     next(error)
   }
 })
-
-
 
 router.get('/subscribed/:userId', async (req, res, next) => {
   try {
@@ -44,19 +61,7 @@ router.get('/subscribed/:userId', async (req, res, next) => {
   }
 })
 
-// router.get('/upcoming', async (req, res, next) => {
-//   try{
-//     const upcoming = await Event.findAll({
-
-//     })
-//     console.log()
-//   } catch(err) {
-//     next(err)
-//   }
-// })
-
 router.get('/category/:eventCategory', async (req, res, next) => {
-
   try {
     console.log('here')
     const category = req.params.eventCategory
