@@ -7,6 +7,10 @@ const Rsvp = db.define('rsvp', {
   },
   productId: {
     type: Sequelize.INTEGER
+  },
+  checkedIn: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
