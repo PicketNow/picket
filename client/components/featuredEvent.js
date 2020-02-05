@@ -9,22 +9,32 @@ class FeaturedEvents extends React.Component {
     this.props.me()
     if (this.props.user.id) {
       this.props.getSubscribedEvents(this.props.user.id)
-    }
-    //  else this.props.getUpcomingEvents()
+    } else this.props.getUpcomingEvents()
   }
 
   render() {
     return (
       <div>
-        <div className="featured-events">
-          <h1>Events:</h1>
-          <ul>
-            {this.props.featuredEvents.map(event => (
-              <li key={event.id}>{event.title}</li>
-            ))}
-          </ul>
-          {/* {events && <SingleEvent events={events} />} */}
-        </div>
+        {this.props.user.id ? (
+          <div className="featured-events">
+            <h1>Recommended Events</h1>
+            <ul>
+              {this.props.subscribedEvents.map(event => (
+                <li key={event.id}>{event.title}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className="featured-events">
+            <h1>Upcoming Events</h1>
+            <ul>
+              {this.props.upcomingEvents.map(event => (
+                <li key={event.id}>{event.title}</li>
+              ))}
+            </ul>
+            {/* {events && <SingleEvent events={events} />} */}
+          </div>
+        )}
       </div>
     )
   }
@@ -32,11 +42,12 @@ class FeaturedEvents extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.user,
-  featuredEvents: state.events.featuredEvents
+  upcomingEvents: state.events.upcomingEvents,
+  subscribedEvents: state.events.subscribedEvents
 })
 
 const mapDispatchToProps = dispatch => ({
-  // getUpcomingEvents: () => dispatch(getUpcomingEvents()),
+  getUpcomingEvents: () => dispatch(getUpcomingEvents()),
   getSubscribedEvents: userId => dispatch(getSubscribedEvents(userId)),
   me: () => dispatch(me())
 })
