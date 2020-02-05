@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getSingleEvent} from '../store/event'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
+import {mapsKey} from '../../secrets'
 
 class SingleEvent extends React.Component {
   constructor(props) {
@@ -45,10 +46,7 @@ class SingleEvent extends React.Component {
                   {this.props.event.city} {this.props.event.zipcode}
                 </p>
               </article>
-              <LoadScript
-                id="script-loader"
-                googleMapsApiKey="AIzaSyA5UYy1PKTnyb9KXmr5K_gX2vAXoHJsRko"
-              >
+              <LoadScript id="script-loader" googleMapsApiKey={mapsKey}>
                 <GoogleMap
                   id="example-map"
                   mapContainerStyle={{
