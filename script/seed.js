@@ -73,6 +73,7 @@ async function seed() {
       "Don't let women's right roll back a hundred years. Show up with your friends and your best signs.",
     stAddress: 'Washington Square Park',
     city: 'New York',
+    state: 'NY',
     zipcode: '10001',
     organizerId: 1,
     date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -83,9 +84,11 @@ async function seed() {
       "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
     stAddress: 'Lafayette Park',
     city: 'Washington',
+    state: 'NY',
     zipcode: '20057',
     organizerId: 2,
-    date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Jan 20 2017',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event3 = await Event.create({
     title: 'Human Rights Event',
@@ -93,9 +96,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '8 Jane Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10014',
     organizerId: 2,
-    date: 'Thu Feb 20 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Thu Feb 20 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event4 = await Event.create({
     title: 'LGBTQIA Event',
@@ -103,9 +108,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '421 6th Ave',
     city: 'Brooklyn',
+    state: 'NY',
     zipcode: '11215',
     organizerId: 1,
-    date: 'Wed Feb 19 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Wed Feb 19 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event5 = await Event.create({
     title: 'Anti-war Event',
@@ -113,9 +120,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '217 7th Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10009',
     organizerId: 6,
-    date: 'Tues Feb 18 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Tues Feb 18 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event6 = await Event.create({
     title: 'Immigration Event',
@@ -123,9 +132,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '290 Ave D',
     city: 'New York',
+    state: 'NY',
     zipcode: '10009',
     organizerId: 5,
-    date: 'Mon Feb 17 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Mon Feb 17 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event7 = await Event.create({
     title: 'Drug Reform Event',
@@ -133,9 +144,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '99 Gansevoort Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10014',
     organizerId: 4,
-    date: 'Sun Feb 16 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sun Feb 16 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event8 = await Event.create({
     title: 'Voting Rights Event',
@@ -143,9 +156,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '5 Manchester Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10022',
     organizerId: 3,
-    date: 'Sat Feb 15 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sat Feb 15 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event9 = await Event.create({
     title: 'Judicial Activism Event',
@@ -153,9 +168,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '32 West Lake Ave',
     city: 'New York',
+    state: 'NY',
     zipcode: '10022',
     organizerId: 2,
-    date: 'Fri Feb 14 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Feb 14 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event10 = await Event.create({
     title: 'Criminal Justice Event',
@@ -163,9 +180,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '233 McClellan St',
     city: 'Bronx',
+    state: 'NY',
     zipcode: '10454',
     organizerId: 1,
-    date: 'Thu Feb 13 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Thu Feb 13 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event11 = await Event.create({
     title: 'Economic Event',
@@ -173,9 +192,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '95 3rd St',
     city: 'Brooklyn',
+    state: 'NY',
     zipcode: '11215',
     organizerId: 6,
-    date: 'Wed Feb 12 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Wed Feb 12 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event12 = await Event.create({
     title: 'Anti-Poverty Event',
@@ -183,9 +204,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '818 Brickyard St',
     city: 'New York',
+    state: 'NY',
     zipcode: '10003',
     organizerId: 5,
-    date: 'Tue Feb 11 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Tue Feb 11 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event13 = await Event.create({
     title: 'Childrens Rights Event',
@@ -193,9 +216,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '186 Cypress Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10011',
     organizerId: 4,
-    date: 'Mon Feb 10 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Mon Feb 10 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event14 = await Event.create({
     title: 'Healthcare Event',
@@ -203,9 +228,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '3 Shub Farm St',
     city: 'New York',
+    state: 'NY',
     zipcode: '10003',
     organizerId: 3,
-    date: 'Sun Feb 09 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sun Feb 09 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event15 = await Event.create({
     title: 'Education Event',
@@ -213,9 +240,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '41 San Pablo Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10028',
     organizerId: 2,
-    date: 'Sat Feb 08 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sat Feb 08 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event16 = await Event.create({
     title: 'Policing Event',
@@ -223,9 +252,11 @@ async function seed() {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
     stAddress: '426 Philmont Street',
     city: 'New York',
+    state: 'NY',
     zipcode: '10014',
     organizerId: 1,
-    date: 'Fri Feb 07 2020 00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Feb 07 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
 
   await event1.setInterest(interest11)
