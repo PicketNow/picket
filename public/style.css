@@ -33,15 +33,37 @@ INSTALL APP BUTTON*/
 }
 
 /*
+USER PROFILE PAGE STYLING
+*/
+.user-props-container {
+  padding: 0.25em 0.25em 0.25em 0.25em;
+  background-color: silver;
+  border-style: solid;
+  border-color: red green blue yellow;
+  box-shadow: 0px 0px 15px midnightblue;
+}
+
+.user-page {
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+.user-page-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.user-props-text {
+  padding: 0em 0em 0em 0em;
+}
+
+/*
 SINGLE EVENT PAGE STYLING
 */
 
 .single-event-page-container {
   padding: 1em;
-}
-.user-props-container {
-  padding: 0.25em;
-  border-top: seagreen;
 }
 
 .event-info-container {

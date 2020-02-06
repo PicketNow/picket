@@ -12,7 +12,7 @@ class RsvpEvents extends React.Component {
     return (
       <div>
         <div className="rsvp-events">
-          <h1>Events:</h1>
+          <h3>Current RSVPs:</h3>
           <ul>
             {this.props.rsvpEvents.map(event => (
               <li key={event.id}>{event.title}</li>
