@@ -134,7 +134,9 @@ const Navibar = ({handleClick, isLoggedIn}) => {
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-
+              <Button color="inherit">
+                <Link to="/addEvent">Add Event</Link>
+              </Button>
               <Button color="inherit">
                 <Link to="/home"> Profile </Link>
               </Button>

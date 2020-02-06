@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import axios from 'axios'
 
 const ALL_EVENTS = 'ALL_EVENTS'
@@ -6,6 +7,7 @@ const RSVP_EVENTS = 'RSVP_EVENTS'
 const UPCOMING_EVENTS = 'UPCOMING_EVENTS'
 const SUBSCRIBED_EVENTS = 'SUBSCRIBED_EVENTS'
 const SINGLE_EVENT = 'SINGLE_EVENT'
+const ADD_NEW_EVENT = 'ADD_NEW_EVENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
@@ -17,6 +19,10 @@ const gotUpcomingEvents = upcomingEvents => ({
 const gotSubscribedEvents = subscribedEvents => ({
   type: SUBSCRIBED_EVENTS,
   subscribedEvents
+})
+const addNewEvent = event => ({
+  type: ADD_NEW_EVENT,
+  event
 })
 const gotEvent = event => ({type: SINGLE_EVENT, event})
 
@@ -80,6 +86,15 @@ export const getSubscribedEvents = userId => async dispatch => {
   }
 }
 
+export const submitEvent = event => async dispatch => {
+  try {
+    const res = await axios.post('/api/events', event)
+    dispatch(addNewEvent(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 const initialState = {
   events: [],
   singleEvent: {},
@@ -102,6 +117,8 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, rsvpEvents: action.rsvpEvents}
     case SUBSCRIBED_EVENTS:
       return {...state, subscribedEvents: action.subscribedEvents}
+    case ADD_NEW_EVENT:
+      return {...state, events: state.events.concat(action.event)}
     default:
       return state
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {getUpcomingEvents, getSubscribedEvents} from '../store/event'
-
+import EventCard from './EventCard'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 
@@ -18,20 +18,16 @@ class FeaturedEvents extends React.Component {
         {this.props.user.id ? (
           <div className="featured-events">
             <h1>Recommended Events</h1>
-            <ul>
-              {this.props.subscribedEvents.map(event => (
-                <li key={event.id}>{event.title}</li>
-              ))}
-            </ul>
+            <div>
+              <EventCard events={this.props.subscribedEvents} />
+            </div>
           </div>
         ) : (
           <div className="featured-events">
             <h1>Upcoming Events</h1>
-            <ul>
-              {this.props.upcomingEvents.map(event => (
-                <li key={event.id}>{event.title}</li>
-              ))}
-            </ul>
+            <div>
+              <EventCard events={this.props.upcomingEvents} />
+            </div>
             {/* {events && <SingleEvent events={events} />} */}
           </div>
         )}
