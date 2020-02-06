@@ -7,16 +7,13 @@ import EventCard from './EventCard'
 
 export class EventsByCategory extends React.Component {
   componentDidMount() {
-    console.log(this.props, 'this.propssssssss')
     const eventCategory = this.props.match.params.eventCategory
     this.props.getFilteredEvents(eventCategory)
-    console.log(this.props.events.events[0], 'this.propssssssss events')
   }
 
   render() {
     let events = this.props.events.events
     let firstElem = this.props.events.events[0]
-    console.log('interesttttttttt', firstElem)
     return (
       <div>
         <h1> All {firstElem && firstElem.interest.name} Events</h1>
