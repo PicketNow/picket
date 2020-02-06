@@ -41,10 +41,23 @@ router.get('/:eventId', async (req, res, next) => {
 
 router.post('/:eventId', async (req, res, next) => {
   try {
+    console.log(req.user)
     const event = await Events.findByPk(req.params.eventId)
     const user = await User.findByPk(req.user.id)
-    user.setEvent(event)
+    user.addRsvp(event)
     res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/:eventId', async (req, res, next) => {
+  try {
+    const rsvp = await Rsvp.findOne({
+      where: {userId: req.user.id, eventId: req.params.eventId}
+    })
+    await rsvp.destroy()
+    res.sendStatus(204)
   } catch (error) {
     next(error)
   }

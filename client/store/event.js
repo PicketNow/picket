@@ -80,6 +80,26 @@ export const getSubscribedEvents = userId => async dispatch => {
   }
 }
 
+export const rsvpToEvent = (eventId, userId) => async dispatch => {
+  try {
+    await axios.post(`/api/events/${eventId}`)
+    const {data} = await axios.get(`/api/events/rsvp/${userId}`)
+    dispatch(gotRsvpEvents(data))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const unrsvpToEvent = (eventId, userId) => async dispatch => {
+  try {
+    await axios.put(`/api/events/${eventId}`)
+    const {data} = await axios.get(`/api/events/rsvp/${userId}`)
+    dispatch(gotRsvpEvents(data))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const initialState = {
   events: [],
   singleEvent: {},
