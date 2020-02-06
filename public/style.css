@@ -148,14 +148,21 @@ SINGLE EVENT PAGE STYLING
 .jumbotron-text {
   color: black;
   font-size: 500%;
+  text-shadow: 3px 3px #b0fc38;
+}
+
+.jumbotron-tagline {
+  color: lime;
 }
 
 .undercover {
   color: black;
+  opacity: 1;
 }
 
 .jumbotron-cover-image {
   position: relative;
+  opacity: 0.75;
   background: #000000
     url('https://www.democracynow.org/images/story/13/34813/full_hd/S_DCWomensMarchPackedStreet.jpg')
     center center;
