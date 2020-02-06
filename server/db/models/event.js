@@ -21,6 +21,10 @@ const Event = db.define('event', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  state: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   zipcode: {
     type: Sequelize.STRING,
     allowNull: false
