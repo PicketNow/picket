@@ -13,7 +13,7 @@ class UserInterests extends React.Component {
     return (
       <div>
         <div className="user-interests">
-          <h1>Your Interests:</h1>
+          <h3>Interests:</h3>
           <ul>
             {this.props.userInterests.map(interest => (
               <li key={interest}>{interest}</li>
