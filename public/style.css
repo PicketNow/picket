@@ -13,9 +13,154 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  width: 100%;
+  height: 100%;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+/*
+INSTALL APP BUTTON*/
+#btnAdd {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 30px;
+}
+
+/*
+USER PROFILE PAGE STYLING
+*/
+.user-props-container {
+  padding: 0.25em 0.25em 0.25em 0.25em;
+  background-color: silver;
+  border-style: solid;
+  border-color: red green blue yellow;
+  box-shadow: 0px 0px 15px midnightblue;
+}
+
+.user-page {
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+.user-page-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.user-props-text {
+  padding: 0em 0em 0em 0em;
+}
+
+/*
+SINGLE EVENT PAGE STYLING
+*/
+
+.single-event-page-container {
+  padding: 1em;
+}
+
+.event-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-info-left {
+  width: 40%;
+  padding-right: 1em;
+}
+
+.event-banner {
+  width: 100%;
+}
+
+.event-info-right {
+  width: 40%;
+  padding-left: 1em;
+}
+
+.rsvp-button {
+  width: 90%;
+  justify-self: center;
+}
+
+@media (max-width: 500px) {
+  .outermost-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .single-event-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .event-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .event-info-left {
+    width: 90%;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .event-banner {
+    width: 90%;
+    justify-self: center;
+  }
+
+  .event-description {
+    width: 90%;
+    justify-self: center;
+  }
+
+  .event-info-right {
+    width: 90%;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .rsvp-button {
+    width: 90%;
+    justify-self: center;
+  }
+}
+.jumbotron-text {
+  color: black;
+  font-size: 500%;
+}
+
+.undercover {
+  color: black;
+}
+
+.jumbotron-cover-image {
+  position: relative;
+  background: #000000
+    url('https://www.democracynow.org/images/story/13/34813/full_hd/S_DCWomensMarchPackedStreet.jpg')
+    center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  color: #ffffff;
 }
