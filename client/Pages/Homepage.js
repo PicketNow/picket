@@ -1,5 +1,5 @@
 import React from 'react'
-import AllInterests from '../components/AllInterests.js'
+import AllInterests from '../components/allInterests.js'
 import FeaturedEvents from '../components/featuredEvent.js'
 import Jumbo from '../components/Jumbo.js'
 
