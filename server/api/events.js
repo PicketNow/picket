@@ -101,3 +101,12 @@ router.get('/rsvp/:userId', async (req, res, next) => {
     next(error)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newEvent = await Events.create(req.body)
+    res.json(newEvent)
+  } catch (err) {
+    next(err)
+  }
+})

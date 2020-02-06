@@ -11,6 +11,8 @@ export default class Jumbo extends React.Component {
             <h1 className="jumbotron jumbotron-text" align="center">
               Picket
             </h1>
+            <br />
+            <h2 className="jumbotron-tagline" />
             <p className="undercover">.</p>
             <p className="undercover">.</p>
           </div>

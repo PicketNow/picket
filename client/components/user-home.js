@@ -3,9 +3,7 @@ import {connect} from 'react-redux'
 import {me} from '../store/user'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
-import Paper from '@material-ui/core/Paper'
 import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
-import Avatar from '@material-ui/core/Avatar'
 import RsvpEvents from '../components/rsvpEvents'
 import UserInterests from './userInterests'
 
@@ -27,12 +25,15 @@ class User extends React.Component {
             spacing={1}
             style={{backgroundColor: '#cfe8fc', height: '100%'}}
           >
-            <Grid container spacing={1} justify="space-between">
-              <Grid item xs={12}>
-                {' '}
+            <Grid
+              className="user-page"
+              container
+              spacing={1}
+              justify="space-between"
+            >
+              <Grid className="user-page-title" item xs={12}>
+                <h2>{user.firstName}'s Account</h2>
                 <br />
-                <br />Hi, {user.firstName} - Thank you for using Picket! <br />
-                <br /> <br />
               </Grid>
 
               <Grid item xs={6}>
@@ -44,12 +45,10 @@ class User extends React.Component {
                     image={user.imageUrl}
                   />
                   <div key={user.id} className="user-props-container">
-                    <br />
-                    <br />
-                    Name: {user.firstName} {user.lastName} <br />
-                    Account Email: {user.email} <br />
-                    <br />
-                    <br />
+                    <div className="user-props-text">
+                      Name: {user.firstName} {user.lastName} <br />
+                      Account Email:{user.email} <br />
+                    </div>
                   </div>
                 </Card>
               </Grid>
