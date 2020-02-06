@@ -15,6 +15,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import AllInterestsLink from './navbar/allInterestsLink'
 import SearchIcon from '@material-ui/icons/Search'
+import SearchBar from './navbar/searchBar'
 
 // const Styled = styled.div`
 //   .links: {
@@ -125,26 +126,10 @@ const Navibar = ({handleClick, isLoggedIn}) => {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">Picket</Link>
+            <Link to="/"> Picket</Link>
           </Typography>
 
-          <div className={classes.search}>
-            <InputBase
-              placeholder="Search by Zip"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{'aria-label': 'search'}}
-              onChange={() => console.log('okayachange')}
-            />
-
-            <IconButton type="submit" aria-label="search">
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-            </IconButton>
-          </div>
+          <SearchBar classes={classes} />
 
           {isLoggedIn ? (
             <div>
