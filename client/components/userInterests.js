@@ -6,7 +6,6 @@ import {connect} from 'react-redux'
 class UserInterests extends React.Component {
   componentDidMount() {
     this.props.getUserInterests(this.props.userId)
-    console.log('userInterests', this.props)
   }
 
   render() {

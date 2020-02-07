@@ -13,7 +13,7 @@ const EventCard = props => {
               <Card variant="outlined">
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="140"
                   image={event.imageUrl}
                 />
                 <div key={event.id} className="event-container">

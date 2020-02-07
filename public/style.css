@@ -69,12 +69,13 @@ SINGLE EVENT PAGE STYLING
 .event-info-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 .event-info-left {
   width: 40%;
   padding-right: 1em;
+  margin: auto;
 }
 
 .event-banner {
@@ -82,14 +83,52 @@ SINGLE EVENT PAGE STYLING
 }
 
 .event-info-right {
+  margin-top: 0;
   width: 40%;
   padding-left: 1em;
+  /* margin: auto */
 }
 
 .rsvp-button {
   width: 90%;
   justify-self: center;
+  margin: auto;
 }
+
+.event-location {
+  display: flex;
+  margin: 0.5em auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+#rsvp-button-container {
+  display: flex;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#rsvp-button-alt {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#rsvp-suggest {
+  color: grey;
+  font-style: italic;
+  width: 90%;
+  justify-self: left;
+  margin: auto;
+}
+
+/* #google_map {
+  margin: auto;
+} */
 
 @media (max-width: 500px) {
   .outermost-container {
@@ -104,6 +143,7 @@ SINGLE EVENT PAGE STYLING
     justify-content: center;
     justify-self: center;
     align-items: center;
+    margin: auto;
   }
 
   .event-info-container {
@@ -112,39 +152,93 @@ SINGLE EVENT PAGE STYLING
     justify-content: center;
     justify-self: center;
     align-items: center;
+    margin: auto;
   }
 
   .event-info-left {
     width: 90%;
-    justify-content: center;
+    /* justify-content: center;
     justify-self: center;
     align-items: center;
-    padding-right: 0;
+    padding: auto;
+    margin: auto; */
+    display: flex;
+    flex-direction: column;
   }
 
   .event-banner {
     width: 90%;
     justify-self: center;
+    margin: auto;
   }
 
   .event-description {
     width: 90%;
     justify-self: center;
+    margin: 1em auto;
   }
 
   .event-info-right {
     width: 90%;
-    justify-content: center;
+    /* justify-content: center;
     justify-self: center;
     align-items: center;
-    padding-left: 0;
+    padding: auto;
+    margin: auto; */
+    display: flex;
+    flex-direction: column;
   }
 
   .rsvp-button {
     width: 90%;
-    justify-self: center;
+    margin: 1em auto;
+    align-self: center;
+  }
+
+  .event-location {
+    display: flex;
+    margin: 0.5em auto;
+    flex-direction: column;
+  }
+
+  #scpipt-loader {
+    display: flex;
+  }
+
+  #google-map {
+    margin: auto;
+    width: 100%;
+  }
+
+  #event-title {
+    margin: 0.5em auto;
+  }
+
+  #rsvp-button-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #rsvp-button-alt {
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #rsvp-suggest {
+    color: grey;
+    font-style: italic;
+    width: 90%;
+    justify-self: left;
+    margin: auto;
   }
 }
+
 .jumbotron-text {
   color: black;
   font-size: 500%;
