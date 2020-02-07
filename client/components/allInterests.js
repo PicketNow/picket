@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getInterestsFromServer} from '../store/interestReducer'
 import {Link, Router} from 'react-router-dom'
-import {Grid, Typography, Card} from '@material-ui/core'
+import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
 import {sizing} from '@material-ui/system'
 
 class AllInterests extends React.Component {
@@ -21,7 +21,14 @@ class AllInterests extends React.Component {
         <Grid container item xs={12} spacing={2}>
           {this.props.interests.map(interest => (
             <Grid item xs={4} key={interest.id}>
-              <Card className="card">{interest.name}</Card>
+              <Card className="card">
+                {interest.name}
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={interest.imageUrl}
+                />
+              </Card>
             </Grid>
           ))}
         </Grid>
