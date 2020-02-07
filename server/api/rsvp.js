@@ -14,14 +14,11 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:eventId', async (req, res, next) => {
   try {
-    console.log('in api/rsvp/:eventId', req.params)
     const rsvp = await Rsvp.findAll({where: {eventId: req.params.eventId}})
-    console.log('api rsvp: ', rsvp)
     const userids = []
     for (let i = 0; i < rsvp.length; i++) {
       userids.push(rsvp[i].userId)
     }
-    console.log('api user ids: ', userids)
     const users = await User.findAll({where: {id: userids}})
     res.send(users)
   } catch (error) {
