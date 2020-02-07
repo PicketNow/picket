@@ -3,6 +3,7 @@ import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
 //import {Link} from 'react-router-dom'
 import EventCard from './EventCard'
+import BasicEventForm from './basicEventForm'
 
 class AllEvents extends React.Component {
   // if(isLoggedIn)

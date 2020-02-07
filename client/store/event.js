@@ -86,7 +86,6 @@ export const getSubscribedEvents = userId => async dispatch => {
   }
 }
 
-
 export const rsvpToEvent = (eventId, userId) => async dispatch => {
   try {
     await axios.post(`/api/events/${eventId}`)
@@ -107,14 +106,12 @@ export const unrsvpToEvent = (eventId, userId) => async dispatch => {
   }
 }
 
-
 export const submitEvent = event => async dispatch => {
   try {
     const res = await axios.post('/api/events', event)
     dispatch(addNewEvent(res.data))
   } catch (err) {
     console.error(err)
-
   }
 }
 
@@ -141,7 +138,7 @@ const eventsReducer = (state = initialState, action) => {
     case SUBSCRIBED_EVENTS:
       return {...state, subscribedEvents: action.subscribedEvents}
     case ADD_NEW_EVENT:
-      return {...state, events: state.events.concat(action.event)}
+      return {...state, events: [...state.events, action.event]}
     default:
       return state
   }
