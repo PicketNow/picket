@@ -7,7 +7,7 @@ import {
   unrsvpToEvent
 } from '../store/event'
 import {me} from '../store/user'
-import {getAttendees} from '../store/rsvp'
+import {getAttendees, findCheckIn} from '../store/rsvp'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
 
 class SingleEvent extends React.Component {
@@ -15,6 +15,7 @@ class SingleEvent extends React.Component {
     super(props)
     this.isRSVPed = this.isRSVPed.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleCheckIn = this.handleCheckIn.bind(this)
   }
 
   async componentDidMount() {
@@ -33,6 +34,10 @@ class SingleEvent extends React.Component {
     } else {
       this.props.unrsvpToEvent(eventId, userId)
     }
+  }
+
+  handleCheckIn() {
+    this.props.findCheckIn(this.props.match.params.eventId)
   }
 
   isRSVPed() {
@@ -98,7 +103,15 @@ class SingleEvent extends React.Component {
                   <p id="rsvp-suggest">Log in or sign up to RSVP!</p>
                 </div>
               )}
-
+              {this.isRSVPed() ? (
+                <button
+                  className="check-in-button"
+                  type="button"
+                  onClick={this.handleCheckIn}
+                >
+                  Check In
+                </button>
+              ) : null}
               <article className="event-location">
                 <div>{this.props.event.stAddress}</div>
                 <div>
@@ -141,7 +154,8 @@ const mapDispatch = dispatch => ({
   unrsvpToEvent: (eventId, userId) => dispatch(unrsvpToEvent(eventId, userId)),
   getRsvpEvents: userId => dispatch(getRsvpEvents(userId)),
   me: () => dispatch(me()),
-  getAttendees: eventId => dispatch(getAttendees(eventId))
+  getAttendees: eventId => dispatch(getAttendees(eventId)),
+  findCheckIn: eventId => dispatch(findCheckIn(eventId))
 })
 
 export default connect(mapState, mapDispatch)(SingleEvent)
