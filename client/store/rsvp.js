@@ -26,9 +26,7 @@ export const findCheckIn = eventId => async dispatch => {
 
 export const getAttendees = eventId => async dispatch => {
   try {
-    console.log('in the attendees thunk')
     const {data} = await axios.get(`/api/rsvp/${eventId}`)
-    console.log('data from attendees thunk: ', data)
     dispatch(loadAttendees(data))
   } catch (error) {
     console.log(error)

@@ -18,11 +18,11 @@ class SingleEvent extends React.Component {
     this.handleCheckIn = this.handleCheckIn.bind(this)
   }
 
-  componentDidMount() {
-    this.props.me()
-    this.props.getRsvpEvents(this.props.user.id)
-    this.props.getEvent(this.props.match.params.eventId)
-    this.props.getAttendees(this.props.match.params.eventId)
+  async componentDidMount() {
+    await this.props.me()
+    await this.props.getEvent(this.props.match.params.eventId)
+    await this.props.getRsvpEvents(this.props.user.id)
+    await this.props.getAttendees(this.props.match.params.eventId)
   }
 
   handleClick() {
@@ -61,7 +61,20 @@ class SingleEvent extends React.Component {
               <article className="event-description">
                 {this.props.event.description}
               </article>
-              <div className="attendees-container" />
+              <div className="attendees-container">
+                <h3>Attendees ({this.props.attendees.length})</h3>
+                {this.props.attendees.length ? (
+                  <div>
+                    {this.props.attendees.map(attendee => (
+                      <div key={attendee.id}>
+                        <p>{attendee.fullName}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>Be the first to RSVP to this event!</p>
+                )}
+              </div>
             </div>
 
             <div className="event-info-right">
@@ -86,7 +99,9 @@ class SingleEvent extends React.Component {
                   )}
                 </div>
               ) : (
-                <div id="rsvp-button-alt">Log in or sign up to RSVP!</div>
+                <div className="rsvp-button-alt">
+                  <p id="rsvp-suggest">Log in or sign up to RSVP!</p>
+                </div>
               )}
               {this.isRSVPed() ? (
                 <button
@@ -109,22 +124,11 @@ class SingleEvent extends React.Component {
               >
                 <GoogleMap
                   id="google-map"
-                  mapContainerStyle={{
-                    height: '250px',
-                    width: '250px'
-                  }}
+                  mapContainerStyle={{height: '250px', width: '250px'}}
                   zoom={14}
-                  center={{
-                    lat: 40.7308,
-                    lng: -73.9973
-                  }}
+                  center={{lat: 40.7308, lng: -73.9973}}
                 >
-                  <Marker
-                    position={{
-                      lat: 40.7308,
-                      lng: -73.9973
-                    }}
-                  />
+                  <Marker position={{lat: 40.7308, lng: -73.9973}} />
                 </GoogleMap>
               </LoadScript>
             </div>

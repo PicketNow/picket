@@ -69,7 +69,6 @@ SINGLE EVENT PAGE STYLING
 .event-info-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: auto;
 }
 
@@ -84,14 +83,24 @@ SINGLE EVENT PAGE STYLING
 }
 
 .event-info-right {
+  margin-top: 0;
   width: 40%;
   padding-left: 1em;
+  /* margin: auto */
 }
 
 .rsvp-button {
   width: 90%;
   justify-self: center;
   margin: auto;
+}
+
+.event-location {
+  display: flex;
+  margin: 0.5em auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
 }
 
 #rsvp-button-container {
@@ -102,8 +111,18 @@ SINGLE EVENT PAGE STYLING
 }
 
 #rsvp-button-alt {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#rsvp-suggest {
+  color: grey;
+  font-style: italic;
   width: 90%;
-  justify-self: center;
+  justify-self: left;
   margin: auto;
 }
 
@@ -204,9 +223,19 @@ SINGLE EVENT PAGE STYLING
   }
 
   #rsvp-button-alt {
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #rsvp-suggest {
+    color: grey;
+    font-style: italic;
     width: 90%;
-    margin: 1em auto;
-    align-self: center;
+    justify-self: left;
+    margin: auto;
   }
 }
 
