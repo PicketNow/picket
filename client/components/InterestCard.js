@@ -28,7 +28,7 @@ const InterestCard = props => {
               <Card className={classes.root}>
                 <CardActionArea>
                   <CardMedia
-                    componenr="img"
+                    component="img"
                     height="140"
                     image={interest.imageUrl}
                   />

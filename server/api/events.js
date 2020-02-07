@@ -24,7 +24,7 @@ router.get('/upcoming', async (req, res, next) => {
       where: {date: {[Op.gt]: today}},
       order: [['date', 'ASC']]
     })
-    res.send(upcoming.slice(0, 5))
+    res.send(upcoming.slice(0, 6))
   } catch (err) {
     next(err)
   }
