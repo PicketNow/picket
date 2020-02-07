@@ -46,7 +46,7 @@ export default function FeaturedEvent(props) {
                         {event.description}
                       </Typography>
                       <Link
-                        href={`/events/${event.id}`}
+                        to={`/events/${event.id}`}
                         variant="subtitle1"
                         color="primary"
                       >
