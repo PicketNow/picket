@@ -26,8 +26,6 @@ class AllInterests extends React.Component {
                 <CardMedia
                   component="img"
                   height="200"
-                  // image='https://bit.ly/31brBDL'
-                  // image={interest.imageUrl}
                   image={interest.imageUrl}
                 />
               </Card>
