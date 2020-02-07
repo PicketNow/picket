@@ -3,16 +3,16 @@ import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
 //import {Link} from 'react-router-dom'
 import EventCard from './EventCard'
-import BasicEventForm from './basicEventForm'
 
 class AllEvents extends React.Component {
-  // if(isLoggedIn)
   componentDidMount() {
     this.props.getAllEvents()
   }
 
   render() {
-    const events = this.props.events
+    const allEvents = this.props.events
+    const events = allEvents.filter(event => event.includes(this.props.words))
+
     return (
       <div>
         <div className="all-events">

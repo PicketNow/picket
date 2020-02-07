@@ -15,3 +15,15 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/:userId', async (req, res, next) => {
+  try {
+    const id = req.params.userId
+    const person = await User.findByPk(id)
+    console.log('API', person)
+    const updated = await person.update(req.body)
+    res.json(updated)
+  } catch (err) {
+    next(err)
+  }
+})

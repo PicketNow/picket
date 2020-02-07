@@ -138,7 +138,7 @@ const eventsReducer = (state = initialState, action) => {
     case SUBSCRIBED_EVENTS:
       return {...state, subscribedEvents: action.subscribedEvents}
     case ADD_NEW_EVENT:
-      return {...state, events: state.events.concat(action.event)}
+      return {...state, events: [...state.events, action.event]}
     default:
       return state
   }
