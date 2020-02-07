@@ -6,10 +6,12 @@ import Container from '@material-ui/core/Container'
 import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
 import RsvpEvents from '../components/rsvpEvents'
 import UserInterests from './userInterests'
+import SimpleExpansionPanel from './ProfileComponents/expansionPanel'
 
 class User extends React.Component {
   componentDidMount() {
     this.props.me()
+    console.log('USER', this.props)
   }
 
   render() {
@@ -47,10 +49,17 @@ class User extends React.Component {
                   <div key={user.id} className="user-props-container">
                     <div className="user-props-text">
                       Name: {user.firstName} {user.lastName} <br />
-                      Account Email:{user.email} <br />
+                      Email: {user.email} <br />
                     </div>
                   </div>
                 </Card>
+                <SimpleExpansionPanel
+                  userId={user.id}
+                  firstName={user.firstName}
+                  lastName={user.lastName}
+                  email={user.email}
+                  image={user.imageUrl}
+                />
               </Grid>
 
               <Grid item xs={6}>

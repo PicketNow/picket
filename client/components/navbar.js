@@ -10,11 +10,9 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import {fade, makeStyles} from '@material-ui/core/styles'
-import InputBase from '@material-ui/core/InputBase'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import AllInterestsLink from './navbar/allInterestsLink'
-import SearchIcon from '@material-ui/icons/Search'
 import SearchBar from './navbar/searchBar'
 
 // const Styled = styled.div`
