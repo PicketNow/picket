@@ -7,6 +7,7 @@ import {me} from '../store/user'
 class FeaturedEvents extends React.Component {
   componentDidMount() {
     this.props.me()
+    console.log(this.props)
     if (this.props.user.id) {
       this.props.getSubscribedEvents(this.props.user.id)
     } else this.props.getUpcomingEvents()

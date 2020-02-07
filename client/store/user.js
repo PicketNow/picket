@@ -28,9 +28,8 @@ const updateUser = data => ({
  */
 export const updateAccount = (update, userId) => async dispatch => {
   try {
-    console.log('THUUUUUNK', update)
     const {data} = await axios.put(`/api/users/${userId}`, update)
-    dispatch(updateUser(data))
+    dispatch(updateUser(data.data))
   } catch (err) {
     console.error(err)
   }

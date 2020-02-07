@@ -11,7 +11,6 @@ import SimpleExpansionPanel from './ProfileComponents/expansionPanel'
 class User extends React.Component {
   componentDidMount() {
     this.props.me()
-    console.log('USER', this.props)
   }
 
   render() {

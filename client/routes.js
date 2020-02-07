@@ -10,6 +10,7 @@ import SingleEvent from './components/SingleEvent'
 import Profile from './Pages/Profile'
 import AddEvent from './Pages/AddEvent'
 import EventsByCategory from './components/EventByCategory'
+import SearchPage from './Pages/searchPage'
 
 /**
  * COMPONENT
@@ -22,6 +23,11 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
+        <Route
+          exact
+          path="/search?category=:eventCategory"
+          component={EventsByCategory}
+        />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/profile" component={UserHome} />
@@ -33,6 +39,8 @@ class Routes extends Component {
           path="/events/category/:eventCategory"
           component={EventsByCategory}
         />
+        <Route exact path="/search" component={SearchPage} />
+
         <Route exact path="/" component={HomePage} />
         <Route exact path="/addEvent" component={AddEvent} />
       </Switch>
