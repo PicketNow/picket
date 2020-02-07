@@ -10,6 +10,7 @@ const Interest = db.define('interest', {
   imageUrl: {
     type: Sequelize.TEXT,
     defaultValue: 'https://bit.ly/2S6iq4o',
+
     allowNull: false
   }
 })
