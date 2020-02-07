@@ -7,6 +7,7 @@ import {
   unrsvpToEvent
 } from '../store/event'
 import {me} from '../store/user'
+import {getAttendees} from '../store/rsvp'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
 
 class SingleEvent extends React.Component {
@@ -20,6 +21,7 @@ class SingleEvent extends React.Component {
     this.props.me()
     this.props.getRsvpEvents(this.props.user.id)
     this.props.getEvent(this.props.match.params.eventId)
+    this.props.getAttendees(this.props.match.params.eventId)
   }
 
   handleClick() {
@@ -35,7 +37,6 @@ class SingleEvent extends React.Component {
 
   isRSVPed() {
     let rsvp = false
-    console.log('in isRSVPed:', this.props.rsvpEvents)
     if (this.props.rsvpEvents.length) {
       this.props.rsvpEvents.forEach(event => {
         if (event.id === this.props.event.id) rsvp = true
@@ -51,7 +52,7 @@ class SingleEvent extends React.Component {
           <div className="event-info-container">
             <div className="event-info-left">
               <img className="event-banner" src={this.props.event.imageUrl} />
-              <h2>{this.props.event.title}</h2>
+              <h2 id="event-title">{this.props.event.title}</h2>
               <article className="event-description">
                 {this.props.event.description}
               </article>
@@ -59,36 +60,42 @@ class SingleEvent extends React.Component {
             </div>
 
             <div className="event-info-right">
-              {this.isRSVPed() ? (
-                <button
-                  className="rsvp-button"
-                  type="button"
-                  onClick={this.handleClick}
-                >
-                  Un-RSVP
-                </button>
+              {this.props.user.id ? (
+                <div id="rsvp-button-container">
+                  {this.isRSVPed() ? (
+                    <button
+                      className="rsvp-button"
+                      type="button"
+                      onClick={this.handleClick}
+                    >
+                      Un-RSVP
+                    </button>
+                  ) : (
+                    <button
+                      className="rsvp-button"
+                      type="button"
+                      onClick={this.handleClick}
+                    >
+                      RSVP
+                    </button>
+                  )}
+                </div>
               ) : (
-                <button
-                  className="rsvp-button"
-                  type="button"
-                  onClick={this.handleClick}
-                >
-                  RSVP
-                </button>
+                <div id="rsvp-button-alt">Log in or sign up to RSVP!</div>
               )}
 
-              <article>
-                <p>{this.props.event.stAddress}</p>
-                <p>
-                  {this.props.event.city} {this.props.event.zipcode}
-                </p>
+              <article className="event-location">
+                <div>{this.props.event.stAddress}</div>
+                <div>
+                  {this.props.event.city}, {this.props.event.zipcode}
+                </div>
               </article>
               <LoadScript
                 id="script-loader"
                 googleMapsApiKey="AIzaSyD0Uq3vXNaKwkpZLzowIbDIt7PLbnmCmqw"
               >
                 <GoogleMap
-                  id="example-map"
+                  id="google-map"
                   mapContainerStyle={{
                     height: '250px',
                     width: '250px'
@@ -120,7 +127,8 @@ class SingleEvent extends React.Component {
 const mapState = state => ({
   event: state.events.singleEvent,
   rsvpEvents: state.events.rsvpEvents,
-  user: state.user
+  user: state.user,
+  attendees: state.rsvp.attendees
 })
 
 const mapDispatch = dispatch => ({
@@ -128,7 +136,8 @@ const mapDispatch = dispatch => ({
   rsvpToEvent: (eventId, userId) => dispatch(rsvpToEvent(eventId, userId)),
   unrsvpToEvent: (eventId, userId) => dispatch(unrsvpToEvent(eventId, userId)),
   getRsvpEvents: userId => dispatch(getRsvpEvents(userId)),
-  me: () => dispatch(me())
+  me: () => dispatch(me()),
+  getAttendees: eventId => dispatch(getAttendees(eventId))
 })
 
 export default connect(mapState, mapDispatch)(SingleEvent)
