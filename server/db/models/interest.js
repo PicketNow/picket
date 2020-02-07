@@ -6,6 +6,11 @@ const Interest = db.define('interest', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue: 'https://ibb.co/Bj8CsWY',
+    allowNull: false
   }
 })
 

@@ -20,7 +20,7 @@ const EventCard = props => {
                   <Link to={`/events/${event.id}`}>
                     <div className="event-title">{event.title}</div>
                   </Link>
-                  <div className="event-date">{event.date.slice(0, 16)}</div>
+                  <div className="event-date">{event.date.slice(0, 10)}</div>
                   {/* <div className="event-city">{event.city}</div> */}
                 </div>
               </Card>
