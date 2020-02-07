@@ -25,6 +25,8 @@ import SearchBar from './navbar/searchBar'
 //   }
 //   `
 
+// <SearchBar classes={classes} />
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -127,7 +129,11 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <Link to="/"> Picket</Link>
           </Typography>
 
-          <SearchBar classes={classes} />
+          <Button color="inherit">
+            <Link to="/search" onClick={handleClick}>
+              Search
+            </Link>
+          </Button>
 
           {isLoggedIn ? (
             <div>

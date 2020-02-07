@@ -23,11 +23,6 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        <Route
-          exact
-          path="/search?category=:eventCategory"
-          component={EventsByCategory}
-        />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/profile" component={UserHome} />

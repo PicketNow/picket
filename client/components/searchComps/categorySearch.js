@@ -7,7 +7,7 @@ class CategorySearch extends React.Component {
   constructor() {
     super()
     this.state = {
-      category: 'Women',
+      category: '',
       submitted: false
     }
     this.handleChange = this.handleChange.bind(this)
@@ -16,6 +16,10 @@ class CategorySearch extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    this.setState({
+      [event.target.name]: event.target.value,
+      submitted: true
+    })
   }
 
   handleChange(event) {
@@ -36,7 +40,7 @@ class CategorySearch extends React.Component {
         {this.state.submitted ? (
           <Redirect to={`/events/category/${this.state.category}`} />
         ) : null}
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="category"> Select Category: </label>
           <select
             name="category"
