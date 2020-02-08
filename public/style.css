@@ -54,8 +54,6 @@ USER PROFILE PAGE STYLING
 .user-page-title {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  text-align: center;
 }
 
 .user-props-text {
