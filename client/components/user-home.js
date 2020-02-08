@@ -23,7 +23,7 @@ class User extends React.Component {
         <Container spacing={1} maxWidth="sm">
           <Typography
             component="div"
-            spacing={1}
+            spacing={3}
             style={{backgroundColor: '#cfe8fc', height: '100%'}}
           >
             <Grid

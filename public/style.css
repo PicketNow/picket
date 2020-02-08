@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-image: url('https://go.aws/2H2fXBK');
+}
+
 label {
   display: block;
 }

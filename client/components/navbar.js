@@ -30,7 +30,7 @@ import SearchBar from './navbar/searchBar'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    color: 'green'
+    backgroundColor: 'yellow'
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -130,9 +130,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
           </Typography>
 
           <Button color="inherit">
-            <Link to="/search" onClick={handleClick}>
-              Search
-            </Link>
+            <Link to="/search">Search</Link>
           </Button>
 
           {isLoggedIn ? (
