@@ -1,14 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import getEventsByZip from '../../store/event'
-import {Redirect} from 'react-router-dom'
+import {getEventsByZip} from '../../store/event'
 
 class ZipSearch extends React.Component {
   constructor() {
     super()
     this.state = {
-      zip: '',
-      submitted: false
+      zip: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,10 +16,6 @@ class ZipSearch extends React.Component {
     event.preventDefault()
     const zipcode = this.state.zip
     await this.props.getEventsByZip(zipcode)
-    this.setState({
-      [event.target.name]: event.target.value,
-      submitted: true
-    })
   }
 
   handleChange(event) {
@@ -33,9 +27,6 @@ class ZipSearch extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.submitted ? (
-          <Redirect to={`/events/zip/${this.state.zip}`} />
-        ) : null}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="zip"> Enter Zipcode: </label>
           <input
@@ -56,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
   getEventsByZip: zip => dispatch(getEventsByZip(zip))
 })
 
-export default connect(undefined, mapDispatchToProps)(ZipSearch)
+export default connect(null, mapDispatchToProps)(ZipSearch)

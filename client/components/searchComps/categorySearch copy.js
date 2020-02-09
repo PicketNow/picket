@@ -1,22 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getInterestsFromServer} from '../../store/interestReducer'
-import {getEventsByCategory} from '../../store/event'
+import {Redirect} from 'react-router-dom'
 
 class CategorySearch extends React.Component {
   constructor() {
     super()
     this.state = {
-      category: ''
+      category: '',
+      submitted: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault()
-    const category = this.state.category
-    await this.props.getEventsByCategory(category)
+    this.setState({
+      [event.target.name]: event.target.value,
+      submitted: true
+    })
   }
 
   handleChange(event) {
@@ -34,6 +37,9 @@ class CategorySearch extends React.Component {
 
     return (
       <React.Fragment>
+        {this.state.submitted ? (
+          <Redirect to={`/events/category/${this.state.category}`} />
+        ) : null}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="category"> Select Category: </label>
           <select
@@ -62,8 +68,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getInterests: () => dispatch(getInterestsFromServer()),
-    getEventsByCategory: category => dispatch(getEventsByCategory(category))
+    getInterests: () => dispatch(getInterestsFromServer())
   }
 }
 

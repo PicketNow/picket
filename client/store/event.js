@@ -74,13 +74,35 @@ export const getFilteredEvents = eventCategory => {
   }
 }
 
+export const getCategoryEvents = eventCategory => {
+  return async dispatch => {
+    try {
+      const result = await axios.get(`/api/events/category/${eventCategory}`)
+      dispatch(filterEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 export const getEventsByZip = zipcode => async dispatch => {
   try {
-    console.log('SDJKFHKDJSHFJKDSHF')
-    const result = await axios.get(`/api/events/zip/${zipcode}`)
-    dispatch(gotSearchEvents(result.data))
+    const events = await axios.get(`/api/events/zip/${zipcode}`)
+    console.log('THUNK', events.data)
+    dispatch(gotSearchEvents(events.data))
   } catch (err) {
     console.error(err)
+  }
+}
+
+export const getEventsByCategory = eventCategory => {
+  return async dispatch => {
+    try {
+      const events = await axios.get(`/api/events/category/${eventCategory}`)
+      dispatch(gotSearchEvents(events.data))
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
 
