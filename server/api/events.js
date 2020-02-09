@@ -30,10 +30,20 @@ router.get('/upcoming', async (req, res, next) => {
   }
 })
 
+router.get('/zip/:zip', async (req, res, next) => {
+  try {
+    const event = await Events.findByZip(req.params.zip)
+    console.log('BOO', event)
+    res.send(event)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:eventId', async (req, res, next) => {
   try {
     const event = await Events.findByPk(req.params.eventId)
-    console.log(event)
+
     res.send(event)
   } catch (error) {
     next(error)

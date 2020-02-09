@@ -17,6 +17,8 @@ class SearchPage extends React.Component {
         <Jumbo />
 
         <CategorySearch />
+        <br />
+        <ZipSearch />
       </React.Fragment>
     )
   }
