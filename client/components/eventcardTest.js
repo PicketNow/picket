@@ -45,13 +45,14 @@ export default function FeaturedEvent(props) {
                       <Typography variant="subtitle1" paragraph>
                         {event.description}
                       </Typography>
-                      {/* <Link
+                      <Link
                         to={`/events/${event.id}`}
                         variant="subtitle1"
                         color="primary"
-                        */}
-                      > See More Details...
-                      {/* </Link> */}
+                      >
+                        {' '}
+                        See More Details...
+                      </Link>
                     </CardContent>
                   </div>
                   <Hidden xsDown>
