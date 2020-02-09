@@ -1,5 +1,5 @@
 import React from 'react'
-import {getUserInterests} from '../store/interestReducer'
+import {getUserInterests} from '../../store/interestReducer'
 
 import {connect} from 'react-redux'
 
