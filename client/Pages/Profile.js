@@ -15,6 +15,7 @@ class Profile extends React.Component {
       return (
         <div>
           <Login />
+          <a href="/auth/google">Just do it with Google!</a>
           <Signup />
         </div>
       )
