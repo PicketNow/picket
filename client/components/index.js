@@ -5,4 +5,5 @@
  */
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './ProfileComponents/user-home'
-export {Login, Signup} from './auth-form'
+export {Login} from './auth-form'
+export {Signup} from './auth-form-su'
