@@ -32,7 +32,7 @@ export default function FeaturedEvent(props) {
         <Grid container spacing={4}>
           {events.map(event => (
             <Grid item xs={12} md={6} key={event.id}>
-              <CardActionArea component="a" href="#">
+              <CardActionArea component={Link} to={`/events/${event.id}`}>
                 <Card className={classes.card}>
                   <div className={classes.cardDetails}>
                     <CardContent>
@@ -45,13 +45,13 @@ export default function FeaturedEvent(props) {
                       <Typography variant="subtitle1" paragraph>
                         {event.description}
                       </Typography>
-                      <Link
+                      {/* <Link
                         to={`/events/${event.id}`}
                         variant="subtitle1"
                         color="primary"
-                      >
-                        See More Details...
-                      </Link>
+                        */}
+                      > See More Details...
+                      {/* </Link> */}
                     </CardContent>
                   </div>
                   <Hidden xsDown>
