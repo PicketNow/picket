@@ -13,19 +13,6 @@ import {fade, makeStyles} from '@material-ui/core/styles'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import AllInterestsLink from './navbar/allInterestsLink'
-import SearchBar from './navbar/searchBar'
-
-// const Styled = styled.div`
-//   .links: {
-//     {
-//       color: #c7ea46;
-//       &:hover {
-//         color: white;
-//       }
-//   }
-//   `
-
-// <SearchBar classes={classes} />
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -126,7 +113,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            <Link to="/"> Picket</Link>
+            <Link to="/">.....Picket!</Link>
           </Typography>
 
           <Button color="inherit">
