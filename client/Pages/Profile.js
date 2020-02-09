@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Login, Signup} from '../components/auth-form'
+import {Login} from '../components/auth-form'
+import {Signup} from '../components/auth-form-su'
 import UserHome from '../components/ProfileComponents/user-home'
 
 class Profile extends React.Component {
