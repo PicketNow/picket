@@ -13,11 +13,6 @@ export class EventsByCategory extends React.Component {
     this.props.getFilteredEvents(eventCategory)
   }
 
-  componentDidUpdate() {
-    const eventCategory = this.props.match.params.eventCategory
-    this.props.getFilteredEvents(eventCategory)
-  }
-
   render() {
     let events = this.props.events.events
     let firstElem = this.props.events.events[0]
@@ -25,7 +20,6 @@ export class EventsByCategory extends React.Component {
     return (
       <div>
         <Jumbo />
-        <CategorySearch />
         <br />
         <Link to="/events">
           <button className="button" type="button">
