@@ -16,8 +16,7 @@ import AllInterestsLink from './navbar/allInterestsLink'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    backgroundColor: 'yellow'
+    flexGrow: 1
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -35,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
+      marginLeft: theme.spacing(8),
       width: 'auto'
     }
   },
@@ -93,7 +92,18 @@ const Navibar = ({handleClick, isLoggedIn}) => {
       <MenuItem onClick={handleMenuClose}>
         <Link to="/home"> Profile </Link>
       </MenuItem>
-      <AllInterestsLink />
+
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/search"> Search </Link>
+      </MenuItem>
+
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/events"> All Events </Link>
+      </MenuItem>
+
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="/addEvent"> Create Event </Link>
+      </MenuItem>
     </Menu>
   )
 
@@ -112,23 +122,13 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" className={classes.title}>
-            <Link to="/">.....Picket!</Link>
-          </Typography>
-
           <Button color="inherit">
-            <Link to="/search">Search</Link>
+            <Link to="/">Home</Link>
           </Button>
 
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <Button color="inherit">
-                <Link to="/addEvent">Add Event</Link>
-              </Button>
-              <Button color="inherit">
-                <Link to="/home"> Profile </Link>
-              </Button>
 
               <Button color="inherit">
                 <Link to="/" onClick={handleClick}>
@@ -141,11 +141,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
               {/* The navbar will show these links before you log in */}
 
               <Button color="inherit">
-                <Link to="/home">Login</Link>
-              </Button>
-
-              <Button color="inherit">
-                <Link to="/home">Sign Up</Link>
+                <Link to="/home">Sign In</Link>
               </Button>
             </div>
           )}
