@@ -32,7 +32,7 @@ export default function FeaturedEvent(props) {
         <Grid container spacing={4}>
           {events.map(event => (
             <Grid item xs={12} md={6} key={event.id}>
-              <CardActionArea component="a" href="#">
+              <CardActionArea component={Link} to={`/events/${event.id}`}>
                 <Card className={classes.card}>
                   <div className={classes.cardDetails}>
                     <CardContent>
@@ -50,6 +50,7 @@ export default function FeaturedEvent(props) {
                         variant="subtitle1"
                         color="primary"
                       >
+                        {' '}
                         See More Details...
                       </Link>
                     </CardContent>
@@ -71,5 +72,5 @@ export default function FeaturedEvent(props) {
 }
 
 FeaturedEvent.propTypes = {
-  events: PropTypes.object
+  events: PropTypes.array
 }

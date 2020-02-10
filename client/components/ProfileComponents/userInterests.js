@@ -1,5 +1,5 @@
 import React from 'react'
-import {getUserInterests} from '../store/interestReducer'
+import {getUserInterests} from '../../store/interestReducer'
 
 import {connect} from 'react-redux'
 
@@ -13,11 +13,10 @@ class UserInterests extends React.Component {
       <div>
         <div className="user-interests">
           <h3>Interests:</h3>
-          <ul>
-            {this.props.userInterests.map(interest => (
-              <li key={interest}>{interest}</li>
-            ))}
-          </ul>
+
+          {this.props.userInterests.map(interest => (
+            <div key={interest}>{interest}</div>
+          ))}
         </div>
       </div>
     )

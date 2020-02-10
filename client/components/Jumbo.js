@@ -1,23 +1,73 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import {makeStyles} from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Link from '@material-ui/core/Link'
 
-export default class Jumbo extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="jumbotron jumbotron-cover-image">
-          <div className="container">
-            <p className="undercover">.</p>
-            <p className="undercover">.</p>
-            <h1 className="jumbotron jumbotron-text" align="center">
-              Picket
-            </h1>
-            <br />
-            <h2 className="jumbotron-tagline" />
-            <p className="undercover">.</p>
-            <p className="undercover">.</p>
-          </div>
-        </div>
-      </div>
-    )
+const useStyles = makeStyles(theme => ({
+  mainFeaturedPost: {
+    position: 'relative',
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(4),
+    backgroundImage:
+      'https://www.democracynow.org/images/story/13/34813/full_hd/S_DCWomensMarchPackedStreet.jpg',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center'
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: 'rgba(0,0,0,.3)'
+  },
+  mainFeaturedPostContent: {
+    position: 'relative',
+    padding: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      paddingRight: 0
+    }
   }
+}))
+
+export default function MainFeaturedPost(props) {
+  const classes = useStyles()
+  const {post} = props
+
+  return (
+    <Paper
+      className={classes.mainFeaturedPost}
+      style={{
+        backgroundImage: `url(https://www.democracynow.org/images/story/13/34813/full_hd/S_DCWomensMarchPackedStreet.jpg)`
+      }}
+    >
+      {/* Increase the priority of the hero background image */}
+      {<img style={{display: 'none'}} />}
+      <div className={classes.overlay} />
+      <Grid container>
+        <Grid item md={6}>
+          <div className={classes.mainFeaturedPostContent}>
+            <Typography
+              component="h1"
+              variant="h3"
+              color="inherit"
+              gutterBottom
+            >
+              Picket
+            </Typography>
+          </div>
+        </Grid>
+      </Grid>
+    </Paper>
+  )
+}
+
+MainFeaturedPost.propTypes = {
+  post: PropTypes.object
 }

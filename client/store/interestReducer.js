@@ -13,6 +13,33 @@ const gotUserInterests = interests => ({
   interests
 })
 
+export const subscribeToInterest = (interestId, userId) => async dispatch => {
+  try {
+    console.log('IN THUNK')
+    await Axios.post(`/api/interests/${interestId}`)
+    const res = await Axios.get(`/api/interests/${userId}`)
+    const action = gotUserInterests(res.data)
+    dispatch(action)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const unsubscribeFromInterest = (
+  interestId,
+  userId
+) => async dispatch => {
+  try {
+    console.log('IN UNSUBSCRIBE')
+    await Axios.put(`/api/interests/${interestId}`)
+    const res = await Axios.get(`/api/interests/${userId}`)
+    const action = gotUserInterests(res.data)
+    dispatch(action)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const getInterestsFromServer = () => async dispatch => {
   try {
     const res = await Axios.get('/api/interests')

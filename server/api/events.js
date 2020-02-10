@@ -12,6 +12,7 @@ router.get('/', async (req, res, next) => {
   try {
     const allEvents = await Events.findAll()
     res.send(allEvents)
+    console.log(allEvents)
   } catch (error) {
     next(error)
   }
@@ -30,10 +31,20 @@ router.get('/upcoming', async (req, res, next) => {
   }
 })
 
+router.get('/zip/:zip', async (req, res, next) => {
+  try {
+    const event = await Events.findByZip(req.params.zip)
+    console.log('BOO', event)
+    res.send(event)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:eventId', async (req, res, next) => {
   try {
     const event = await Events.findByPk(req.params.eventId)
-    console.log(event)
+
     res.send(event)
   } catch (error) {
     next(error)
@@ -71,9 +82,11 @@ router.get('/subscribed/:userId', async (req, res, next) => {
       include: [{model: Interest}]
     })
     const interests = user[0].interests.map(int => int.id)
+    // const subscribed = await interests.forEach(int => Events.findAll({where: {interestId: int}}) )
     const subscribed = await Events.findAll({
       where: {interestId: interests}
     })
+    console.log(user[0])
     res.send(subscribed)
   } catch (err) {
     next(err)

@@ -1,5 +1,5 @@
 import React from 'react'
-import {getRsvpEvents} from '../store/event'
+import {getRsvpEvents} from '../../store/event'
 
 import {connect} from 'react-redux'
 
