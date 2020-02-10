@@ -12,6 +12,7 @@ router.get('/', async (req, res, next) => {
   try {
     const allEvents = await Events.findAll()
     res.send(allEvents)
+    console.log(allEvents)
   } catch (error) {
     next(error)
   }
@@ -83,6 +84,7 @@ router.get('/subscribed/:userId', async (req, res, next) => {
     const subscribed = await Events.findAll({
       where: {interestId: interests}
     })
+    console.log(user[0])
     res.send(subscribed)
   } catch (err) {
     next(err)
