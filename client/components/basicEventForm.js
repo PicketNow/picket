@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {submitEvent} from '../store/event'
 import {me} from '../store/user'
 import Jumbo from './Jumbo'
+import {Redirect} from 'react-router-dom'
 
 let defaultState = {
   title: '',
@@ -12,7 +13,8 @@ let defaultState = {
   state: '',
   zipcode: '',
   //organizerId: '',
-  date: ''
+  date: '',
+  newId: ''
 }
 
 class BasicEventForm extends Component {
@@ -26,7 +28,8 @@ class BasicEventForm extends Component {
       state: '',
       zipcode: '',
       //organizerId: '',
-      date: ''
+      date: '',
+      newId: ''
     }
     //this.props.me()
     this.handleChange = this.handleChange.bind(this)
@@ -49,16 +52,13 @@ class BasicEventForm extends Component {
     event.preventDefault()
     let form = Object.assign({}, this.state)
     form.organizerId = this.props.user.id
-    //console.log(this.props.user, 'userrrrrrrrrrr')
     console.log(form, 'the formmmmmmm')
     this.props.submitEvent(form)
     this.setState(defaultState)
+    this.props.history.push('/events')
   }
 
   render() {
-    //console.log(this.props.user)
-    //const userId = this.props.user.id
-
     return (
       <div>
         <Jumbo />
