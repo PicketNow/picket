@@ -64,6 +64,7 @@ export default function MainFeaturedPost(props) {
             <Typography variant="h5" color="inherit" paragraph>
               Give a shit?...Picket
             </Typography>
+
             <Link variant="subtitle1" href="/signup">
               Sign up
             </Link>
