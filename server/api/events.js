@@ -115,7 +115,16 @@ router.get('/rsvp/:userId', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const {title, description, stAddress, city, state, zipcode, date} = req.body
+    const {
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId
+    } = req.body
     const newEvent = await Events.create({
       title,
       description,
@@ -123,7 +132,8 @@ router.post('/', async (req, res, next) => {
       city,
       state,
       zipcode,
-      date
+      date,
+      organizerId
     })
     console.log(newEvent)
     res.json(newEvent)
