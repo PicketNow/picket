@@ -107,13 +107,6 @@ class BasicEventForm extends Component {
               value={this.state.zipcode}
               onChange={this.handleChange}
             />
-            {/* <label htmlFor="organizerId"> Organizer ID: </label>
-          <input
-            name="organizerId"
-            type="text"
-            value={this.state.OrganizerId}
-            onChange={this.handleChange}
-          /> */}
             <label htmlFor="date"> Date: </label>
             <input
               name="date"
