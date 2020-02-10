@@ -10,6 +10,7 @@ import {me} from '../../store/user'
 import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
 import UserRender from './user'
 import GuestRender from './guest'
+import Jumbo from '../Jumbo'
 
 class SingleEvent extends React.Component {
   constructor(props) {
@@ -63,21 +64,27 @@ class SingleEvent extends React.Component {
   render() {
     if (this.props.user.id) {
       return (
-        <UserRender
-          isRSVPed={this.isRSVPed}
-          user={this.props.user}
-          event={this.props.event}
-          attendees={this.props.attendees}
-          handleClick={this.handleClick}
-          handleCheckIn={this.handleCheckin}
-        />
+        <React.Fragment>
+          <Jumbo />
+          <UserRender
+            isRSVPed={this.isRSVPed}
+            user={this.props.user}
+            event={this.props.event}
+            attendees={this.props.attendees}
+            handleClick={this.handleClick}
+            handleCheckIn={this.handleCheckin}
+          />
+        </React.Fragment>
       )
     } else {
       return (
-        <GuestRender
-          event={this.props.event}
-          attendees={this.props.attendees}
-        />
+        <React.Fragment>
+          <Jumbo />
+          <GuestRender
+            event={this.props.event}
+            attendees={this.props.attendees}
+          />
+        </React.Fragment>
       )
     }
   }
