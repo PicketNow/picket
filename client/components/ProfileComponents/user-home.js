@@ -14,8 +14,8 @@ class User extends React.Component {
     this.props.me()
   }
 
-  componentDidUpdate() {
-    this.props.me()
+  componentDidUpdate(userId) {
+    if (userId.user.updatedAt !== this.props.user.updatedAt) this.props.me()
   }
 
   render() {

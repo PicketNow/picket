@@ -18,9 +18,9 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const updateUser = data => ({
+const updateUser = user => ({
   type: UPDATE_USER,
-  data
+  user
 })
 
 /**
@@ -29,7 +29,8 @@ const updateUser = data => ({
 export const updateAccount = (update, userId) => async dispatch => {
   try {
     const {data} = await axios.put(`/api/users/${userId}`, update)
-    dispatch(updateUser(data.data))
+    console.log(data)
+    dispatch(updateUser(data))
   } catch (err) {
     console.error(err)
   }
