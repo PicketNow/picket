@@ -21,6 +21,8 @@ import {
 // import SelectField from '@material-ui/SelectField';
 // import MenuItem from '@material-ui/MenuItem';
 
+const required = value => (value ? undefined : 'Required')
+
 class EventFormThree extends React.Component {
   constructor(props) {
     super(props)
@@ -125,13 +127,16 @@ class EventFormThree extends React.Component {
         open={this.state.open}> */}
           <form>
             <TextField
+              required
               label="Title"
               name="title"
+              validate={[required]}
               value={this.state.title}
               onChange={this.handleForm}
             />
             <br />
             <TextField
+              required
               label="Description"
               name="description"
               value={this.state.description}
@@ -139,6 +144,7 @@ class EventFormThree extends React.Component {
             />
             <br />
             <TextField
+              required
               label="Street Address"
               name="stAddress"
               value={this.state.stAddress}
@@ -146,6 +152,7 @@ class EventFormThree extends React.Component {
             />
             <br />
             <TextField
+              required
               label="City"
               name="city"
               value={this.state.city}
@@ -153,6 +160,7 @@ class EventFormThree extends React.Component {
             />
             <br />
             <TextField
+              required
               label="State"
               name="state"
               value={this.state.state}
@@ -160,6 +168,7 @@ class EventFormThree extends React.Component {
             />
             <br />
             <TextField
+              required
               label="Zipcode"
               name="zipcode"
               value={this.state.zipcode}
@@ -179,6 +188,7 @@ class EventFormThree extends React.Component {
             {/* <DatePicker onChange={this.handleDate} value ={this.state.date} hintText="Date" /> */}
             {/* <TimePicker onChange={this.handleTime} value={this.state.time} hintText="Time" /> */}
             <KeyboardDatePicker
+              required
               margin="normal"
               name="date"
               id="date-picker-dialog"
@@ -208,7 +218,7 @@ class EventFormThree extends React.Component {
               type="submit"
               form="event-form"
               label="Submit"
-              onSubmit={this.handleSubmit}
+              onClick={this.handleSubmit}
             >
               Submit
             </Button>
