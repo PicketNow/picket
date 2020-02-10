@@ -13,6 +13,7 @@ import AddEvent from './Pages/AddEvent'
 import EventsByCategory from './components/EventByCategory'
 import SearchPage from './Pages/searchPage'
 import basicEventForm from './components/basicEventForm'
+import EventFormThree from './components/eventFormThree'
 
 /**
  * COMPONENT
@@ -39,7 +40,7 @@ class Routes extends Component {
         <Route exact path="/search" component={SearchPage} />
 
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/addEvent" component={basicEventForm} />
+        <Route exact path="/addEvent" component={EventFormThree} />
       </Switch>
     )
   }

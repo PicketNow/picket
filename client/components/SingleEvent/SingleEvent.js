@@ -36,15 +36,18 @@ class SingleEvent extends React.Component {
   //   }
   // }
 
-  handleClick() {
+  async handleClick() {
     let rsvp = this.isRSVPed()
     const eventId = this.props.match.params.eventId
     const userId = this.props.user.id
     if (!rsvp) {
       this.props.rsvpToEvent(eventId, userId)
+      await this.props.getAttendees(this.props.match.params.eventId)
     } else {
       this.props.unrsvpToEvent(eventId, userId)
+      await this.props.getAttendees(this.props.match.params.eventId)
     }
+    await this.props.getAttendees(this.props.match.params.eventId)
   }
 
   handleCheckIn() {
