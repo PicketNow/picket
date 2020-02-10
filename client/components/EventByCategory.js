@@ -13,6 +13,7 @@ import Jumbo from './Jumbo'
 import CategorySearch from '../components/searchComps/categorySearch'
 import {me} from '../store/user'
 
+
 export class EventsByCategory extends React.Component {
   constructor(props) {
     super(props)
@@ -56,15 +57,12 @@ export class EventsByCategory extends React.Component {
     return (
       <div>
         <Jumbo />
-        <CategorySearch />
         <br />
         <Link to="/events">
           <button className="button" type="button">
             Return to all events
           </button>
         </Link>
-        {/*
-            <button onClick={this.handleSubscribe} type="button" className="button">Subscribe to this Interest Category</button> */}
         {this.props.user.id ? (
           <div id="subscribe-button-container">
             {this.isSubscribed() ? (

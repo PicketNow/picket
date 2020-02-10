@@ -88,7 +88,6 @@ export const getCategoryEvents = eventCategory => {
 export const getEventsByZip = zipcode => async dispatch => {
   try {
     const events = await axios.get(`/api/events/zip/${zipcode}`)
-    console.log('THUNK', events.data)
     dispatch(gotSearchEvents(events.data))
   } catch (err) {
     console.error(err)

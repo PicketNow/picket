@@ -34,7 +34,6 @@ router.get('/upcoming', async (req, res, next) => {
 router.get('/zip/:zip', async (req, res, next) => {
   try {
     const event = await Events.findByZip(req.params.zip)
-    console.log('BOO', event)
     res.send(event)
   } catch (error) {
     next(error)
@@ -82,7 +81,6 @@ router.get('/subscribed/:userId', async (req, res, next) => {
       include: [{model: Interest}]
     })
     const interests = user[0].interests.map(int => int.id)
-    // const subscribed = await interests.forEach(int => Events.findAll({where: {interestId: int}}) )
     const subscribed = await Events.findAll({
       where: {interestId: interests}
     })
@@ -118,7 +116,27 @@ router.get('/rsvp/:userId', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const newEvent = await Events.create(req.body)
+    const {
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId
+    } = req.body
+    const newEvent = await Events.create({
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId
+    })
+    console.log(newEvent)
     res.json(newEvent)
   } catch (err) {
     next(err)

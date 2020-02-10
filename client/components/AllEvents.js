@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 //import {Link} from 'react-router-dom'
 import EventCard from './eventcardTest'
 import BasicEventForm from './basicEventForm'
+import Jumbo from './Jumbo'
 
 class AllEvents extends React.Component {
   // if(isLoggedIn)
@@ -16,6 +17,7 @@ class AllEvents extends React.Component {
     const events = this.props.events
     return (
       <div>
+        <Jumbo />
         <div className="all-events">
           <h1>All Events:</h1>
           {events && <EventCard events={events} />}
