@@ -72,5 +72,5 @@ export default function FeaturedEvent(props) {
 }
 
 FeaturedEvent.propTypes = {
-  events: PropTypes.object
+  events: PropTypes.array
 }

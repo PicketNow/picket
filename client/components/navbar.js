@@ -124,6 +124,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
 
           <Button color="inherit">
             <Link to="/">Home</Link>
+
           </Button>
 
           {isLoggedIn ? (
