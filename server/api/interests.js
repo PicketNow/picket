@@ -17,8 +17,33 @@ router.get('/:userId', async (req, res, next) => {
       include: [{model: Interest}]
     })
     const interests = user[0].interests.map(int => int.name)
-    console.log('APIIIIIIIIIIIIII', interests)
     res.json(interests)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.post('/:interestId', async (req, res, next) => {
+  try {
+    const user = await User.findOne({where: {id: req.user.id}})
+    const interest = await Interest.findOne({
+      where: {id: req.params.interestId}
+    })
+    await user.addInterest(interest)
+    res.sendStatus(201)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:interestId', async (req, res, next) => {
+  try {
+    const user = await User.findOne({where: {id: req.user.id}})
+    const interest = await Interest.findOne({
+      where: {id: req.params.interestId}
+    })
+    await user.removeInterest(interest)
+    res.sendStatus(201)
   } catch (err) {
     next(err)
   }

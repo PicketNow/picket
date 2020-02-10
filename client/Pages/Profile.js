@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Login, Signup} from '../components/auth-form'
-import UserHome from '../components/user-home'
+import {Login} from '../components/auth-form'
+import {Signup} from '../components/auth-form-su'
+import UserHome from '../components/ProfileComponents/user-home'
+import Jumbo from '../components/Jumbo'
 
 class Profile extends React.Component {
   render() {
@@ -14,8 +16,16 @@ class Profile extends React.Component {
     } else {
       return (
         <div>
+          <Jumbo />
+          <br /> <br />
+          <h3>Login Here:</h3>
           <Login />
+          <a href="/auth/google">Just do it with Google!</a>
+          <br /> <br /> <br /> <br />
+          <h3>No Account? Sign-up Now!</h3>
           <Signup />
+          <br /> <br />
+          <br /> <br />
         </div>
       )
     }

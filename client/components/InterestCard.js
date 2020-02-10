@@ -25,8 +25,11 @@ const InterestCard = props => {
         <Grid container spacing={4}>
           {interests.map(interest => (
             <Grid item xs={4} key={interest.id}>
-              <Card className={classes.root}>
-                <CardActionArea>
+              <CardActionArea
+                component={Link}
+                to={`/events/category/${interest.id}`}
+              >
+                <Card className={classes.root}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -37,20 +40,20 @@ const InterestCard = props => {
                       {interest.name}
                     </Typography>
                   </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <Button
-                    href={`/events/category/${interest.id}`}
-                    size="small"
-                    color="primary"
-                  >
-                    Go to All {interest.name} Events
-                  </Button>
-                  {/* <Button size="small" color="primary">
+                  <CardActions>
+                    <Button
+                      href={`/events/category/${interest.id}`}
+                      size="small"
+                      color="primary"
+                    >
+                      Go to All {interest.name} Events
+                    </Button>
+                    {/* <Button size="small" color="primary">
                       Subscribe to this Interest
                     </Button> */}
-                </CardActions>
-              </Card>
+                  </CardActions>
+                </Card>
+              </CardActionArea>
             </Grid>
           ))}
         </Grid>

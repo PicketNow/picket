@@ -1,16 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {me} from '../store/user'
+import {me} from '../../store/user'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
 import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
-import RsvpEvents from '../components/rsvpEvents'
+import RsvpEvents from './rsvpEvents'
 import UserInterests from './userInterests'
-import SimpleExpansionPanel from './ProfileComponents/expansionPanel'
+import SimpleExpansionPanel from './expansionPanel'
+import Jumbo from '../Jumbo'
 
 class User extends React.Component {
   componentDidMount() {
     this.props.me()
+  }
+
+  componentDidUpdate(userId) {
+    if (userId.user.updatedAt !== this.props.user.updatedAt) this.props.me()
   }
 
   render() {
@@ -19,13 +24,10 @@ class User extends React.Component {
 
     return (
       <React.Fragment>
+        <Jumbo />
         <CssBaseline />
-        <Container spacing={1} maxWidth="sm">
-          <Typography
-            component="div"
-            spacing={1}
-            style={{backgroundColor: '#cfe8fc', height: '100%'}}
-          >
+        <Container maxWidth="sm">
+          <Typography component="div" spacing={2} style={{height: '100%'}}>
             <Grid
               className="user-page"
               container
@@ -60,8 +62,8 @@ class User extends React.Component {
                   image={user.imageUrl}
                 />
               </Grid>
-
-              <Grid item xs={6}>
+              <Grid item xs={2} />
+              <Grid item xs={4}>
                 <UserInterests userId={userId} />
               </Grid>
 

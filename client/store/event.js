@@ -8,9 +8,15 @@ const UPCOMING_EVENTS = 'UPCOMING_EVENTS'
 const SUBSCRIBED_EVENTS = 'SUBSCRIBED_EVENTS'
 const SINGLE_EVENT = 'SINGLE_EVENT'
 const ADD_NEW_EVENT = 'ADD_NEW_EVENT'
+const SEARCH_EVENTS = 'SEARCH_EVENTS'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
+
+const gotSearchEvents = searchEvents => ({
+  type: SEARCH_EVENTS,
+  searchEvents
+})
 const gotRsvpEvents = rsvpEvents => ({type: RSVP_EVENTS, rsvpEvents})
 const gotUpcomingEvents = upcomingEvents => ({
   type: UPCOMING_EVENTS,
@@ -62,6 +68,37 @@ export const getFilteredEvents = eventCategory => {
     try {
       const result = await axios.get(`/api/events/category/${eventCategory}`)
       dispatch(filterEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+export const getCategoryEvents = eventCategory => {
+  return async dispatch => {
+    try {
+      const result = await axios.get(`/api/events/category/${eventCategory}`)
+      dispatch(filterEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+export const getEventsByZip = zipcode => async dispatch => {
+  try {
+    const events = await axios.get(`/api/events/zip/${zipcode}`)
+    dispatch(gotSearchEvents(events.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const getEventsByCategory = eventCategory => {
+  return async dispatch => {
+    try {
+      const events = await axios.get(`/api/events/category/${eventCategory}`)
+      dispatch(gotSearchEvents(events.data))
     } catch (err) {
       console.error(err)
     }
@@ -120,7 +157,8 @@ const initialState = {
   singleEvent: {},
   rsvpEvents: [],
   upcomingEvents: [],
-  subscribedEvents: []
+  subscribedEvents: [],
+  searchEvents: []
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -129,6 +167,8 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, events: action.events}
     case UPCOMING_EVENTS:
       return {...state, upcomingEvents: action.upcomingEvents}
+    case SEARCH_EVENTS:
+      return {...state, searchEvents: action.searchEvents}
     case SINGLE_EVENT:
       return {...state, singleEvent: action.event}
     case FILTER_EVENTS:

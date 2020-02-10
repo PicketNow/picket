@@ -11,8 +11,7 @@ export class UpdateForm extends React.Component {
       imageUrl: this.props.image,
       firstName: this.props.firstName,
       lastName: this.props.lastName,
-      userId: this.props.userId,
-      submitted: false
+      userId: this.props.userId
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -33,15 +32,13 @@ export class UpdateForm extends React.Component {
       imageUrl: '',
       firstName: '',
       lastName: '',
-      userId: '',
-      submitted: true
+      userId: ''
     })
   }
 
   render() {
     return (
       <React.Fragment>
-        {this.state.submitted ? <Redirect to="/" /> : null}
         <div>
           <div className="form-container">
             <form className="update-user-form" onSubmit={this.handleSubmit}>
@@ -75,7 +72,9 @@ export class UpdateForm extends React.Component {
                 value={this.state.imageUrl}
                 onChange={this.handleChange}
               />
-              <button type="submit">Submit</button>
+              <button className="buttons" type="submit">
+                Submit
+              </button>
             </form>
           </div>
         </div>

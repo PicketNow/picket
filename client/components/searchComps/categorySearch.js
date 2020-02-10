@@ -1,25 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getInterestsFromServer} from '../../store/interestReducer'
-import {Redirect} from 'react-router-dom'
+import {getEventsByCategory} from '../../store/event'
 
 class CategorySearch extends React.Component {
   constructor() {
     super()
     this.state = {
-      category: '',
-      submitted: false
+      category: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
-    this.setState({
-      [event.target.name]: event.target.value,
-      submitted: true
-    })
+    const category = this.state.category
+    await this.props.getEventsByCategory(category)
   }
 
   handleChange(event) {
@@ -37,9 +34,6 @@ class CategorySearch extends React.Component {
 
     return (
       <React.Fragment>
-        {this.state.submitted ? (
-          <Redirect to={`/events/category/${this.state.category}`} />
-        ) : null}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="category"> Select Category: </label>
           <select
@@ -55,7 +49,9 @@ class CategorySearch extends React.Component {
                 </option>
               ))}
           </select>
-          <button type="submit">Search</button>
+          <button className="buttons" type="submit">
+            Search
+          </button>
         </form>
       </React.Fragment>
     )
@@ -68,7 +64,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getInterests: () => dispatch(getInterestsFromServer())
+    getInterests: () => dispatch(getInterestsFromServer()),
+    getEventsByCategory: category => dispatch(getEventsByCategory(category))
   }
 }
 

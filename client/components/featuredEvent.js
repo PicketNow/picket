@@ -1,13 +1,13 @@
 import React from 'react'
 import {getUpcomingEvents, getSubscribedEvents} from '../store/event'
-import EventCard from './EventCard'
+// import EventCard from './EventCard'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import FeaturedEvent from './eventcardTest'
+import EventCard from './eventcardTest'
 
 class FeaturedEvents extends React.Component {
-  componentDidMount() {
-    this.props.me()
+  async componentDidMount() {
+    await this.props.me()
     console.log(this.props)
     if (this.props.user.id) {
       this.props.getSubscribedEvents(this.props.user.id)
@@ -15,20 +15,21 @@ class FeaturedEvents extends React.Component {
   }
 
   render() {
+    console.log(this.props.subscribedEvents)
     return (
       <div>
         {this.props.user.id ? (
           <div className="featured-events">
             <h1>Recommended Events</h1>
             <div>
-              <FeaturedEvent events={this.props.subscribedEvents} />
+              <EventCard events={this.props.subscribedEvents} />
             </div>
           </div>
         ) : (
           <div className="featured-events">
             <h1>Upcoming Events</h1>
             <div>
-              <FeaturedEvent events={this.props.upcomingEvents} />
+              <EventCard events={this.props.upcomingEvents} />
             </div>
             {/* {events && <SingleEvent events={events} />} */}
           </div>
