@@ -114,7 +114,27 @@ router.get('/rsvp/:userId', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const newEvent = await Events.create(req.body)
+    const {
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId
+    } = req.body
+    const newEvent = await Events.create({
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId
+    })
+    console.log(newEvent)
     res.json(newEvent)
   } catch (err) {
     next(err)
