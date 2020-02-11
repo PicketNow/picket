@@ -20,7 +20,7 @@ class SingleEvent extends React.Component {
     super(props)
 
     this.state = {
-      coords: ''
+      coords: {}
     }
 
     this.isRSVPed = this.isRSVPed.bind(this)
@@ -66,23 +66,12 @@ class SingleEvent extends React.Component {
   }
 
   async getLat() {
-    const event = this.props.event
-    const prefixA = 'https://cors-anywhere.herokuapp.com/'
-    const prefixB =
-      'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
-    const address = event.stAddress.split(' ').join('%20')
-    const city = event.city.split(' ').join('%20')
-    const input = [address, city, event.state].join('%20')
-    const infixA = '&inputtype=textquery&fields=geometry&key='
-    const config = {headers: {'Access-Control-Allow-Origin': '*'}}
-
-    const {data} = await axios.get(
-      `${prefixA}${prefixB}${input}${infixA}${GOOGLE_MAP_KEY}`,
-      config
+    const coordsBack = await axios.get(
+      `/api/google-api/${this.props.match.params.eventId}`
     )
 
     this.setState({
-      coords: data.candidates[0].geometry.location
+      coords: coordsBack.data
     })
   }
 
