@@ -14,7 +14,6 @@ import Jumbo from '../Jumbo'
 import CommentBoard from './commentBoard'
 
 import axios from 'axios'
-import CommentBoard from './commentBoard'
 
 class SingleEvent extends React.Component {
   constructor(props) {
@@ -41,14 +40,12 @@ class SingleEvent extends React.Component {
     await this.getLat()
   }
 
-
   handleClick() {
     let rsvp = this.isRSVPed()
     const eventId = this.props.match.params.eventId
     const userId = this.props.user.id
     if (!rsvp) {
       this.props.rsvpToEvent(eventId, userId)
-  
     } else {
       this.props.unrsvpToEvent(eventId, userId)
     }

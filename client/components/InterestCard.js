@@ -14,7 +14,8 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     backgroundColor: '#50A2A7',
-    color: 'white'
+    color: 'white',
+    height: 70
     //   alignItemsAndJustifyContent: {
     //     display: 'flex',
     //     alignItems: 'center',
