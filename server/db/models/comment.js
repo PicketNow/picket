@@ -1,13 +1,17 @@
-const {Sequelize, DataTypes} = require('sequelize')
+const {Sequelize} = require('sequelize')
 const db = require('../db')
 
 const Comment = db.define('comment', {
-  text: {
+  words: {
     type: Sequelize.TEXT
   },
-  timestamp: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+  userId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  eventId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 

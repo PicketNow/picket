@@ -26,6 +26,20 @@ form div {
   display: inline-block;
 }
 
+input[type='text'] {
+  width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+select[type='text'] {
+  width: 50%;
+  padding: 15px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
 .buttons {
   border: 0;
   line-height: 2.5;
@@ -36,7 +50,7 @@ form div {
   color: #fff;
   text-shadow: 1px 1px 1px #000;
   border-radius: 10px;
-  background-color: rgba(220, 0, 0, 1);
+  background-color: rgba(0, 255, 0, 1);
   background-image: linear-gradient(
     to top left,
     rgba(0, 0, 0, 0.2),
@@ -47,8 +61,12 @@ form div {
     inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
 
+.navButton a {
+  color: white;
+}
+
 button:hover {
-  background-color: rgba(255, 0, 0, 1);
+  background-color: rgb(184, 230, 165);
 }
 
 button:active {

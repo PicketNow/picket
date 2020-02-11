@@ -11,6 +11,7 @@ import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
 import UserRender from './user'
 import GuestRender from './guest'
 import Jumbo from '../Jumbo'
+import CommentBoard from './commentBoard'
 
 class SingleEvent extends React.Component {
   constructor(props) {
@@ -73,6 +74,11 @@ class SingleEvent extends React.Component {
             attendees={this.props.attendees}
             handleClick={this.handleClick}
             handleCheckIn={this.handleCheckin}
+          />
+          <CommentBoard
+            userId={this.props.user.id}
+            eventId={this.props.match.params.eventId}
+            user={this.props.user}
           />
         </React.Fragment>
       )
