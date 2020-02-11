@@ -1,5 +1,6 @@
 import React from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
+import {GOOGLE_MAP_KEY} from '../../../secrets'
 
 const MapSection = props => {
   return (
@@ -9,17 +10,14 @@ const MapSection = props => {
         {props.event.city}, {props.event.zipcode}
       </div>
 
-      <LoadScript
-        id="script-loader"
-        googleMapsApiKey="AIzaSyChtqg-PMZANprctqFjqW45rYTDCl4BWCo"
-      >
+      <LoadScript id="script-loader" googleMapsApiKey={GOOGLE_MAP_KEY}>
         <GoogleMap
           id="google-map"
           mapContainerStyle={{height: '250px', width: '250px'}}
           zoom={14}
-          center={{lat: 40.7308, lng: -73.9973}}
+          center={props.coords}
         >
-          <Marker position={{lat: 40.7308, lng: -73.9973}} />
+          <Marker position={props.coords} />
         </GoogleMap>
       </LoadScript>
     </article>
