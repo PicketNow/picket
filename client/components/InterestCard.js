@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    backgroundColor: '#AE76A6',
+    backgroundColor: '#50A2A7',
     color: 'white'
     //   alignItemsAndJustifyContent: {
     //     display: 'flex',
