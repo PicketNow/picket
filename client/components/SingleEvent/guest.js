@@ -32,7 +32,7 @@ const GuestRender = props => {
             <div className="rsvp-button-alt">
               <p id="rsvp-suggest">Log in or sign up to RSVP!</p>
             </div>
-            <MapSection event={props.event} />
+            <MapSection coords={props.coords} event={props.event} />
           </div>
         </div>
         <div className="similar-events-container" />
