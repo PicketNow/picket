@@ -20,6 +20,9 @@ nav a {
   width: 100%;
   height: 100%;
 }
+.MuiAppBar-colorInherit {
+  background-color: #bee9e8;
+}
 
 form div {
   margin: 1em;

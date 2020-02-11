@@ -124,7 +124,8 @@ router.post('/', async (req, res, next) => {
       state,
       zipcode,
       date,
-      organizerId
+      organizerId,
+      interestId
     } = req.body
     const newEvent = await Events.create({
       title,
@@ -134,7 +135,8 @@ router.post('/', async (req, res, next) => {
       state,
       zipcode,
       date,
-      organizerId
+      organizerId,
+      interestId
     })
     console.log(newEvent)
     res.json(newEvent)

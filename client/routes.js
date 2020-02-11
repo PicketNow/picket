@@ -40,7 +40,7 @@ class Routes extends Component {
         <Route exact path="/search" component={SearchPage} />
 
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/addEvent" component={EventFormThree} />
+        <Route exact path="/addEvent" component={AddEvent} />
       </Switch>
     )
   }

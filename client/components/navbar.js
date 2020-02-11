@@ -16,7 +16,8 @@ import AllInterestsLink from './navbar/allInterestsLink'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    color: 'inherit'
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -107,9 +108,10 @@ const Navibar = ({handleClick, isLoggedIn}) => {
     </Menu>
   )
 
+  // eslint-disable-next-line no-return-assign
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar style={{backgroundColor: 'bee9e8'}} position="static">
         <Toolbar>
           <IconButton
             edge="end"
@@ -124,7 +126,6 @@ const Navibar = ({handleClick, isLoggedIn}) => {
 
           <Button color="inherit">
             <Link to="/">Home</Link>
-
           </Button>
 
           {isLoggedIn ? (
