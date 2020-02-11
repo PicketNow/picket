@@ -14,8 +14,9 @@ router.get('/:eventId', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const comment = await Comment.create(req.body)
-    res.json(comment)
+    const newComment = await Comment.create(req.body)
+    console.log('APISDKFJDSLKFJDS:LF', newComment)
+    res.json(newComment)
   } catch (err) {
     next(err)
   }

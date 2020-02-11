@@ -1,12 +1,13 @@
 import React from 'react'
-import {render} from 'enzyme'
+import {connect} from 'react-redux'
 import {getEventComments, commentOnEvent} from '../../store/event'
+import PostedComments from './postedComments'
 
 class CommentBoard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      inputText: ''
+      words: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -27,21 +28,46 @@ class CommentBoard extends React.Component {
     event.preventDefault()
     const info = Object.assign({}, this.state)
     info.userId = this.props.userId
-    info.eventId = this.props.eventId
+    info.eventId = Number(this.props.eventId)
     await this.props.commentOnEvent(info)
     this.setState({
-      inputText: ''
+      words: ''
     })
   }
 
   render() {
-    return <div />
+    const comments = this.props.comments
+    const eventId = this.props.eventId
+
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="words"> Comment: </label>
+          <input
+            name="words"
+            type="text"
+            value={this.state.words}
+            onChange={this.handleChange}
+          />
+
+          <button className="buttons" type="submit">
+            Comment
+          </button>
+        </form>
+
+        <PostedComments comments={comments} eventId={eventId} />
+      </div>
+    )
   }
 }
+
+const mapStateToProps = state => ({
+  comments: state.events.eventComments
+})
 
 const mapDispatchToProps = dispatch => ({
   getEventComments: eventId => dispatch(getEventComments(eventId)),
   commentOnEvent: info => dispatch(commentOnEvent(info))
 })
 
-export default connect(undefined, mapDispatchToProps)(CommentBoard)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentBoard)

@@ -11,8 +11,8 @@ const Rsvp = require('./Rsvp')
  *    BlogPost.belongsTo(User)
  */
 
-Event.belongsToMany(User, {through: Comment})
-User.belongsToMany(Event, {through: Comment})
+Event.hasMany(Comment)
+Comment.belongsTo(Event)
 User.belongsToMany(Event, {as: 'Rsvp', through: Rsvp, foreignKey: 'userId'})
 Event.belongsToMany(User, {through: Rsvp})
 
