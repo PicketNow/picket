@@ -55,7 +55,11 @@ class CommentBoard extends React.Component {
           </button>
         </form>
 
-        <PostedComments comments={comments} eventId={eventId} />
+        <PostedComments
+          comments={comments}
+          eventId={eventId}
+          user={this.props.user}
+        />
       </div>
     )
   }
