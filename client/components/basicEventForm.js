@@ -49,6 +49,7 @@ class BasicEventForm extends Component {
   }
 
   handleSubmit(event) {
+    console.log('IN SUBMIT')
     event.preventDefault()
     let form = Object.assign({}, this.state)
     form.organizerId = this.props.user.id

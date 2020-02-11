@@ -13,20 +13,6 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const required = value => (value ? undefined : 'Required')
-const maxLength = max => value =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined
-const maxLength2 = maxLength(2)
-const maxLength4 = maxLength(4)
-const minLength = min => value =>
-  value && value.length < min ? `Must be 4 characters` : undefined
-const minLength4 = minLength(4)
-const number = value =>
-  value && isNaN(Number(value)) ? 'Must be a number' : undefined
-const minValue = min => value =>
-  value && value < min ? `Must be at least ${min}` : undefined
-const minValue4 = minValue(4)
-
 function EventForm(props) {
   // const [selectedDate, handleDateChange] = useState(new Date())
   const classes = useStyles()

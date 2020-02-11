@@ -41,12 +41,14 @@ class SingleEvent extends React.Component {
     await this.getLat()
   }
 
+
   handleClick() {
     let rsvp = this.isRSVPed()
     const eventId = this.props.match.params.eventId
     const userId = this.props.user.id
     if (!rsvp) {
       this.props.rsvpToEvent(eventId, userId)
+  
     } else {
       this.props.unrsvpToEvent(eventId, userId)
     }
