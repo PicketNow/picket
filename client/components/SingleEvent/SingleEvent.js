@@ -13,7 +13,6 @@ import GuestRender from './guest'
 import Jumbo from '../Jumbo'
 import CommentBoard from './commentBoard'
 
-import {GOOGLE_MAP_KEY} from '../../../secrets'
 import axios from 'axios'
 
 class SingleEvent extends React.Component {
