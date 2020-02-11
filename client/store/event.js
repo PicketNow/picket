@@ -9,9 +9,21 @@ const SUBSCRIBED_EVENTS = 'SUBSCRIBED_EVENTS'
 const SINGLE_EVENT = 'SINGLE_EVENT'
 const ADD_NEW_EVENT = 'ADD_NEW_EVENT'
 const SEARCH_EVENTS = 'SEARCH_EVENTS'
+const EVENT_COMMENTS = 'EVENT_COMMENTS'
+const ADD_COMMENT = 'ADD_COMMENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
+
+const gotEventComments = comments => ({
+  type: EVENT_COMMENTS,
+  comments
+})
+
+const addNewComment = comment => ({
+  type: ADD_COMMENT,
+  comment
+})
 
 const gotSearchEvents = searchEvents => ({
   type: SEARCH_EVENTS,
@@ -68,6 +80,17 @@ export const getFilteredEvents = eventCategory => {
     try {
       const result = await axios.get(`/api/events/category/${eventCategory}`)
       dispatch(filterEvents(result.data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+export const getEventComments = eventId => {
+  return async dispatch => {
+    try {
+      const comments = await axios.get(`/api/comments/${eventId}`)
+      dispatch(gotEventComments(comments.data))
     } catch (err) {
       console.error(err)
     }
@@ -152,13 +175,23 @@ export const submitEvent = event => async dispatch => {
   }
 }
 
+export const commentOnEvent = comment => async dispatch => {
+  try {
+    const result = await axios.post('/api/comments', comment)
+    dispatch(addNewComment(result))
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 const initialState = {
   events: [],
   singleEvent: {},
   rsvpEvents: [],
   upcomingEvents: [],
   subscribedEvents: [],
-  searchEvents: []
+  searchEvents: [],
+  eventComments: []
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -179,6 +212,10 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, subscribedEvents: action.subscribedEvents}
     case ADD_NEW_EVENT:
       return {...state, events: [...state.events, action.event]}
+    case EVENT_COMMENTS:
+      return {...state, eventComments: action.comments}
+    case ADD_COMMENT:
+      return {...state, eventComments: [...state.eventComments, action.comment]}
     default:
       return state
   }

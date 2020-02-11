@@ -11,6 +11,7 @@ import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
 import UserRender from './user'
 import GuestRender from './guest'
 import Jumbo from '../Jumbo'
+
 import {GOOGLE_MAP_KEY} from '../../../secrets'
 import axios from 'axios'
 
@@ -98,6 +99,11 @@ class SingleEvent extends React.Component {
             handleClick={this.handleClick}
             handleCheckIn={this.handleCheckin}
             coords={this.state.coords}
+          />
+          <CommentBoard
+            userId={this.props.user.id}
+            eventId={this.props.match.params.eventId}
+            user={this.props.user}
           />
         </React.Fragment>
       )

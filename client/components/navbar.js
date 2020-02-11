@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
+
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -122,16 +123,15 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <MenuIcon />
           </IconButton>
 
-          <Button color="inherit">
+          <Button className="navButton" color="inherit">
             <Link to="/">Home</Link>
-
           </Button>
 
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
 
-              <Button color="inherit">
+              <Button className="navButton" color="inherit">
                 <Link to="/" onClick={handleClick}>
                   Logout
                 </Link>
@@ -141,7 +141,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <div>
               {/* The navbar will show these links before you log in */}
 
-              <Button color="inherit">
+              <Button className="navButton" color="inherit">
                 <Link to="/home">Sign In</Link>
               </Button>
             </div>
