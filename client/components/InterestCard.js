@@ -12,7 +12,14 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 345,
+    backgroundColor: '#50A2A7',
+    color: 'white'
+    //   alignItemsAndJustifyContent: {
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center'
+    // }
   }
 })
 
@@ -22,36 +29,41 @@ const InterestCard = props => {
   return (
     <div className="interest-container">
       {interests && (
-        <Grid container spacing={4}>
+        <Grid container justify="center" spacing={2}>
           {interests.map(interest => (
-            <Grid item xs={4} key={interest.id}>
+            <Grid item xs={2} key={interest.id}>
               <CardActionArea
                 component={Link}
                 to={`/events/category/${interest.id}`}
               >
                 <Card className={classes.root}>
-                  <CardMedia
+                  {/* <CardMedia
                     component="img"
                     height="140"
                     image={interest.imageUrl}
-                  />
+                  /> */}
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography
+                      justify="center"
+                      // gutterBottom
+                      // variant="h5"
+                      component="h2"
+                    >
                       {interest.name}
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  {/* <CardActions>
                     <Button
                       href={`/events/category/${interest.id}`}
                       size="small"
                       color="primary"
                     >
-                      Go to All {interest.name} Events
+                      All {interest.name} Events
                     </Button>
                     {/* <Button size="small" color="primary">
                       Subscribe to this Interest
-                    </Button> */}
-                  </CardActions>
+                    </Button>
+                  </CardActions> */}
                 </Card>
               </CardActionArea>
             </Grid>
