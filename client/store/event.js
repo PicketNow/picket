@@ -1,5 +1,6 @@
 /* eslint-disable complexity */
 import axios from 'axios'
+import {getAttendees} from './rsvp'
 
 const ALL_EVENTS = 'ALL_EVENTS'
 const FILTER_EVENTS = 'FILTER_EVENTS'
@@ -151,6 +152,7 @@ export const rsvpToEvent = (eventId, userId) => async dispatch => {
     await axios.post(`/api/events/${eventId}`)
     const {data} = await axios.get(`/api/events/rsvp/${userId}`)
     dispatch(gotRsvpEvents(data))
+    dispatch(getAttendees(eventId))
   } catch (error) {
     console.log(error)
   }
@@ -161,6 +163,7 @@ export const unrsvpToEvent = (eventId, userId) => async dispatch => {
     await axios.put(`/api/events/${eventId}`)
     const {data} = await axios.get(`/api/events/rsvp/${userId}`)
     dispatch(gotRsvpEvents(data))
+    dispatch(getAttendees(eventId))
   } catch (error) {
     console.log(error)
   }

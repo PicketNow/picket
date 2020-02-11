@@ -11,6 +11,7 @@ import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
 import UserRender from './user'
 import GuestRender from './guest'
 import Jumbo from '../Jumbo'
+import CommentBoard from './commentBoard'
 
 import {GOOGLE_MAP_KEY} from '../../../secrets'
 import axios from 'axios'
