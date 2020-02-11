@@ -1,14 +1,32 @@
-const {Sequelize, DataTypes} = require('sequelize')
+const {Sequelize} = require('sequelize')
 const db = require('../db')
+const User = require('./user')
 
 const Comment = db.define('comment', {
-  text: {
+  words: {
     type: Sequelize.TEXT
   },
-  timestamp: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+  userId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  eventId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
+
+Comment.findAllWithUsers = async function(commentArr) {
+  for (let i = 0; i < commentArr.length; i++) {
+    let elem = commentArr[i]
+    let key = elem.userId
+
+    let user = await User.findByPk(key)
+    elem.dataValues.userName = user.firstName
+    elem.dataValues.imageUrl = user.imageUrl
+  }
+
+  return commentArr
+}
 
 module.exports = Comment

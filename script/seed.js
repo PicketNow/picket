@@ -74,7 +74,7 @@ async function seed() {
     stAddress: 'Washington Square Park',
     city: 'New York',
     state: 'NY',
-    zipcode: '10001',
+    zipcode: '10012',
     organizerId: 1,
     date: 'Fri Jan 20 2017 00:00:00 GMT-0500 (Eastern Standard Time)'
   })
@@ -84,8 +84,8 @@ async function seed() {
       "Don't disappoint Greta Thunberg. Skip school, bring a (recycled) protest sign, march for our species continued existence on a habitable planet.",
     stAddress: 'Lafayette Park',
     city: 'Washington',
-    state: 'NY',
-    zipcode: '20057',
+    state: 'DC',
+    zipcode: '20001',
     organizerId: 2,
     date: 'Fri Jan 20 2017',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -106,7 +106,7 @@ async function seed() {
     title: 'LGBTQIA Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '421 6th Ave',
+    stAddress: '431 6th Ave',
     city: 'Brooklyn',
     state: 'NY',
     zipcode: '11215',
@@ -118,7 +118,7 @@ async function seed() {
     title: 'Anti-war Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '217 7th Street',
+    stAddress: '205 E 7th Street',
     city: 'New York',
     state: 'NY',
     zipcode: '10009',
@@ -130,7 +130,7 @@ async function seed() {
     title: 'Immigration Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '290 Ave D',
+    stAddress: '185 Ave D',
     city: 'New York',
     state: 'NY',
     zipcode: '10009',
@@ -154,10 +154,10 @@ async function seed() {
     title: 'Voting Rights Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '5 Manchester Street',
-    city: 'New York',
-    state: 'NY',
-    zipcode: '10022',
+    stAddress: '206 Washington St SW',
+    city: 'Atlanta',
+    state: 'GA',
+    zipcode: '30334',
     organizerId: 3,
     date: 'Sat Feb 15 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -166,10 +166,10 @@ async function seed() {
     title: 'Judicial Activism Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '32 West Lake Ave',
-    city: 'New York',
-    state: 'NY',
-    zipcode: '10022',
+    stAddress: '1 First St NE',
+    city: 'Washington',
+    state: 'DC',
+    zipcode: '20543',
     organizerId: 2,
     date: 'Fri Feb 14 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -178,10 +178,10 @@ async function seed() {
     title: 'Criminal Justice Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '233 McClellan St',
-    city: 'Bronx',
+    stAddress: '315 Hudson Street',
+    city: 'New York',
     state: 'NY',
-    zipcode: '10454',
+    zipcode: '10013',
     organizerId: 1,
     date: 'Thu Feb 13 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -190,10 +190,10 @@ async function seed() {
     title: 'Economic Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '95 3rd St',
-    city: 'Brooklyn',
+    stAddress: '1 New York Plaza',
+    city: 'New York',
     state: 'NY',
-    zipcode: '11215',
+    zipcode: '10004',
     organizerId: 6,
     date: 'Wed Feb 12 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -202,10 +202,10 @@ async function seed() {
     title: 'Anti-Poverty Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '818 Brickyard St',
+    stAddress: "St. Patrick's Cathedral",
     city: 'New York',
     state: 'NY',
-    zipcode: '10003',
+    zipcode: '10022',
     organizerId: 5,
     date: 'Tue Feb 11 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -214,10 +214,10 @@ async function seed() {
     title: 'Childrens Rights Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '186 Cypress Street',
-    city: 'New York',
+    stAddress: '65 Court St',
+    city: 'Brooklyn',
     state: 'NY',
-    zipcode: '10011',
+    zipcode: '11201',
     organizerId: 4,
     date: 'Mon Feb 10 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -226,10 +226,10 @@ async function seed() {
     title: 'Healthcare Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '3 Shub Farm St',
+    stAddress: '26 Federal Plaza',
     city: 'New York',
     state: 'NY',
-    zipcode: '10003',
+    zipcode: '10278',
     organizerId: 3,
     date: 'Sun Feb 09 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -238,10 +238,10 @@ async function seed() {
     title: 'Education Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '41 San Pablo Street',
+    stAddress: '1605 Amsterdam Ave',
     city: 'New York',
     state: 'NY',
-    zipcode: '10028',
+    zipcode: '10031',
     organizerId: 2,
     date: 'Sat Feb 08 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
@@ -250,10 +250,10 @@ async function seed() {
     title: 'Policing Event',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '426 Philmont Street',
+    stAddress: 'Zuccotti Park',
     city: 'New York',
     state: 'NY',
-    zipcode: '10014',
+    zipcode: '10006',
     organizerId: 1,
     date: 'Fri Feb 07 2020',
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'

@@ -29,34 +29,47 @@ form div {
   display: inline-block;
 }
 
-.buttons {
-  border: 0;
-  line-height: 2.5;
-  margin: 10px;
-  padding: 0 20px;
-  font-size: 0.75rem;
-  text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: rgba(220, 0, 0, 1);
-  background-image: linear-gradient(
-    to top left,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 30%,
-    rgba(0, 0, 0, 0)
-  );
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+input[type='text'] {
+  width: 50%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+select[type='text'] {
+  width: 50%;
+  padding: 15px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.comments-container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1em 1em 2em 2em;
+}
+
+.each-card {
+  display: flex;
+
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.navButton a {
+  color: white;
 }
 
 button:hover {
-  background-color: rgba(255, 0, 0, 1);
+  background-color: rgb(184, 230, 165);
 }
 
 button:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.toolbar {
+  background-color: #bee9e8;
 }
 
 /*

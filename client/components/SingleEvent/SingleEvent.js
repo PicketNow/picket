@@ -11,13 +11,23 @@ import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
 import UserRender from './user'
 import GuestRender from './guest'
 import Jumbo from '../Jumbo'
+import CommentBoard from './commentBoard'
+
+import axios from 'axios'
+import CommentBoard from './commentBoard'
 
 class SingleEvent extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      coords: {}
+    }
+
     this.isRSVPed = this.isRSVPed.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleCheckIn = this.handleCheckIn.bind(this)
+    this.getLat = this.getLat.bind(this)
   }
 
   async componentDidMount() {
@@ -28,26 +38,20 @@ class SingleEvent extends React.Component {
       await this.props.getRsvpEvents(this.props.user.id)
     }
     await this.props.getAttendees(this.props.match.params.eventId)
+    await this.getLat()
   }
 
-  // componentDidUpdate (prevProps) {
-  //   if (prevProps.rsvpEvents.length !== this.props.rsvpEvents.length) {
-  //     this.props.getAttendees(this.props.match.params.eventId)
-  //   }
-  // }
 
-  async handleClick() {
+  handleClick() {
     let rsvp = this.isRSVPed()
     const eventId = this.props.match.params.eventId
     const userId = this.props.user.id
     if (!rsvp) {
       this.props.rsvpToEvent(eventId, userId)
-      await this.props.getAttendees(this.props.match.params.eventId)
+  
     } else {
       this.props.unrsvpToEvent(eventId, userId)
-      await this.props.getAttendees(this.props.match.params.eventId)
     }
-    await this.props.getAttendees(this.props.match.params.eventId)
   }
 
   handleCheckIn() {
@@ -64,6 +68,16 @@ class SingleEvent extends React.Component {
     return rsvp
   }
 
+  async getLat() {
+    const coordsBack = await axios.get(
+      `/api/google-api/${this.props.match.params.eventId}`
+    )
+
+    this.setState({
+      coords: coordsBack.data
+    })
+  }
+
   render() {
     if (this.props.user.id) {
       return (
@@ -76,6 +90,12 @@ class SingleEvent extends React.Component {
             attendees={this.props.attendees}
             handleClick={this.handleClick}
             handleCheckIn={this.handleCheckin}
+            coords={this.state.coords}
+          />
+          <CommentBoard
+            userId={this.props.user.id}
+            eventId={this.props.match.params.eventId}
+            user={this.props.user}
           />
         </React.Fragment>
       )
@@ -86,7 +106,9 @@ class SingleEvent extends React.Component {
           <GuestRender
             event={this.props.event}
             attendees={this.props.attendees}
+            coords={this.state.coords}
           />
+          {/* <CommentBoard /> */}
         </React.Fragment>
       )
     }
@@ -98,7 +120,8 @@ const mapState = state => ({
   rsvpEvents: state.events.rsvpEvents,
   user: state.user,
   attendees: state.rsvp.attendees,
-  rsvp: state.rsvp.rsvped
+  rsvp: state.rsvp.rsvped,
+  checkedIn: state.rsvp.checkedIn
 })
 
 const mapDispatch = dispatch => ({

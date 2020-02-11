@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     color: 'inherit'
   },
+
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -111,8 +112,9 @@ const Navibar = ({handleClick, isLoggedIn}) => {
   // eslint-disable-next-line no-return-assign
   return (
     <div className={classes.root}>
-      <AppBar style={{backgroundColor: 'bee9e8'}} position="static">
-        <Toolbar>
+      <AppBar position="static">
+        <Toolbar className="toolbar">
+
           <IconButton
             edge="end"
             aria-label="account of current user"
@@ -124,7 +126,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <MenuIcon />
           </IconButton>
 
-          <Button color="inherit">
+          <Button className="navButton" color="inherit">
             <Link to="/">Home</Link>
           </Button>
 
@@ -132,7 +134,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <div>
               {/* The navbar will show these links after you log in */}
 
-              <Button color="inherit">
+              <Button className="navButton" color="inherit">
                 <Link to="/" onClick={handleClick}>
                   Logout
                 </Link>
@@ -142,7 +144,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
             <div>
               {/* The navbar will show these links before you log in */}
 
-              <Button color="inherit">
+              <Button className="navButton" color="inherit">
                 <Link to="/home">Sign In</Link>
               </Button>
             </div>
