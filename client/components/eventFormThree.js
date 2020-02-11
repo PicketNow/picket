@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import DateFnsUtils from '@date-io/date-fns'
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
+  TimePicker,
   KeyboardDatePicker
 } from '@material-ui/pickers'
 
@@ -21,8 +21,6 @@ import {
 // import SelectField from '@material-ui/SelectField';
 // import MenuItem from '@material-ui/MenuItem';
 
-const required = value => (value ? undefined : 'Required')
-
 class EventFormThree extends React.Component {
   constructor(props) {
     super(props)
@@ -35,15 +33,13 @@ class EventFormThree extends React.Component {
       state: '',
       zipcode: '',
       date: null,
-      time: null,
-      open: false
+      time: null
     }
 
     this.handleForm = this.handleForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDate = this.handleDate.bind(this)
     this.handleTime = this.handleTime.bind(this)
-    this.handleClose = this.handleClose.bind(this)
     // this.handleAssignment =this.handleAssignment.bind(this)
   }
 
@@ -61,6 +57,7 @@ class EventFormThree extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     const newEvent = {
       title: this.state.title,
       description: this.state.description,
@@ -74,7 +71,6 @@ class EventFormThree extends React.Component {
     }
 
     this.props.submitEvent(newEvent)
-    this.handleClose()
     this.setState({
       title: '',
       description: '',
@@ -87,50 +83,19 @@ class EventFormThree extends React.Component {
     })
   }
 
-  handleOpen = () => {
-    this.setState({open: true})
-  }
-
-  handleClose = () => {
-    this.setState({open: false})
-  }
-
   // handleAssignment = (event, index, value) => {
   //   this.setState({assigned_to: value, value: value});
   // };
 
   render() {
-    const actions = [
-      // <FlatButton
-      //   label="Cancel"
-      //   primary={true}
-      //   onTouchTap={this.handleClose}
-      // />,
-      <Button
-        label="Submit"
-        primary={true}
-        type="submit"
-        onClick={this.handleSubmit}
-      />
-    ]
-
     return (
       <div>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          {/* <IconButton color ={"#FFF"} tooltip="Add Event" onClick={this.handleOpen}> */}
-          {/* <Add color={"#FFF"}/> */}
-          {/* </IconButton> */}
-          {/* <Dialog
-        title="Add an Event"
-        actions={actions}
-        modal={true}
-        open={this.state.open}> */}
-          <form>
+          <form validate="true" id="event-form">
             <TextField
               required
               label="Title"
               name="title"
-              validate={[required]}
               value={this.state.title}
               onChange={this.handleForm}
             />
@@ -191,7 +156,7 @@ class EventFormThree extends React.Component {
               required
               margin="normal"
               name="date"
-              id="date-picker-dialog"
+              id="date-picker-dialog-required"
               label="Date"
               format="MM/dd/yyyy"
               value={this.state.date}
@@ -201,9 +166,11 @@ class EventFormThree extends React.Component {
               }}
             />
 
-            <KeyboardTimePicker
+            <TimePicker
+              clearable
               margin="normal"
-              id="time-picker"
+              ampm={true}
+              id="time-picker-required"
               label="Time"
               name="time"
               value={this.state.time}
