@@ -9,8 +9,16 @@ class PostedComments extends React.Component {
   }
 
   async componentDidMount() {
-    await this.props.getEventComments(this.props.commentId)
+    await this.props.getEventComments(this.props.eventId)
     console.log('HI', this.props)
+  }
+
+  componentDidUpdate(comments) {
+    if (comments.comments.length !== this.props.comments.length) {
+      this.props.getEventComments(this.props.eventId)
+    }
+
+    // this.props.getEventComments(this.props.eventId)
   }
 
   render() {
