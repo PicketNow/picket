@@ -14,6 +14,7 @@ import Jumbo from '../Jumbo'
 
 import {GOOGLE_MAP_KEY} from '../../../secrets'
 import axios from 'axios'
+import CommentBoard from './commentBoard'
 
 class SingleEvent extends React.Component {
   constructor(props) {

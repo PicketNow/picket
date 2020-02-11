@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
@@ -55,19 +56,19 @@ export default function MainFeaturedPost(props) {
           <div className={classes.mainFeaturedPostContent}>
             <Typography
               component="h1"
-              variant="h3"
+              variant="h2"
               color="inherit"
               gutterBottom
             >
               Picket
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              Give a shit?...Picket
+            <Typography variant="h4" color="inherit" paragraph>
+              Give a shit?...Picket!
             </Typography>
 
-            <Link variant="subtitle1" href="/signup">
-              Sign up
-            </Link>
+            <Button variant="contained" color="primary" href="/signup">
+              Signup
+            </Button>
           </div>
         </Grid>
       </Grid>
