@@ -55,7 +55,7 @@ export default function MainFeaturedPost(props) {
           <div className={classes.mainFeaturedPostContent}>
             <Typography
               component="h1"
-              variant="h3"
+              variant="h2"
               color="inherit"
               gutterBottom
             >

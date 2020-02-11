@@ -49,7 +49,9 @@ class CategorySearch extends React.Component {
                 </option>
               ))}
           </select>
-          <button type="submit">Search</button>
+          <button className="buttons" type="submit">
+            Search
+          </button>
         </form>
       </React.Fragment>
     )

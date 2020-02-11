@@ -25,18 +25,13 @@ class SearchBar extends React.Component {
   }
 
   handleChange(event) {
-    this.setState(
-      {
-        [event.target.name]: event.target.value
-      },
-      console.log('YOOO')
-    )
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('SUBMIIIIIT')
-    // this.props.searchByZip(text)
     this.setState(defaultState)
   }
 

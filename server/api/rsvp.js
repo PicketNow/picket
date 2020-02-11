@@ -39,3 +39,14 @@ router.put('/:eventId', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/userrsvp/:eventId', async (req, res, next) => {
+  try {
+    const rsvp = await Rsvp.findOne({
+      where: {userId: req.user.id, eventId: req.params.eventId}
+    })
+    res.send(!!rsvp)
+  } catch (error) {
+    next(error)
+  }
+})

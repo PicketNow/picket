@@ -13,7 +13,6 @@ import Jumbo from './Jumbo'
 import CategorySearch from '../components/searchComps/categorySearch'
 import {me} from '../store/user'
 
-
 export class EventsByCategory extends React.Component {
   constructor(props) {
     super(props)
@@ -51,7 +50,7 @@ export class EventsByCategory extends React.Component {
   }
 
   render() {
-    let events = this.props.events.events
+    let events = this.props.events.events || []
     let firstElem = this.props.events.events[0]
 
     return (
@@ -93,7 +92,7 @@ export class EventsByCategory extends React.Component {
 
         <h1> All {firstElem && firstElem.interest.name} Events</h1>
 
-        <div>{events && <EventCard events={events} />}</div>
+        <div>{events.length > 0 && <EventCard events={events} />}</div>
       </div>
     )
   }

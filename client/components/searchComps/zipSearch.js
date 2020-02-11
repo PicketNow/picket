@@ -36,7 +36,9 @@ class ZipSearch extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type="submit">Search</button>
+          <button className="buttons" type="submit">
+            Search
+          </button>
         </form>
       </React.Fragment>
     )
