@@ -111,7 +111,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="toolbar">
           <IconButton
             edge="end"
             aria-label="account of current user"
