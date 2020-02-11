@@ -57,7 +57,7 @@ const UserRender = props => {
                 Check In
               </button>
             ) : null}
-            <MapSection event={props.event} />
+            <MapSection coords={props.coords} event={props.event} />
           </div>
         </div>
 

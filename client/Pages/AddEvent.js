@@ -1,14 +1,16 @@
 import React from 'react'
-import EventForm from '../components/eventForm.js'
+import EventForm from '../components/eventFormThree.js'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {submitEvent} from '../store/event'
+import {Grid} from '@material-ui/core'
+import Jumbo from '../components/Jumbo'
 
 class AddEvent extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleForm = this.handleForm.bind(this)
     this.state = {
       title: '',
       description: '',
@@ -16,33 +18,54 @@ class AddEvent extends React.Component {
       city: '',
       state: '',
       zipcode: '',
-      imageUrl: '',
-      organizerId: '',
-      month: '',
-      day: '',
-      year: '',
-      time: '',
-      interestId: ''
+      date: null,
+      time: null,
+      interest: null
     }
   }
 
   componentDidMount() {
-    console.log('CDM FORM', this.props)
     this.props.me()
   }
 
-  handleChange(event) {
+  handleForm(event) {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  // eslint-disable-next-line complexity
+  isComplete() {
+    if (
+      !this.state.title ||
+      !this.state.description ||
+      !this.state.interest ||
+      !this.state.stAddress ||
+      !this.state.city ||
+      !this.state.state ||
+      !this.state.zipcode ||
+      !this.state.date ||
+      !this.state.time
+    )
+      return false
+    else return true
+  }
+
   handleSubmit(event) {
     event.preventDefault()
-    const organizerId = this.props.user.id
-    const date = this.state.date.concat(this.state.time)
-    const eventForm = {...this.props.eventForm, ...organizerId, ...date}
-    this.props.submitEvent(eventForm)
+    const newEvent = {
+      title: this.state.title,
+      description: this.state.description,
+      stAddress: this.state.stAddress,
+      city: this.state.city,
+      state: this.state.state,
+      zipcode: this.state.zipcode,
+      date: this.state.date,
+      organizerId: this.props.user.id,
+      time: this.state.time,
+      interestId: this.state.interest
+    }
+    this.props.submitEvent(newEvent)
     this.setState({
       title: '',
       description: '',
@@ -50,92 +73,28 @@ class AddEvent extends React.Component {
       city: '',
       state: '',
       zipcode: '',
-      imageUrl: '',
-      organizerId: '',
-      date: '',
-      time: '',
-      interestId: ''
+      date: null,
+      time: null,
+      interest: ''
     })
-    // this.props.clearFormChange()
   }
 
   render() {
-    const allInterests = [
-      'Human Rights',
-      'LGBTQIA',
-      'Environmental',
-      'Anti-war',
-      'Immigration',
-      'Drug Reform',
-      'Policing Reform',
-      'Voting Rights',
-      'Judicial Activism',
-      'Criminal Justice',
-      'Women',
-      'Economic',
-      'Anti-poverty',
-      'Childrens Rights',
-      'Healthcare Access',
-      'Education'
-    ]
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
-    ]
-    const days = [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
-    ]
     return (
       <div>
-        <h1>Add an event!</h1>
-        <EventForm
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          state={this.state}
-          allInterests={allInterests}
-          months={months}
-          days={days}
-        />
+        <Jumbo />
+        <Grid>
+          <h2>Add an event!</h2>
+          <EventForm
+            handleForm={this.handleForm}
+            handleSubmit={this.handleSubmit}
+            handleTime={this.handleTime}
+            handleDate={this.handleDate}
+            state={this.state}
+            allInterests={this.allInterests}
+            isComplete={this.isComplete}
+          />
+        </Grid>
       </div>
     )
   }
