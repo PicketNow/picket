@@ -3,7 +3,6 @@ import {getAllEvents} from '../store/event'
 import {connect} from 'react-redux'
 //import {Link} from 'react-router-dom'
 import EventCard from './eventcardTest'
-import BasicEventForm from './basicEventForm'
 import Jumbo from './Jumbo'
 
 class AllEvents extends React.Component {

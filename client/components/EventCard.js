@@ -22,7 +22,7 @@ const EventCard = props => {
                     <div className="event-title">{event.title}</div>
                   </Link>
                   <div className="event-date">
-                    {moment(event.date).format()}
+                    {event.date.toLocaleDateString()}
                   </div>
                   {/* <div className="event-city">{event.city}</div> */}
                 </div>
