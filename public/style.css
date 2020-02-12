@@ -66,6 +66,7 @@ form div {
   color: white;
 }
 
+
 .buttons {
   margin-left: 15px;
   padding: 0.3em 0.5em 0.3em 0.5em;
@@ -141,7 +142,7 @@ USER PROFILE PAGE STYLING
 SINGLE EVENT PAGE STYLING
 */
 
-.single-event-page-container {
+/* .single-event-page-container {
   padding: 1em;
 }
 
@@ -165,7 +166,6 @@ SINGLE EVENT PAGE STYLING
   margin-top: 0;
   width: 40%;
   padding-left: 1em;
-  /* margin: auto */
 }
 
 .rsvp-button {
@@ -203,13 +203,13 @@ SINGLE EVENT PAGE STYLING
   width: 90%;
   justify-self: left;
   margin: auto;
-}
+} */
 
 /* #google_map {
   margin: auto;
 } */
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   .outermost-container {
     display: flex;
     justify-content: center;
@@ -236,11 +236,6 @@ SINGLE EVENT PAGE STYLING
 
   .event-info-left {
     width: 90%;
-    /* justify-content: center;
-    justify-self: center;
-    align-items: center;
-    padding: auto;
-    margin: auto; */
     display: flex;
     flex-direction: column;
   }
@@ -259,11 +254,6 @@ SINGLE EVENT PAGE STYLING
 
   .event-info-right {
     width: 90%;
-    /* justify-content: center;
-    justify-self: center;
-    align-items: center;
-    padding: auto;
-    margin: auto; */
     display: flex;
     flex-direction: column;
   }
@@ -316,7 +306,17 @@ SINGLE EVENT PAGE STYLING
     justify-self: left;
     margin: auto;
   }
+} */
+
+/* #script-loader {
+  font-size: 20px;
 }
+
+@media (max-width: 600px) {
+  #script-loader {
+    font-size: 10px;
+  }
+} */
 
 .jumbotron-text {
   color: black;
