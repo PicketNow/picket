@@ -4,36 +4,46 @@ import {getUpcomingEvents, getSubscribedEvents} from '../store/event'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import EventCard from './eventcardTest'
+import {Box, Button, Container, Grid} from '@material-ui/core'
 
 class FeaturedEvents extends React.Component {
   async componentDidMount() {
     await this.props.me()
-    console.log(this.props)
+
     if (this.props.user.id) {
       this.props.getSubscribedEvents(this.props.user.id)
     } else this.props.getUpcomingEvents()
   }
 
   render() {
-    console.log(this.props.subscribedEvents)
     return (
       <div>
-        {this.props.user.id ? (
-          <div className="featured-events">
-            <h1>Recommended Events</h1>
-            <div>
-              <EventCard events={this.props.subscribedEvents} />
-            </div>
-          </div>
-        ) : (
-          <div className="featured-events">
-            <h1>Upcoming Events</h1>
-            <div>
-              <EventCard events={this.props.upcomingEvents} />
-            </div>
-            {/* {events && <SingleEvent events={events} />} */}
-          </div>
-        )}
+        <Container spacing={2}>
+          <Grid>
+            {this.props.user.id ? (
+              <div className="featured-events">
+                <Box display="flex" flexDirection="row">
+                  <h1>Recommended Events</h1>
+                </Box>
+                <div>
+                  <EventCard events={this.props.subscribedEvents} />
+                </div>
+              </div>
+            ) : (
+              <div className="featured-events">
+                <Box display="flex" spacing={10} flexDirection="row">
+                  <div>
+                    <h1>Upcoming Events</h1>
+                  </div>
+                </Box>
+                <div>
+                  <EventCard events={this.props.upcomingEvents} />
+                </div>
+                {/* {events && <SingleEvent events={events} />} */}
+              </div>
+            )}
+          </Grid>
+        </Container>
       </div>
     )
   }

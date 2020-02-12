@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container'
 import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
 import RsvpEvents from './rsvpEvents'
 import UserInterests from './userInterests'
+import UserEvents from './userEvents'
 import SimpleExpansionPanel from './expansionPanel'
 import Jumbo from '../Jumbo'
 
@@ -69,6 +70,9 @@ class User extends React.Component {
 
               <Grid item xs={12}>
                 <RsvpEvents userId={userId} />
+              </Grid>
+              <Grid item xs={12}>
+                <UserEvents userId={userId} />
               </Grid>
             </Grid>
           </Typography>
