@@ -23,7 +23,9 @@ class FeaturedEvents extends React.Component {
             {this.props.user.id ? (
               <div className="featured-events">
                 <Box display="flex" flexDirection="row">
-                  <h1>Recommended Events</h1>
+                  <Grid spacing={12}>
+                    <h1>Recommended Events</h1>
+                  </Grid>
                 </Box>
                 <div>
                   <EventCard events={this.props.subscribedEvents} />

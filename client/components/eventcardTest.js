@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 export default function FeaturedEvent(props) {
   const classes = useStyles()
   const events = props.events
-  console.log(events)
+
   return (
     <div className="events-container">
       {events && (
@@ -42,7 +42,7 @@ export default function FeaturedEvent(props) {
                       </Typography>
                       <Typography variant="subtitle1" color="textSecondary">
                         <Moment format="D MMM YYYY" withTitle>
-                          {event.date}
+                          {events.date}
                         </Moment>
                       </Typography>
                       <Typography variant="subtitle1" paragraph>
