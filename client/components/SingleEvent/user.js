@@ -1,69 +1,97 @@
 import React from 'react'
 import MapSection from './mapSection'
 
+import {makeStyles} from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import CardHeader from '@material-ui/core/CardHeader'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/IconButton'
+
 const UserRender = props => {
   return (
-    <div className="outermost-container">
-      <div className="single-event-page-container">
-        <div className="event-info-container">
-          <div className="event-info-left">
-            <img className="event-banner" src={props.event.imageUrl} />
-            <h2 id="event-title">{props.event.title}</h2>
-            <article className="event-description">
-              {props.event.description}
-            </article>
-            <div className="attendees-container">
-              <h3>Attendees ({props.attendees.length})</h3>
-              {props.attendees.length ? (
-                <div>
-                  {props.attendees.map(attendee => (
-                    <div key={attendee.id}>
-                      <p>{attendee.fullName}</p>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p>Be the first to RSVP to this event!</p>
-              )}
-            </div>
-          </div>
+    <Grid container className="outermost-container">
+      <Grid container className="single-event-page-container">
+        <Grid container spacing={4} className="event-info-container">
+          <Grid container item xs={12} sm={6} className="event-info-left">
+            <Card elevation={0}>
+              <CardMedia
+                component="img"
+                className="event-banner"
+                image={props.event.imageUrl}
+              />
+              <CardHeader id="event-title" title={props.event.title} />
+              <CardContent>
+                <Typography className="event-description">
+                  {props.event.description}
+                </Typography>
+              </CardContent>
+              <CardContent className="attendees-container">
+                <Typography component="h2">
+                  Attendees ({props.attendees.length})
+                </Typography>
 
-          <div className="event-info-right">
-            <div id="rsvp-button-container">
+                {props.attendees.length ? (
+                  <Typography component="div">
+                    {props.attendees.map(attendee => (
+                      <Typography key={attendee.id} component="div">
+                        {attendee.fullName}
+                      </Typography>
+                    ))}
+                  </Typography>
+                ) : (
+                  <CardContent>
+                    <Typography component="p">
+                      Be the first to RSVP to this event!
+                    </Typography>
+                  </CardContent>
+                )}
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid container item xs={12} sm={6} className="event-info-right">
+            <Card elevation={0}>
+              <CardActionArea id="rsvp-button-container">
+                {props.isRSVPed() ? (
+                  <Button
+                    className="rsvp-button"
+                    type="button"
+                    onClick={props.handleClick}
+                  >
+                    Un-RSVP
+                  </Button>
+                ) : (
+                  <Button
+                    className="rsvp-button"
+                    type="button"
+                    onClick={props.handleClick}
+                  >
+                    RSVP
+                  </Button>
+                )}
+              </CardActionArea>
               {props.isRSVPed() ? (
-                <button
-                  className="rsvp-button"
+                <Button
+                  className="check-in-button"
                   type="button"
-                  onClick={props.handleClick}
+                  onClick={props.handleCheckIn}
                 >
-                  Un-RSVP
-                </button>
-              ) : (
-                <button
-                  className="rsvp-button"
-                  type="button"
-                  onClick={props.handleClick}
-                >
-                  RSVP
-                </button>
-              )}
-            </div>
-            {props.isRSVPed() ? (
-              <button
-                className="check-in-button"
-                type="button"
-                onClick={props.handleCheckIn}
-              >
-                Check In
-              </button>
-            ) : null}
-            <MapSection coords={props.coords} event={props.event} />
-          </div>
-        </div>
+                  Check In
+                </Button>
+              ) : null}
+              <MapSection coords={props.coords} event={props.event} />
+            </Card>
+          </Grid>
+        </Grid>
 
         <div className="similar-events-container" />
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   )
 }
 
