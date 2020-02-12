@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 class UserEvents extends React.Component {
   componentDidMount() {
     this.props.getUserEvents(this.props.userId)
-    console.log(this.props, 'props for days')
+    console.log(this.props.userEvents, 'props for days')
   }
 
   render() {
@@ -15,7 +15,7 @@ class UserEvents extends React.Component {
         <div className="user-events">
           <h3>Events You're Organizing:</h3>
 
-          {this.props.events.map(event => <div key={event}>{event.title}</div>)}
+          {/* {this.props.events.map(event => <div key={event}>{event.title}</div>)} */}
         </div>
       </div>
     )
