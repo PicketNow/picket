@@ -63,10 +63,10 @@ export default function MainFeaturedPost(props) {
               Picket
             </Typography>
             <Typography variant="h4" color="inherit" paragraph>
-              Give a shit?...Picket!
+              Give a shit? ...Picket!
             </Typography>
 
-            <Button variant="contained" color="primary" href="/signup">
+            <Button variant="contained" color="default" href="/signup">
               Signup
             </Button>
           </div>

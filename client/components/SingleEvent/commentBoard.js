@@ -41,7 +41,7 @@ class CommentBoard extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="comment-form" onSubmit={this.handleSubmit}>
           <label htmlFor="words"> Comment: </label>
           <input
             name="words"

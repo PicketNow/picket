@@ -1,20 +1,20 @@
 import React from 'react'
-import {getRsvpEvents} from '../../store/event'
+import {getUserEvents} from '../../store/event'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-class RsvpEvents extends React.Component {
+class UserEvents extends React.Component {
   componentDidMount() {
-    this.props.getRsvpEvents(this.props.userId)
+    this.props.getUserEvents(this.props.userId)
   }
 
   render() {
     return (
       <div>
         <div className="rsvp-events">
-          <h3>Current RSVPs:</h3>
+          <h3>Events You're Organizing:</h3>
           <ul>
-            {this.props.rsvpEvents.map(event => (
+            {this.props.userEvents.events.map(event => (
               <li key={event.id}>
                 <Link to={`/events/${event.id}`}>{event.title}</Link>
               </li>
@@ -28,11 +28,11 @@ class RsvpEvents extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.user,
-  rsvpEvents: state.events.rsvpEvents
+  userEvents: state.events
 })
 
 const mapDispatchToProps = dispatch => ({
-  getRsvpEvents: userId => dispatch(getRsvpEvents(userId))
+  getUserEvents: userId => dispatch(getUserEvents(userId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(RsvpEvents)
+export default connect(mapStateToProps, mapDispatchToProps)(UserEvents)

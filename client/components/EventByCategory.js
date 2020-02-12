@@ -8,7 +8,7 @@ import {
   unsubscribeFromInterest
 } from '../store/interestReducer'
 import {Link} from 'react-router-dom'
-import EventCard from './EventCard'
+import EventCard from './eventcardTest'
 import Jumbo from './Jumbo'
 import CategorySearch from '../components/searchComps/categorySearch'
 import {me} from '../store/user'

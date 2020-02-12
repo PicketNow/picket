@@ -5,6 +5,7 @@ import {me} from '../store/user'
 import {submitEvent} from '../store/event'
 import {Grid} from '@material-ui/core'
 import Jumbo from '../components/Jumbo'
+import Typography from '@material-ui/core/Typography'
 
 class AddEvent extends React.Component {
   constructor(props) {
@@ -20,7 +21,14 @@ class AddEvent extends React.Component {
       zipcode: '',
       date: null,
       time: null,
-      interest: null
+      interest: null,
+      typedtitle: false,
+      typeddescription: false,
+      typedstAddress: false,
+      typedcity: false,
+      typedstate: false,
+      typedzipcode: false,
+      typedinterest: false
     }
   }
 
@@ -32,6 +40,8 @@ class AddEvent extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+    let checkTyped = ''.concat('typed', event.target.name)
+    this.setState({[checkTyped]: true})
   }
 
   // eslint-disable-next-line complexity
@@ -51,6 +61,11 @@ class AddEvent extends React.Component {
     else return true
   }
 
+  validateZipCode(elementValue) {
+    var zipCodePattern = /^\d{5}$|^\d{5}-\d{4}$/
+    return zipCodePattern.test(elementValue)
+  }
+
   handleSubmit(event) {
     event.preventDefault()
     const newEvent = {
@@ -65,6 +80,7 @@ class AddEvent extends React.Component {
       time: this.state.time,
       interestId: this.state.interest
     }
+    console.log(newEvent)
     this.props.submitEvent(newEvent)
     this.setState({
       title: '',
@@ -84,7 +100,9 @@ class AddEvent extends React.Component {
       <div>
         <Jumbo />
         <Grid>
-          <h2>Add an event!</h2>
+          <Typography variant="h4" gutterBottom>
+            Create your event
+          </Typography>
           <EventForm
             handleForm={this.handleForm}
             handleSubmit={this.handleSubmit}
@@ -93,6 +111,7 @@ class AddEvent extends React.Component {
             state={this.state}
             allInterests={this.allInterests}
             isComplete={this.isComplete}
+            validateZipCode={this.validateZipCode}
           />
         </Grid>
       </div>
