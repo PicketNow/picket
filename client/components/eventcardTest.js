@@ -9,6 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Hidden from '@material-ui/core/Hidden'
+import Moment from 'react-moment'
 
 const useStyles = makeStyles({
   card: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
 export default function FeaturedEvent(props) {
   const classes = useStyles()
   const events = props.events
-
+  console.log(events)
   return (
     <div className="events-container">
       {events && (
@@ -40,7 +41,9 @@ export default function FeaturedEvent(props) {
                         {event.title}
                       </Typography>
                       <Typography variant="subtitle1" color="textSecondary">
-                        {event.date}
+                        <Moment format="D MMM YYYY" withTitle>
+                          {event.date}
+                        </Moment>
                       </Typography>
                       <Typography variant="subtitle1" paragraph>
                         {event.description}
