@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Event = require('../db/models/event')
 
-// const {GOOGLE_MAP_KEY} = require('../../secrets')
+const {GOOGLE_MAP_KEY} = require('../../secrets')
 const axios = require('axios')
 
 const formatUrl = async eventId => {
@@ -13,7 +13,8 @@ const formatUrl = async eventId => {
     const city = event.city.split(' ').join('%20')
     const input = [address, city, event.state].join('%20')
     const infix = '&inputtype=textquery&fields=geometry&key='
-    const reqUrl = `${prefix}${input}${infix}${GOOGLE_MAP_KEY}`
+    const reqUrl = `${prefix}${input}${infix}${GOOGLE_MAP_KEY ||
+      HEROKU_MAP_KEY}`
     return reqUrl
   } catch (error) {
     console.log(error)
