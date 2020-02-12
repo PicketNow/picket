@@ -10,10 +10,7 @@ const MapSection = props => {
         {props.event.city}, {props.event.zipcode}
       </div>
 
-      <LoadScript
-        id="script-loader"
-        googleMapsApiKey={GOOGLE_MAP_KEY || HEROKU_MAP_KEY}
-      >
+      <LoadScript id="script-loader" googleMapsApiKey={GOOGLE_MAP_KEY}>
         <GoogleMap
           id="google-map"
           mapContainerStyle={{height: '250px', width: '250px'}}
