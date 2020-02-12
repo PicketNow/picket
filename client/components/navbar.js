@@ -79,42 +79,69 @@ const Navibar = ({handleClick, isLoggedIn}) => {
   }
 
   const menuId = 'primary-search-account-menu'
+  let renderMenu
 
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{vertical: 'top', horizontal: 'right'}}
-      id={menuId}
-      keepMounted
-      transformOrigin={{vertical: 'top', horizontal: 'right'}}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-      onClick={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/home"> Profile </Link>
-      </MenuItem>
+  {
+    isLoggedIn
+      ? (renderMenu = (
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+            id={menuId}
+            keepMounted
+            transformOrigin={{vertical: 'top', horizontal: 'right'}}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+            onClick={renderMenu}
+          >
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/home"> Profile </Link>
+            </MenuItem>
 
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/search"> Search </Link>
-      </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/search"> Search </Link>
+            </MenuItem>
 
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/events"> All Events </Link>
-      </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/events"> All Events </Link>
+            </MenuItem>
 
-      <MenuItem onClick={handleMenuClose}>
-        <Link to="/addEvent"> Create Event </Link>
-      </MenuItem>
-    </Menu>
-  )
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/addEvent"> Create Event </Link>
+            </MenuItem>
+          </Menu>
+        ))
+      : (renderMenu = (
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+            id={menuId}
+            keepMounted
+            transformOrigin={{vertical: 'top', horizontal: 'right'}}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+            onClick={handleMenuClose}
+          >
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/home"> Profile </Link>
+            </MenuItem>
+
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/search"> Search </Link>
+            </MenuItem>
+
+            <MenuItem onClick={handleMenuClose}>
+              <Link to="/events"> All Events </Link>
+            </MenuItem>
+          </Menu>
+        ))
+  }
 
   // eslint-disable-next-line no-return-assign
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className="toolbar">
-
           <IconButton
             edge="end"
             aria-label="account of current user"

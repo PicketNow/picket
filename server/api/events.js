@@ -114,6 +114,18 @@ router.get('/rsvp/:userId', async (req, res, next) => {
   }
 })
 
+router.get('/organizedby/:userId', async (req, res, next) => {
+  try {
+    const events = await Events.findAll({
+      where: {organizerId: req.params.userId}
+    })
+
+    res.send(events)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const {
