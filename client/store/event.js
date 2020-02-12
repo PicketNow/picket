@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 import axios from 'axios'
 import {getAttendees} from './rsvp'
+import socket from '../socket'
 
 const ALL_EVENTS = 'ALL_EVENTS'
 const FILTER_EVENTS = 'FILTER_EVENTS'
@@ -12,6 +13,7 @@ const ADD_NEW_EVENT = 'ADD_NEW_EVENT'
 const SEARCH_EVENTS = 'SEARCH_EVENTS'
 const EVENT_COMMENTS = 'EVENT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
+const USER_EVENTS = 'USER_EVENTS'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
@@ -21,7 +23,7 @@ const gotEventComments = comments => ({
   comments
 })
 
-const addNewComment = comment => ({
+export const addNewComment = comment => ({
   type: ADD_COMMENT,
   comment
 })
@@ -44,6 +46,8 @@ const addNewEvent = event => ({
   event
 })
 const gotEvent = event => ({type: SINGLE_EVENT, event})
+
+const gotUserEvents = events => ({type: USER_EVENTS, events})
 
 export const getAllEvents = () => {
   return async dispatch => {
@@ -92,6 +96,7 @@ export const getEventComments = eventId => {
     try {
       const comments = await axios.get(`/api/comments/${eventId}`)
       dispatch(gotEventComments(comments.data))
+      // socket.emit('new-message', comments.data)
     } catch (err) {
       console.error(err)
     }
@@ -182,8 +187,20 @@ export const commentOnEvent = comment => async dispatch => {
   try {
     const result = await axios.post('/api/comments', comment)
     dispatch(addNewComment(result))
+    socket.emit('new-message', result)
   } catch (err) {
     console.log(err)
+  }
+}
+
+export const getUserEvents = userId => async dispatch => {
+  try {
+    const res = await axios.get(`/api/events/organizedby/${userId}`)
+    console.log('here in the thunk', res.data)
+    const action = gotUserEvents(res.data)
+    dispatch(action)
+  } catch (err) {
+    console.error(err)
   }
 }
 
@@ -219,6 +236,8 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, eventComments: action.comments}
     case ADD_COMMENT:
       return {...state, eventComments: [...state.eventComments, action.comment]}
+    case USER_EVENTS:
+      return {...state, events: action.events}
     default:
       return state
   }

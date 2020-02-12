@@ -26,9 +26,8 @@ nav a {
 
 form div {
   margin: 1em;
-  display: inline-block;
+  display: flex;
 }
-
 
 /* button {
   border: 0;
@@ -51,20 +50,6 @@ form div {
     inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 } */
 
-input[type='text'] {
-  width: 50%;
-  padding: 5px 5px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
-select[type='text'] {
-  width: 50%;
-  padding: 15px 15px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
 .comments-container {
   display: flex;
   flex-flow: column nowrap;
@@ -81,9 +66,25 @@ select[type='text'] {
   color: white;
 }
 
+.buttons {
+  margin-left: 15px;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  background-color: #50a2a7;
+  border: 0.2em solid rgb(115, 70, 238);
+  border-radius: 0.3em;
+  color: #f4fcf8;
+  box-shadow: 1.5px 2px #888888;
+  font-weight: 600;
+}
 
-button:hover {
-  background-color: rgb(184, 230, 165);
+.comment-form {
+  margin-left: 3em;
+}
+
+.buttons:hover {
+  background-color: #f4fcf8;
+  color: #50a2a7;
+  border: 0.2em solid rgb(115, 70, 238);
 }
 
 button:active {
@@ -91,8 +92,15 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
+input[type='text'] {
+  padding: 1em 1em;
+  margin: 8px 0;
+  box-sizing: border-box;
+  min-width: 20%;
+}
+
 .toolbar {
-  background-color: #bee9e8;
+  background-color: #50a2a7;
 }
 
 /*
@@ -110,10 +118,10 @@ USER PROFILE PAGE STYLING
 */
 .user-props-container {
   padding: 0.25em 0.25em 0.25em 0.25em;
-  background-color: silver;
+  background-color: #f4fcf8;
   border-style: solid;
-  border-color: red green blue yellow;
-  box-shadow: 0px 0px 15px midnightblue;
+  border-color: #50a2a7;
+  box-shadow: 10px 10px 15px midnightblue;
 }
 
 .user-page {
@@ -133,7 +141,7 @@ USER PROFILE PAGE STYLING
 SINGLE EVENT PAGE STYLING
 */
 
-.single-event-page-container {
+/* .single-event-page-container {
   padding: 1em;
 }
 
@@ -157,7 +165,6 @@ SINGLE EVENT PAGE STYLING
   margin-top: 0;
   width: 40%;
   padding-left: 1em;
-  /* margin: auto */
 }
 
 .rsvp-button {
@@ -195,13 +202,13 @@ SINGLE EVENT PAGE STYLING
   width: 90%;
   justify-self: left;
   margin: auto;
-}
+} */
 
 /* #google_map {
   margin: auto;
 } */
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   .outermost-container {
     display: flex;
     justify-content: center;
@@ -228,11 +235,6 @@ SINGLE EVENT PAGE STYLING
 
   .event-info-left {
     width: 90%;
-    /* justify-content: center;
-    justify-self: center;
-    align-items: center;
-    padding: auto;
-    margin: auto; */
     display: flex;
     flex-direction: column;
   }
@@ -251,11 +253,6 @@ SINGLE EVENT PAGE STYLING
 
   .event-info-right {
     width: 90%;
-    /* justify-content: center;
-    justify-self: center;
-    align-items: center;
-    padding: auto;
-    margin: auto; */
     display: flex;
     flex-direction: column;
   }
@@ -308,7 +305,17 @@ SINGLE EVENT PAGE STYLING
     justify-self: left;
     margin: auto;
   }
+} */
+
+/* #script-loader {
+  font-size: 20px;
 }
+
+@media (max-width: 600px) {
+  #script-loader {
+    font-size: 10px;
+  }
+} */
 
 .jumbotron-text {
   color: black;

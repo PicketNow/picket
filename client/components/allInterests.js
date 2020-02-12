@@ -4,7 +4,7 @@ import {getInterestsFromServer} from '../store/interestReducer'
 import {Link, Router} from 'react-router-dom'
 import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
 import {sizing} from '@material-ui/system'
-import InterestCard from './InterestCard'
+import InterestCard from './interestButton'
 
 class AllInterests extends React.Component {
   componentDidMount() {
