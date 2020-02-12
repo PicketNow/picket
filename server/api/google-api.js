@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Event = require('../db/models/event')
 
-const {GOOGLE_MAP_KEY} = require('../../secrets')
+// const {GOOGLE_MAP_KEY} = require('../../secrets')
 const axios = require('axios')
 
 const formatUrl = async eventId => {

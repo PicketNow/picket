@@ -1,6 +1,6 @@
 import React from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
-import {GOOGLE_MAP_KEY} from '../../../secrets'
+// import {GOOGLE_MAP_KEY} from '../../../secrets'
 
 const MapSection = props => {
   return (
