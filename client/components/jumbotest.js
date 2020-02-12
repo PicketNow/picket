@@ -66,7 +66,7 @@ export default function MainFeaturedPost(props) {
               Give a shit? ...Picket!
             </Typography>
 
-            <Button variant="contained" color="default" href="/signup">
+            <Button variant="contained" color="default" href="/home">
               Signup
             </Button>
           </div>
