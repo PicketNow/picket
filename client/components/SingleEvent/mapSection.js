@@ -1,6 +1,6 @@
 import React from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api'
-import {GOOGLE_MAP_KEY} from '../../../secrets'
+// import {GOOGLE_MAP_KEY} from '../../../secrets'
 
 const MapSection = props => {
   return (
@@ -10,7 +10,10 @@ const MapSection = props => {
         {props.event.city}, {props.event.zipcode}
       </div>
 
-      <LoadScript id="script-loader" googleMapsApiKey={GOOGLE_MAP_KEY}>
+      <LoadScript
+        id="script-loader"
+        googleMapsApiKey={process.env.GOOGLE_MAP_KEY}
+      >
         <GoogleMap
           id="google-map"
           mapContainerStyle={{height: '250px', width: '250px'}}
