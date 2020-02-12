@@ -9,6 +9,7 @@ class UserInterests extends React.Component {
   }
 
   render() {
+    console.log('props in render', this.props)
     return (
       <div>
         <div className="user-interests">

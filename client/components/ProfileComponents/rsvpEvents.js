@@ -1,6 +1,6 @@
 import React from 'react'
 import {getRsvpEvents} from '../../store/event'
-
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 class RsvpEvents extends React.Component {
@@ -15,7 +15,9 @@ class RsvpEvents extends React.Component {
           <h3>Current RSVPs:</h3>
           <ul>
             {this.props.rsvpEvents.map(event => (
-              <li key={event.id}>{event.title}</li>
+              <li key={event.id}>
+                <Link to={`/events/${event.id}`}>{event.title}</Link>
+              </li>
             ))}
           </ul>
         </div>

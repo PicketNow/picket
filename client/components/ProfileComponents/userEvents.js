@@ -11,14 +11,15 @@ class UserEvents extends React.Component {
   render() {
     return (
       <div>
-        <div className="user-events">
+        <div className="rsvp-events">
           <h3>Events You're Organizing:</h3>
-
-          {this.props.userEvents.events.map(event => (
-            <div key={event}>
-              <Link to={`/events/${event.id}`}>{event.title}</Link>
-            </div>
-          ))}
+          <ul>
+            {this.props.userEvents.events.map(event => (
+              <li key={event.id}>
+                <Link to={`/events/${event.id}`}>{event.title}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     )
