@@ -9,9 +9,9 @@ class PostedComments extends React.Component {
     await this.props.getEventComments(this.props.eventId)
   }
 
-  componentDidUpdate(comments) {
+  async componentDidUpdate(comments) {
     if (comments.comments.length !== this.props.comments.length) {
-      this.props.getEventComments(this.props.eventId)
+      await this.props.getEventComments(this.props.eventId)
     }
   }
 
@@ -23,22 +23,9 @@ class PostedComments extends React.Component {
         {comments && (
           <Grid container spacing={12}>
             {comments.map(comment => (
-              <Grid
-                key={comment.id}
-                className="each-card"
-                container
-                spacing={12}
-              >
+              <Grid key={comment.id} className="each-card" container xs={12}>
                 <CommentCard comment={comment} />
               </Grid>
-
-              // <Grid item xs={4} key={comment.id}>
-              //   <Card variant="outlined">
-              //     <div key={comment.id} className="comment-container">
-              //       <div className="comment-title">{comment.words}</div>
-              //     </div>
-              //   </Card>
-              // </Grid>
             ))}
           </Grid>
         )}

@@ -1,6 +1,7 @@
 /* eslint-disable complexity */
 import axios from 'axios'
 import {getAttendees} from './rsvp'
+import socket from '../socket'
 
 const ALL_EVENTS = 'ALL_EVENTS'
 const FILTER_EVENTS = 'FILTER_EVENTS'
@@ -21,7 +22,7 @@ const gotEventComments = comments => ({
   comments
 })
 
-const addNewComment = comment => ({
+export const addNewComment = comment => ({
   type: ADD_COMMENT,
   comment
 })
@@ -92,6 +93,7 @@ export const getEventComments = eventId => {
     try {
       const comments = await axios.get(`/api/comments/${eventId}`)
       dispatch(gotEventComments(comments.data))
+      // socket.emit('new-message', comments.data)
     } catch (err) {
       console.error(err)
     }
@@ -182,6 +184,7 @@ export const commentOnEvent = comment => async dispatch => {
   try {
     const result = await axios.post('/api/comments', comment)
     dispatch(addNewComment(result))
+    socket.emit('new-message', result)
   } catch (err) {
     console.log(err)
   }
