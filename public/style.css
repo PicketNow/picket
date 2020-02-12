@@ -26,9 +26,8 @@ nav a {
 
 form div {
   margin: 1em;
-  display: inline-block;
+  display: flex;
 }
-
 
 /* button {
   border: 0;
@@ -80,7 +79,6 @@ select[type='text'] {
 .navButton a {
   color: white;
 }
-
 
 button:hover {
   background-color: rgb(184, 230, 165);

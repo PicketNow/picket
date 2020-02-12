@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Grid, Typography, Card, CardMedia} from '@material-ui/core'
+import {Grid, Card, CardMedia} from '@material-ui/core'
+import moment from 'moment'
 
 const EventCard = props => {
   let events = props.events
@@ -20,7 +21,9 @@ const EventCard = props => {
                   <Link to={`/events/${event.id}`}>
                     <div className="event-title">{event.title}</div>
                   </Link>
-                  <div className="event-date">{event.date.slice(0, 16)}</div>
+                  <div className="event-date">
+                    {moment(event.date).format()}
+                  </div>
                   {/* <div className="event-city">{event.city}</div> */}
                 </div>
               </Card>
