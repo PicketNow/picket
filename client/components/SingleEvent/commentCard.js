@@ -46,6 +46,7 @@ export default function CommentCard(props) {
           <Typography component="h3" variant="h7">
             {props.comment.userName}
           </Typography>
+
           <Typography variant="subtitle2" color="textSecondary">
             <Moment format="D MMM YYYY" withTitle>
               {props.comment.createdAt}
@@ -55,6 +56,14 @@ export default function CommentCard(props) {
           <Typography component="body2" variant="body7" color="textSecondary">
             {props.comment.words}
           </Typography>
+          <div>
+            <Button
+              color="primary"
+              onClick={props.deleteComment(props.comment.id)}
+            >
+              Delete
+            </Button>
+          </div>
         </CardContent>
       </div>
     </Card>
