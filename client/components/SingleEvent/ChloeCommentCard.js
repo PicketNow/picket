@@ -11,16 +11,16 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: '#f4fcf8',
-    // height: 85,
-    width: '50%'
+    height: 85,
+    minWidth: '50%'
   },
 
   details: {
     display: 'flex'
   },
   content: {
-    flex: 1
-    // flex: '1 0 auto',
+    flex: '1 0 auto',
+    maxHeight: 85
   },
   cover: {
     width: 85,
@@ -43,17 +43,17 @@ export default function CommentCard(props) {
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h7" variant="h7">
+            {props.comment.words}
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
             {props.comment.userName}
           </Typography>
-          <Typography variant="subtitle2" color="textSecondary">
+
+          <Typography variant="subtitle1" color="textSecondary">
             <Moment format="D MMM YYYY" withTitle>
               {props.comment.createdAt}
             </Moment>
-          </Typography>
-          <br />
-          <Typography component="h7" variant="h7" color="textSecondary">
-            {props.comment.words}
           </Typography>
         </CardContent>
       </div>
