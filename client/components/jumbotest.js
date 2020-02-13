@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
+import TypedReactTagline from './typedjs'
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
@@ -63,7 +64,7 @@ export default function MainFeaturedPost(props) {
               Picket
             </Typography>
             <Typography variant="h4" color="inherit" paragraph>
-              Give a shit? ...Picket!
+              <TypedReactTagline />
             </Typography>
 
             <Button variant="contained" color="default" href="/home">

@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import Grid from '@material-ui/core/Grid'
 
 /**
  * COMPONENT
@@ -10,43 +11,63 @@ const AuthFormSu = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <Grid>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="firstName">
-            <small>First Name:</small>
-          </label>
-          <input name="firstName" type="firstName" />
-        </div>
+        <Grid>
+          <Grid>
+            <label htmlFor="firstName">
+              <small>First Name:</small>
+            </label>
+          </Grid>
+          <Grid>
+            <input name="firstName" type="firstName" />
+          </Grid>
+        </Grid>
         <br />
-        <div>
-          <label htmlFor="lastName">
-            <small>Last Name:</small>
-          </label>
-          <input name="lastName" type="lastName" />
-        </div>
+        <Grid>
+          <Grid>
+            <label htmlFor="lastName">
+              <small>Last Name:</small>
+            </label>
+          </Grid>
+          <Grid>
+            <input name="lastName" type="lastName" />
+          </Grid>
+        </Grid>
         <br />
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
+        <Grid>
+          <Grid>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+          </Grid>
+          <Grid>
+            <input name="email" type="text" />
+          </Grid>
+        </Grid>
         <br />
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
+        <Grid>
+          <Grid>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+          </Grid>
+          <Grid>
+            <input name="password" type="password" />
+          </Grid>
+        </Grid>
         <br />
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        <Grid>
+          <Grid>
+            <button className="form-buttons" type="submit">
+              <strong>{displayName}</strong>
+            </button>
+          </Grid>
+        </Grid>
+        {error && error.response && <Grid> {error.response.data} </Grid>}
       </form>
       {/* <a href="/auth/google">{displayName} with Google</a> */}
-    </div>
+    </Grid>
   )
 }
 

@@ -81,6 +81,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
   const menuId = 'primary-search-account-menu'
   let renderMenu
 
+  // eslint-disable-next-line no-lone-blocks
   {
     isLoggedIn
       ? (renderMenu = (

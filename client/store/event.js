@@ -14,10 +14,14 @@ const SEARCH_EVENTS = 'SEARCH_EVENTS'
 const EVENT_COMMENTS = 'EVENT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
 const USER_EVENTS = 'USER_EVENTS'
+const REMOVE_EVENT = 'REMOVE_EVENT'
+const DELETE_COMMENT = 'DELETE_COMMENT'
+const UPDATED_EVENT = 'UPDATED_EVENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
-
+const removeEvent = event => ({type: REMOVE_EVENT, event})
+const deletedComment = commentId => ({type: DELETE_COMMENT, commentId})
 const gotEventComments = comments => ({
   type: EVENT_COMMENTS,
   comments
@@ -45,6 +49,7 @@ const addNewEvent = event => ({
   type: ADD_NEW_EVENT,
   event
 })
+const updatedEvent = event => ({type: UPDATED_EVENT, event})
 const gotEvent = event => ({type: SINGLE_EVENT, event})
 
 const gotUserEvents = events => ({type: USER_EVENTS, events})
@@ -183,6 +188,17 @@ export const submitEvent = event => async dispatch => {
   }
 }
 
+export const updateEvent = event => async dispatch => {
+  console.log('update eventhunk')
+  try {
+    console.log('update eventhunk try block')
+    const res = await axios.put('/api/events', event)
+    dispatch(updatedEvent(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const commentOnEvent = comment => async dispatch => {
   try {
     const result = await axios.post('/api/comments', comment)
@@ -193,11 +209,32 @@ export const commentOnEvent = comment => async dispatch => {
   }
 }
 
+export const deleteComment = commentId => async dispatch => {
+  try {
+    console.log('here in the thunk', commentId)
+    await axios.delete(`/api/comments/${commentId}`)
+    dispatch(deletedComment(commentId))
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export const getUserEvents = userId => async dispatch => {
   try {
     const res = await axios.get(`/api/events/organizedby/${userId}`)
     console.log('here in the thunk', res.data)
     const action = gotUserEvents(res.data)
+    dispatch(action)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const removeEventFromServer = eventId => async dispatch => {
+  try {
+    console.log('IN DELETE THUNK', eventId)
+    await axios.delete(`/api/events/${eventId}`)
+    const action = removeEvent({eventId})
     dispatch(action)
   } catch (err) {
     console.error(err)
@@ -232,12 +269,29 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, subscribedEvents: action.subscribedEvents}
     case ADD_NEW_EVENT:
       return {...state, events: [...state.events, action.event]}
+    case UPDATED_EVENT:
+      let filtered = [...state.events].filter(event => {
+        return event.id != action.event.id
+      })
+      return {...state, events: [...filtered, action.event]}
     case EVENT_COMMENTS:
       return {...state, eventComments: action.comments}
     case ADD_COMMENT:
       return {...state, eventComments: [...state.eventComments, action.comment]}
     case USER_EVENTS:
       return {...state, events: action.events}
+    case REMOVE_EVENT:
+      return {
+        ...state,
+        events: state.events.filter(event => event.id !== action.event.id)
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        eventComments: state.eventComments.filter(comment => {
+          return comment.id !== action.commentId
+        })
+      }
     default:
       return state
   }
