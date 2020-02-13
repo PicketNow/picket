@@ -7,7 +7,7 @@ a {
 }
 
 ul {
-  list-style-image: url('https://go.aws/2H2fXBK');
+  list-style-image: url('./teenyPicket.png');
 }
 
 label {
@@ -133,17 +133,18 @@ INSTALL APP BUTTON*/
 /*
 USER PROFILE PAGE STYLING
 */
-.user-props-container {
-  padding: 0.25em 0.25em 0.25em 0.25em;
+.profile-image {
+  max-width: 50%;
+  height: auto;
+  margin-bottom: 3em;
   background-color: #f4fcf8;
   border-style: solid;
-  border-color: #50a2a7;
-  box-shadow: 10px 10px 15px midnightblue;
+  border-color: black;
 }
 
-.user-page {
-  padding: 0.25em 0.5em 0.25em 0.5em;
-}
+/* .user-page {
+  /* padding: 0.25em 0.5em 0.25em 0.5em; */
+/* } */
 
 .user-page-title {
   display: flex;
