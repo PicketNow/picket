@@ -1,8 +1,7 @@
 import React from 'react'
 import {makeStyles, useTheme} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
+import {CardContent, CardMedia, Avatar, CardHeader} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Moment from 'react-moment'
 
@@ -23,8 +22,8 @@ const useStyles = makeStyles(theme => ({
     // flex: '1 0 auto',
   },
   cover: {
-    width: 85,
-    maxHeight: 85
+    width: 50,
+    maxHeight: 50
   }
 }))
 
@@ -43,7 +42,7 @@ export default function CommentCard(props) {
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h3" variant="h7">
             {props.comment.userName}
           </Typography>
           <Typography variant="subtitle2" color="textSecondary">
@@ -51,8 +50,8 @@ export default function CommentCard(props) {
               {props.comment.createdAt}
             </Moment>
           </Typography>
-          <br />
-          <Typography component="h7" variant="h7" color="textSecondary">
+
+          <Typography component="body2" variant="body7" color="textSecondary">
             {props.comment.words}
           </Typography>
         </CardContent>
