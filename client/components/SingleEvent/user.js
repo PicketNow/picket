@@ -24,6 +24,7 @@ const UserRender = props => {
                 component="img"
                 className="event-banner"
                 image={props.event.imageUrl}
+                style={{maxWidth: '600px'}}
               />
               <CardHeader id="event-title" title={props.event.title} />
               <CardContent>
@@ -60,6 +61,7 @@ const UserRender = props => {
               <CardActionArea id="rsvp-button-container">
                 {props.isRSVPed() ? (
                   <Button
+                    style={{fontSize: '1em'}}
                     className="rsvp-button"
                     type="button"
                     onClick={props.handleClick}
@@ -68,6 +70,7 @@ const UserRender = props => {
                   </Button>
                 ) : (
                   <Button
+                    style={{fontSize: '2em'}}
                     className="rsvp-button"
                     type="button"
                     onClick={props.handleClick}
@@ -78,6 +81,7 @@ const UserRender = props => {
               </CardActionArea>
               {props.isRSVPed() ? (
                 <Button
+                  style={{fontSize: '1em'}}
                   className="check-in-button"
                   type="button"
                   onClick={props.handleCheckIn}
@@ -86,13 +90,24 @@ const UserRender = props => {
                 </Button>
               ) : null}
               {props.user.id === props.event.organizerId ? (
-                <Button
-                  className="delete-button"
-                  type="button"
-                  onClick={props.handleDelete}
-                >
-                  Delete This Event
-                </Button>
+                <React.Fragment>
+                  <Button
+                    style={{fontSize: '1em'}}
+                    className="delete-button"
+                    type="button"
+                    onClick={props.handleDelete}
+                  >
+                    Delete This Event
+                  </Button>
+                  <Button
+                    style={{fontSize: '1em'}}
+                    className="delete-button"
+                    type="button"
+                    onClick={props.handleUpdate}
+                  >
+                    Update
+                  </Button>
+                </React.Fragment>
               ) : null}
               <MapSection coords={props.coords} event={props.event} />
             </Card>

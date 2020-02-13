@@ -96,7 +96,7 @@ function ProductCategories(props) {
     },
     {
       url:
-        'https://lh3.googleusercontent.com/proxy/cImdD6QQaZuYpERjnY6uJ7OBbXJyFyfUKM-11M6FNhO3zFOMa-a05o1h3yOW_iV2JtRdw35lSWRet6CSYWDCda24ZLoJYE4F4avl16bWyHREHrq-EpVtMwjgfjDgtZneS8tHXgQHWnhlqhtPYGFP_VsXZ7DkSjgJkMi1RCCZKVR6qqHReXRCXcND6mS6q3-D7KF4GB47lriZ_qrw_s0sE312BfctCMauxXarXfHtbVrfUkPY-nWDrI2KKjZtFmpbp1TFwCw4wj9L-sGe22WEe9dE4q16Meh5648Ct78WU-Uu6UEdOyym-PKq8x-VuOCINgulX6AYM4JAFrzWUfELx2xUUSB3IzvEatS_sk2UepHrjaFaLtnxemxjICFKOj1FC-HDElf6mTIq8FtOgS6dSRiGcUy0xFFvmlH2dBYzmCkwdC5JlHBZF6Y6Vtg6IrZf2Tp5bCrl4A0ZVGX_BoPHFOzi5BeEBg8',
+        'https://www.un.org/sites/www.un.org/files/styles/large/public/2018/12/18/wind-turbines-cadiz-spain.jpg',
       title: 'Environmental',
       width: '20%',
       href: 'events/category/3'

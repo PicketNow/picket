@@ -151,6 +151,39 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.put('/', async (req, res, next) => {
+  try {
+    const {
+      id,
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId,
+      interestId
+    } = req.body
+    const event = await Events.findByPk(id)
+    await event.update({
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId,
+      interestId
+    })
+    await event.save()
+    res.json(event)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.delete('/:eventId', async (req, res, next) => {
   try {
     await Events.destroy({

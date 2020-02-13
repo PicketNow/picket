@@ -29,6 +29,7 @@ class SingleEvent extends React.Component {
     this.handleCheckIn = this.handleCheckIn.bind(this)
     this.getLat = this.getLat.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   async componentDidMount() {
@@ -60,6 +61,10 @@ class SingleEvent extends React.Component {
   handleDelete() {
     this.props.removeEventFromServer(this.props.match.params.eventId)
     this.props.history.push('/events')
+  }
+
+  handleUpdate() {
+    this.props.history.push(`/updateEvent/${this.props.match.params.eventId}`)
   }
 
   isOrganizer() {
@@ -103,6 +108,7 @@ class SingleEvent extends React.Component {
             coords={this.state.coords}
             handleDelete={this.handleDelete}
             isOrganizer={this.isOrganizer}
+            handleUpdate={this.handleUpdate}
           />
           <CommentBoard
             userId={this.props.user.id}

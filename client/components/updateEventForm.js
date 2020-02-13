@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   textField: {}
 }))
 
-function EventForm(props) {
+function UpdateEventForm(props) {
   const classes = useStyles()
 
   const [selectedDate, setSelectedDate] = React.useState(new Date())
@@ -77,6 +77,7 @@ function EventForm(props) {
                 label="Title"
                 name="title"
                 fullwidth
+                placeholder={props.event.title}
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -97,6 +98,7 @@ function EventForm(props) {
                 name="description"
                 variant="outlined"
                 fullwidth
+                placeholder={props.event.description}
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -156,6 +158,7 @@ function EventForm(props) {
                   id="standard-required"
                   label="Street Address"
                   name="stAddress"
+                  placeholder={props.event.stAddress}
                   fullwidth
                   error={
                     props.state.typedstAddress && !props.state.stAddress.length
@@ -173,6 +176,7 @@ function EventForm(props) {
                   id="standard-required"
                   label="City"
                   name="city"
+                  placeholder={props.event.city}
                   fullwidth
                   error={props.state.typedcity && !props.state.city.length}
                   value={props.state.city}
@@ -189,6 +193,7 @@ function EventForm(props) {
                   label="State"
                   name="state"
                   fullwidth
+                  placeholder={props.event.state}
                   error={props.state.typedstate && !props.state.state.length}
                   value={props.state.state}
                   onChange={props.handleForm}
@@ -203,6 +208,7 @@ function EventForm(props) {
                   id="standard-required"
                   label="Zipcode"
                   name="zipcode"
+                  placeholder={props.event.zipcode}
                   fullwidth
                   error={
                     props.state.typedzipcode &&
@@ -274,4 +280,4 @@ function EventForm(props) {
   )
 }
 
-export default EventForm
+export default UpdateEventForm
