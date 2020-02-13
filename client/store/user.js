@@ -58,7 +58,7 @@ export const login = (email, password) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
+    history.push('/profile')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

@@ -33,7 +33,10 @@ class FeaturedEvents extends React.Component {
               <h3 />
 
               <div>
-                <EventCard events={this.props.subscribedEvents} />
+                <EventCard
+                  lastPage="featuredEvent"
+                  events={this.props.subscribedEvents}
+                />
               </div>
             </div>
           ) : (

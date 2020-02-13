@@ -27,51 +27,103 @@ const useStyles = makeStyles({
 export default function FeaturedEvent(props) {
   const classes = useStyles()
   const events = props.events
+  console.log('EVENTCARD', props)
 
   return (
     <div align="center" className="events-container">
-      {events && (
-        // <Grid container spacing={4}>
-        <Carousel align="center">
-          {events.map(event => (
-            <Grid item xs={12} md={6} key={event.id}>
-              <CardActionArea component={Link} to={`/events/${event.id}`}>
-                <Card className={classes.card}>
-                  <div className={classes.cardDetails}>
-                    <CardContent>
-                      <Typography component="h2" variant="h5">
-                        {event.title}
-                      </Typography>
-                      <Typography variant="subtitle1" color="textSecondary">
-                        <Moment format="D MMM YYYY" withTitle>
-                          {events.date}
-                        </Moment>
-                      </Typography>
-                      <Typography variant="subtitle1" paragraph>
-                        {event.description}
-                      </Typography>
-                      <Link
-                        to={`/events/${event.id}`}
-                        variant="subtitle1"
-                        color="primary"
-                      >
-                        {' '}
-                        See More Details...
-                      </Link>
-                    </CardContent>
-                  </div>
-                  <Hidden xsDown>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={event.imageUrl}
-                    />
-                  </Hidden>
-                </Card>
-              </CardActionArea>
-            </Grid>
-          ))}
-        </Carousel>
-        // {/* </Grid> */}
+      {props.lastPage === 'featuredEvent' ? (
+        <div>
+          {events && (
+            <Carousel align="center">
+              {events.map(event => (
+                <Grid item xs={12} md={6} key={event.id}>
+                  <CardActionArea component={Link} to={`/events/${event.id}`}>
+                    <Card className={classes.card}>
+                      <div className={classes.cardDetails}>
+                        <CardContent>
+                          <Typography component="h2" variant="h5">
+                            {event.title}
+                          </Typography>
+                          <Typography variant="subtitle1" color="textSecondary">
+                            <Moment format="D MMM YYYY" withTitle>
+                              {events.date}
+                            </Moment>
+                          </Typography>
+                          <Typography variant="subtitle1" paragraph>
+                            {event.description}
+                          </Typography>
+                          <Link
+                            to={`/events/${event.id}`}
+                            variant="subtitle1"
+                            color="primary"
+                          >
+                            {' '}
+                            See More Details...
+                          </Link>
+                        </CardContent>
+                      </div>
+                      <Hidden xsDown>
+                        <CardMedia
+                          className={classes.cardMedia}
+                          image={event.imageUrl}
+                        />
+                      </Hidden>
+                    </Card>
+                  </CardActionArea>
+                </Grid>
+              ))}
+            </Carousel>
+          )}{' '}
+        </div>
+      ) : (
+        <div>
+          {events && (
+            <div>
+              <Grid container spacing={4}>
+                {events.map(event => (
+                  <Grid item xs={12} md={6} key={event.id}>
+                    <CardActionArea component={Link} to={`/events/${event.id}`}>
+                      <Card className={classes.card}>
+                        <div className={classes.cardDetails}>
+                          <CardContent>
+                            <Typography component="h2" variant="h5">
+                              {event.title}
+                            </Typography>
+                            <Typography
+                              variant="subtitle1"
+                              color="textSecondary"
+                            >
+                              <Moment format="D MMM YYYY" withTitle>
+                                {events.date}
+                              </Moment>
+                            </Typography>
+                            <Typography variant="subtitle1" paragraph>
+                              {event.description}
+                            </Typography>
+                            <Link
+                              to={`/events/${event.id}`}
+                              variant="subtitle1"
+                              color="primary"
+                            >
+                              {' '}
+                              See More Details...
+                            </Link>
+                          </CardContent>
+                        </div>
+                        <Hidden xsDown>
+                          <CardMedia
+                            className={classes.cardMedia}
+                            image={event.imageUrl}
+                          />
+                        </Hidden>
+                      </Card>
+                    </CardActionArea>
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
+          )}
+        </div>
       )}
     </div>
   )

@@ -81,6 +81,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
   const menuId = 'primary-search-account-menu'
   let renderMenu
 
+  // eslint-disable-next-line no-lone-blocks
   {
     isLoggedIn
       ? (renderMenu = (
@@ -172,7 +173,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
               {/* The navbar will show these links before you log in */}
 
               <Button className="navButton" color="inherit">
-                <Link to="/home">Sign In</Link>
+                <Link to="/login">Sign In</Link>
               </Button>
             </div>
           )}
