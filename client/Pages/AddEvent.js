@@ -93,6 +93,7 @@ class AddEvent extends React.Component {
       time: null,
       interest: ''
     })
+    this.props.history.push('/events')
   }
 
   render() {
