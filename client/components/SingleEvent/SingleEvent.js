@@ -4,7 +4,8 @@ import {
   getSingleEvent,
   getRsvpEvents,
   rsvpToEvent,
-  unrsvpToEvent
+  unrsvpToEvent,
+  removeEventFromServer
 } from '../../store/event'
 import {me} from '../../store/user'
 import {getAttendees, findCheckIn, findRsvp} from '../../store/rsvp'
@@ -27,6 +28,7 @@ class SingleEvent extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleCheckIn = this.handleCheckIn.bind(this)
     this.getLat = this.getLat.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   async componentDidMount() {
@@ -55,6 +57,16 @@ class SingleEvent extends React.Component {
     this.props.findCheckIn(this.props.match.params.eventId)
   }
 
+  handleDelete() {
+    this.props.removeEventFromServer(this.props.match.params.eventId)
+    this.props.history.push('/events')
+  }
+
+  isOrganizer() {
+    if (this.props.user.id === this.props.event.organizerId) return true
+    else return false
+  }
+
   isRSVPed() {
     let rsvp = false
     if (this.props.rsvpEvents.length) {
@@ -76,6 +88,7 @@ class SingleEvent extends React.Component {
   }
 
   render() {
+    console.log('SINGLE EVENT', this.props)
     if (this.props.user.id) {
       return (
         <React.Fragment>
@@ -88,6 +101,8 @@ class SingleEvent extends React.Component {
             handleClick={this.handleClick}
             handleCheckIn={this.handleCheckin}
             coords={this.state.coords}
+            handleDelete={this.handleDelete}
+            isOrganizer={this.isOrganizer}
           />
           <CommentBoard
             userId={this.props.user.id}
@@ -129,7 +144,8 @@ const mapDispatch = dispatch => ({
   me: () => dispatch(me()),
   getAttendees: eventId => dispatch(getAttendees(eventId)),
   findCheckIn: eventId => dispatch(findCheckIn(eventId)),
-  findRsvp: eventId => dispatch(findRsvp(eventId))
+  findRsvp: eventId => dispatch(findRsvp(eventId)),
+  removeEventFromServer: eventId => dispatch(removeEventFromServer(eventId))
 })
 
 export default connect(mapState, mapDispatch)(SingleEvent)
