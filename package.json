@@ -78,6 +78,7 @@
     "sequelize": "^5.21.3",
     "socket.io": "^2.3.0",
     "styled-components": "^5.0.0",
+    "typed.js": "^2.0.11",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
