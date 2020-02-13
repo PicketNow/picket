@@ -7,7 +7,7 @@ a {
 }
 
 ul {
-  list-style-image: url('https://go.aws/2H2fXBK');
+  list-style-image: url('./teenyPicket.png');
 }
 
 label {
@@ -73,8 +73,23 @@ form div {
   border: 0.2em solid rgb(115, 70, 238);
   border-radius: 0.3em;
   color: #f4fcf8;
-  box-shadow: 1.5px 2px #888888;
+  box-shadow: 1px 1.5px #888888;
   font-weight: 600;
+}
+
+.form-buttons {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  background-color: #50a2a7;
+  border: 0.2em solid rgb(115, 70, 238);
+  border-radius: 0.8em;
+  color: #f4fcf8;
+  box-shadow: 1px 1.5px #888888;
+}
+
+.form-buttons:hover {
+  background-color: #f4fcf8;
+  color: #50a2a7;
+  border: 0.2em solid rgb(115, 70, 238);
 }
 
 .comment-form {
@@ -107,10 +122,12 @@ input[type='text'] {
 INSTALL APP BUTTON*/
 #btnAdd {
   position: fixed;
-  top: 0;
+  top: 3;
   right: 0;
   z-index: 10;
   border-radius: 30px;
+  padding: 0.8em;
+  border: 0.2em solid rgb(148, 148, 148);
 }
 
 .events-container {
@@ -120,17 +137,18 @@ INSTALL APP BUTTON*/
 /*
 USER PROFILE PAGE STYLING
 */
-.user-props-container {
-  padding: 0.25em 0.25em 0.25em 0.25em;
+.profile-image {
+  max-width: 50%;
+  height: auto;
+  margin-bottom: 3em;
   background-color: #f4fcf8;
   border-style: solid;
-  border-color: #50a2a7;
-  box-shadow: 10px 10px 15px midnightblue;
+  border-color: black;
 }
 
-.user-page {
-  padding: 0.25em 0.5em 0.25em 0.5em;
-}
+/* .user-page {
+  /* padding: 0.25em 0.5em 0.25em 0.5em; */
+/* } */
 
 .user-page-title {
   display: flex;
