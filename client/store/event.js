@@ -15,10 +15,13 @@ const EVENT_COMMENTS = 'EVENT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
 const USER_EVENTS = 'USER_EVENTS'
 const REMOVE_EVENT = 'REMOVE_EVENT'
+const DELETE_COMMENT = 'DELETE_COMMENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
 const removeEvent = event => ({type: REMOVE_EVENT, event})
+const deletedComment = commentId => ({type: DELETE_COMMENT, commentId})
+
 const gotEventComments = comments => ({
   type: EVENT_COMMENTS,
   comments
@@ -194,6 +197,15 @@ export const commentOnEvent = comment => async dispatch => {
   }
 }
 
+export const deleteComment = commentId => async dispatch => {
+  try {
+    await axios.delete(`/api/comments/${commentId}`)
+    dispatch(deletedComment(commentId))
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 export const getUserEvents = userId => async dispatch => {
   try {
     const res = await axios.get(`/api/events/organizedby/${userId}`)
@@ -254,6 +266,13 @@ const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         events: state.events.filter(event => event.id !== action.event.eventId)
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        eventComments: state.eventComments.filter(comment => {
+          return comment.id !== action.commentId
+        })
       }
     default:
       return state
