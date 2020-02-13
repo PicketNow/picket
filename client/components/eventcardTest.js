@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Hidden from '@material-ui/core/Hidden'
 import Moment from 'react-moment'
+import Carousel from 'react-material-ui-carousel'
 
 const useStyles = makeStyles({
   card: {
@@ -28,9 +29,10 @@ export default function FeaturedEvent(props) {
   const events = props.events
 
   return (
-    <div className="events-container">
+    <div align="center" className="events-container">
       {events && (
-        <Grid container spacing={4}>
+        // <Grid container spacing={4}>
+        <Carousel align="center">
           {events.map(event => (
             <Grid item xs={12} md={6} key={event.id}>
               <CardActionArea component={Link} to={`/events/${event.id}`}>
@@ -68,7 +70,8 @@ export default function FeaturedEvent(props) {
               </CardActionArea>
             </Grid>
           ))}
-        </Grid>
+        </Carousel>
+        // {/* </Grid> */}
       )}
     </div>
   )

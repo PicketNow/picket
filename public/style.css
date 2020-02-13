@@ -113,6 +113,10 @@ INSTALL APP BUTTON*/
   border-radius: 30px;
 }
 
+.events-container {
+  margin-top: 8;
+}
+
 /*
 USER PROFILE PAGE STYLING
 */

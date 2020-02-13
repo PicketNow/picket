@@ -21,7 +21,6 @@ const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
 const removeEvent = event => ({type: REMOVE_EVENT, event})
 const deletedComment = commentId => ({type: DELETE_COMMENT, commentId})
-
 const gotEventComments = comments => ({
   type: EVENT_COMMENTS,
   comments
