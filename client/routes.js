@@ -10,6 +10,7 @@ import AllEvents from './components/AllEvents'
 import SingleEvent from './components/SingleEvent/SingleEvent'
 import Profile from './Pages/Profile'
 import AddEvent from './Pages/AddEvent'
+import UpdateEvent from './Pages/UpdateEvent'
 import EventsByCategory from './components/EventByCategory'
 import SearchPage from './Pages/searchPage'
 import basicEventForm from './components/basicEventForm'
@@ -41,6 +42,7 @@ class Routes extends Component {
 
         <Route exact path="/" component={HomePage} />
         <Route exact path="/addEvent" component={AddEvent} />
+        <Route exact path="/updateEvent/:eventId" component={UpdateEvent} />
       </Switch>
     )
   }

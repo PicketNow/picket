@@ -51,7 +51,10 @@ class FeaturedEvents extends React.Component {
               </Typography>
               <h3 />
               <div>
-                <EventCard events={this.props.upcomingEvents} />
+                <EventCard
+                  lastPage="featuredEvent"
+                  events={this.props.upcomingEvents}
+                />
               </div>
               {/* {events && <SingleEvent events={events} />} */}
             </div>

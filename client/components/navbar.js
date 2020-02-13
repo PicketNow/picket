@@ -173,7 +173,7 @@ const Navibar = ({handleClick, isLoggedIn}) => {
               {/* The navbar will show these links before you log in */}
 
               <Button className="navButton" color="inherit">
-                <Link to="/login">Sign In</Link>
+                <Link to="/home">Sign In</Link>
               </Button>
             </div>
           )}

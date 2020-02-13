@@ -34,8 +34,12 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:commentId', async (req, res, next) => {
   try {
-    await Comment.delete(req.params.commentId)
-    res.status(200).end()
+    console.log('api first line')
+    console.log('api reqqqqqq', req.params.commentId)
+    const deletedComment = await Comment.destroy({
+      where: {id: req.params.commentId}
+    })
+    res.send(deletedComment).sendStatus(200)
   } catch (err) {
     next(err)
   }
