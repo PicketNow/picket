@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/IconButton'
 
 const UserRender = props => {
+  console.log('SINGLE EVENT USER', props.user, props.event)
   return (
     <Grid container className="outermost-container">
       <Grid container className="single-event-page-container">
@@ -82,6 +83,15 @@ const UserRender = props => {
                   onClick={props.handleCheckIn}
                 >
                   Check In
+                </Button>
+              ) : null}
+              {props.user.id === props.event.organizerId ? (
+                <Button
+                  className="delete-button"
+                  type="button"
+                  onClick={props.handleDelete}
+                >
+                  Delete This Event
                 </Button>
               ) : null}
               <MapSection coords={props.coords} event={props.event} />

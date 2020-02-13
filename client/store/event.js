@@ -14,12 +14,13 @@ const SEARCH_EVENTS = 'SEARCH_EVENTS'
 const EVENT_COMMENTS = 'EVENT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
 const USER_EVENTS = 'USER_EVENTS'
+const REMOVE_EVENT = 'REMOVE_EVENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
+const removeEvent = event => ({type: REMOVE_EVENT, event})
 const deletedComment = commentId => ({type: DELETE_COMMENT, commentId})
-
 const gotEventComments = comments => ({
   type: EVENT_COMMENTS,
   comments
@@ -215,6 +216,17 @@ export const getUserEvents = userId => async dispatch => {
   }
 }
 
+export const removeEventFromServer = eventId => async dispatch => {
+  try {
+    console.log('IN DELETE THUNK', eventId)
+    await axios.delete(`/api/events/${eventId}`)
+    const action = removeEvent({eventId})
+    dispatch(action)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 const initialState = {
   events: [],
   singleEvent: {},
@@ -249,6 +261,10 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, eventComments: [...state.eventComments, action.comment]}
     case USER_EVENTS:
       return {...state, events: action.events}
+    case REMOVE_EVENT:
+      return {
+        ...state,
+        events: state.events.filter(event => event.id !== action.event.eventId)}
     case DELETE_COMMENT:
       return {
         ...state,
