@@ -1,7 +1,7 @@
 import React from 'react'
 import {makeStyles, useTheme} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import {CardContent, CardMedia, Avatar, CardHeader} from '@material-ui/core'
+import {CardContent, CardMedia, Button} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Moment from 'react-moment'
 
@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 export default function CommentCard(props) {
   const classes = useStyles()
   const theme = useTheme()
+  console.log(props, 'here we are in the props')
 
   return (
     <Card className={classes.root} variant="outlined">

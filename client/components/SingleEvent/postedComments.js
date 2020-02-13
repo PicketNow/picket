@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getEventComments} from '../../store/event'
+import {getEventComments, deleteComment} from '../../store/event'
 import {Grid, Card} from '@material-ui/core'
 import CommentCard from './commentCard'
 
@@ -24,7 +24,7 @@ class PostedComments extends React.Component {
           <Grid container spacing={12}>
             {comments.map(comment => (
               <Grid key={comment.id} className="each-card" container xs={12}>
-                <CommentCard comment={comment} />
+                <CommentCard comment={comment} deleteComment={deleteComment} />
               </Grid>
             ))}
           </Grid>

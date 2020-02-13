@@ -198,6 +198,7 @@ export const commentOnEvent = comment => async dispatch => {
 
 export const deleteComment = commentId => async dispatch => {
   try {
+    console.log('here in the thunk', commentId)
     await axios.delete(`/api/comments/${commentId}`)
     dispatch(deletedComment(commentId))
   } catch (err) {
@@ -264,7 +265,8 @@ const eventsReducer = (state = initialState, action) => {
     case REMOVE_EVENT:
       return {
         ...state,
-        events: state.events.filter(event => event.id !== action.event.eventId)}
+        events: state.events.filter(event => event.id !== action.event.eventId)
+      }
     case DELETE_COMMENT:
       return {
         ...state,
