@@ -16,6 +16,7 @@ const ADD_COMMENT = 'ADD_COMMENT'
 const USER_EVENTS = 'USER_EVENTS'
 const REMOVE_EVENT = 'REMOVE_EVENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
+const UPDATED_EVENT = 'UPDATED_EVENT'
 
 const viewEvents = events => ({type: ALL_EVENTS, events})
 const filterEvents = events => ({type: FILTER_EVENTS, events})
@@ -48,6 +49,7 @@ const addNewEvent = event => ({
   type: ADD_NEW_EVENT,
   event
 })
+const updatedEvent = event => ({type: UPDATED_EVENT, event})
 const gotEvent = event => ({type: SINGLE_EVENT, event})
 
 const gotUserEvents = events => ({type: USER_EVENTS, events})
@@ -186,6 +188,17 @@ export const submitEvent = event => async dispatch => {
   }
 }
 
+export const updateEvent = event => async dispatch => {
+  console.log('update eventhunk')
+  try {
+    console.log('update eventhunk try block')
+    const res = await axios.put('/api/events', event)
+    dispatch(updatedEvent(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const commentOnEvent = comment => async dispatch => {
   try {
     const result = await axios.post('/api/comments', comment)
@@ -256,6 +269,11 @@ const eventsReducer = (state = initialState, action) => {
       return {...state, subscribedEvents: action.subscribedEvents}
     case ADD_NEW_EVENT:
       return {...state, events: [...state.events, action.event]}
+    case UPDATED_EVENT:
+      let filtered = [...state.events].filter(event => {
+        return event.id != action.event.id
+      })
+      return {...state, events: [...filtered, action.event]}
     case EVENT_COMMENTS:
       return {...state, eventComments: action.comments}
     case ADD_COMMENT:
@@ -265,7 +283,7 @@ const eventsReducer = (state = initialState, action) => {
     case REMOVE_EVENT:
       return {
         ...state,
-        events: state.events.filter(event => event.id !== action.event.eventId)
+        events: state.events.filter(event => event.id !== action.event.id)
       }
     case DELETE_COMMENT:
       return {
