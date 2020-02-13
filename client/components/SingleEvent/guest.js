@@ -26,6 +26,7 @@ const GuestRender = props => {
           <Grid container item xs={12} sm={6} className="event-info-left">
             <Card elevation={0}>
               <CardMedia
+                style={{maxWidth: '600px'}}
                 component="img"
                 className="event-banner"
                 image={props.event.imageUrl}

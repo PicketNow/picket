@@ -1,13 +1,13 @@
 import React from 'react'
-import EventForm from '../components/eventFormThree.js'
+import UpdateEventForm from '../components/updateEventForm.js'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {submitEvent} from '../store/event'
+import {updateEvent, getSingleEvent} from '../store/event'
 import {Grid} from '@material-ui/core'
 import Jumbo from '../components/Jumbo'
 import Typography from '@material-ui/core/Typography'
 
-class AddEvent extends React.Component {
+class UpdateEvent extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -34,6 +34,7 @@ class AddEvent extends React.Component {
 
   componentDidMount() {
     this.props.me()
+    this.props.getEvent(this.props.match.params.eventId)
   }
 
   handleForm(event) {
@@ -68,7 +69,8 @@ class AddEvent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const newEvent = {
+    const updatedEvent = {
+      id: this.props.match.params.eventId,
       title: this.state.title,
       description: this.state.description,
       stAddress: this.state.stAddress,
@@ -80,8 +82,8 @@ class AddEvent extends React.Component {
       time: this.state.time,
       interestId: this.state.interest
     }
-    console.log(newEvent)
-    this.props.submitEvent(newEvent)
+    console.log(updatedEvent)
+    this.props.updateEvent(updatedEvent)
     this.setState({
       title: '',
       description: '',
@@ -96,19 +98,22 @@ class AddEvent extends React.Component {
   }
 
   render() {
+    console.log('Update event render', this.props)
+    console.log('match params', this.props.match.params.eventId)
     return (
       <div>
         <Jumbo />
         <Grid>
           <Typography variant="h4" gutterBottom align="center">
-            Create your event
+            Update Event
           </Typography>
-          <EventForm
+          <UpdateEventForm
             handleForm={this.handleForm}
             handleSubmit={this.handleSubmit}
             handleTime={this.handleTime}
             handleDate={this.handleDate}
             state={this.state}
+            event={this.props.event}
             allInterests={this.allInterests}
             isComplete={this.isComplete}
             validateZipCode={this.validateZipCode}
@@ -120,12 +125,14 @@ class AddEvent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  event: state.events.singleEvent
 })
 
 const mapDispatchToProps = dispatch => ({
-  submitEvent: event => dispatch(submitEvent(event)),
-  me: () => dispatch(me())
+  updateEvent: event => dispatch(updateEvent(event)),
+  me: () => dispatch(me()),
+  getEvent: eventId => dispatch(getSingleEvent(eventId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddEvent)
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateEvent)
