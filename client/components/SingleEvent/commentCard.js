@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     backgroundColor: '#f4fcf8',
     // height: 85,
-    width: '50%'
+    width: '100%'
   },
 
   details: {
