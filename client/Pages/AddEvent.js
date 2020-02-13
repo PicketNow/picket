@@ -100,7 +100,7 @@ class AddEvent extends React.Component {
       <div>
         <Jumbo />
         <Grid>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom style={{textAlign: 'center'}}>
             Create your event
           </Typography>
           <EventForm
