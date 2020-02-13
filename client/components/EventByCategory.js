@@ -1,7 +1,6 @@
 import React from 'react'
 import {getFilteredEvents} from '../store/event'
 import {connect} from 'react-redux'
-//import event card
 import {
   getUserInterests,
   subscribeToInterest,
