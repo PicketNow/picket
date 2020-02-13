@@ -1,7 +1,7 @@
 import React from 'react'
 import {makeStyles, useTheme} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import {CardContent, CardMedia, Avatar, CardHeader} from '@material-ui/core'
+import {CardContent, CardMedia, Button} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Moment from 'react-moment'
 
@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 export default function CommentCard(props) {
   const classes = useStyles()
   const theme = useTheme()
+  console.log(props, 'here we are in the props')
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -45,6 +46,7 @@ export default function CommentCard(props) {
           <Typography component="h3" variant="h7">
             {props.comment.userName}
           </Typography>
+
           <Typography variant="subtitle2" color="textSecondary">
             <Moment format="D MMM YYYY" withTitle>
               {props.comment.createdAt}
@@ -54,6 +56,14 @@ export default function CommentCard(props) {
           <Typography component="body2" variant="body7" color="textSecondary">
             {props.comment.words}
           </Typography>
+          <div>
+            <Button
+              color="primary"
+              onClick={props.deleteComment(props.comment.id)}
+            >
+              Delete
+            </Button>
+          </div>
         </CardContent>
       </div>
     </Card>

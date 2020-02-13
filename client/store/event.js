@@ -211,6 +211,7 @@ export const commentOnEvent = comment => async dispatch => {
 
 export const deleteComment = commentId => async dispatch => {
   try {
+    console.log('here in the thunk', commentId)
     await axios.delete(`/api/comments/${commentId}`)
     dispatch(deletedComment(commentId))
   } catch (err) {
