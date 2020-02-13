@@ -130,6 +130,10 @@ INSTALL APP BUTTON*/
   border: 0.2em solid rgb(148, 148, 148);
 }
 
+.events-container {
+  margin-top: 8;
+}
+
 /*
 USER PROFILE PAGE STYLING
 */

@@ -11,6 +11,7 @@ import EventCard from './eventcardTest'
 import Jumbo from './Jumbo'
 import CategorySearch from '../components/searchComps/categorySearch'
 import {me} from '../store/user'
+import Typography from './Typography'
 
 export class EventsByCategory extends React.Component {
   constructor(props) {
@@ -88,9 +89,10 @@ export class EventsByCategory extends React.Component {
             </p>
           </div>
         )}
-
-        <h1> All {firstElem && firstElem.interest.name} Events</h1>
-
+        <Typography variant="h4" marked="center" align="center" component="h2">
+          All {firstElem && firstElem.interest.name} Events
+        </Typography>
+        <h3 />
         <div>{events.length > 0 && <EventCard events={events} />}</div>
       </div>
     )
