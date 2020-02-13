@@ -9,6 +9,7 @@ import UserInterests from './userInterests'
 import UserEvents from './userEvents'
 import SimpleExpansionPanel from './expansionPanel'
 import Jumbo from '../Jumbo'
+import ButtonBase from '@material-ui/core/ButtonBase'
 
 class User extends React.Component {
   componentDidMount() {
@@ -26,53 +27,74 @@ class User extends React.Component {
     return (
       <React.Fragment>
         <Jumbo />
-        <CssBaseline />
-        <Container maxWidth="sm">
-          <Typography component="div" spacing={2} style={{height: '100%'}}>
+
+        <Container maxWidth="md">
+          <Typography component="Grid" spacing={1} style={{height: '100%'}}>
             <Grid
               className="user-page"
               container
               spacing={1}
-              justify="space-between"
+              direction="column"
             >
-              <Grid className="user-page-title" item xs={12}>
-                <h2>{user.firstName}'s Account</h2>
-                <br />
+              <Grid container direction="row" justify="center" xs={12}>
+                <Grid>
+                  <h1>{user.firstName}'s Account</h1>
+                  <br />
+                </Grid>
               </Grid>
+              <Grid>
+                <Grid container justify="center" xs={12}>
+                  <Grid item sm={6} xs={12}>
+                    <ButtonBase>
+                      <img
+                        className="profile-image"
+                        alt="complex"
+                        src={user.imageUrl}
+                      />
+                    </ButtonBase>
+                  </Grid>
+                  <Grid
+                    container
+                    alignItems="flex-start"
+                    justify="flex-start"
+                    sm={6}
+                    xs={12}
+                  >
+                    <Grid sm={12} xs={12} key={user.id}>
+                      <Grid className="user-props-text">
+                        <strong>Name:</strong>{' '}
+                        <i>
+                          {user.firstName} {user.lastName}
+                        </i>{' '}
+                        <br />
+                        <strong>Email:</strong> <i>{user.email}</i> <br />
+                      </Grid>
+                    </Grid>
 
-              <Grid item xs={6}>
-                <Card variant="outlined">
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    width="200"
-                    image={user.imageUrl}
-                  />
-                  <div key={user.id} className="user-props-container">
-                    <div className="user-props-text">
-                      Name: {user.firstName} {user.lastName} <br />
-                      Email: {user.email} <br />
-                    </div>
-                  </div>
-                </Card>
-                <SimpleExpansionPanel
-                  userId={user.id}
-                  firstName={user.firstName}
-                  lastName={user.lastName}
-                  email={user.email}
-                  image={user.imageUrl}
-                />
-              </Grid>
-              <Grid item xs={2} />
-              <Grid item xs={4}>
-                <UserInterests userId={userId} />
-              </Grid>
+                    <Grid sm={7}>
+                      <SimpleExpansionPanel
+                        userId={user.id}
+                        firstName={user.firstName}
+                        lastName={user.lastName}
+                        email={user.email}
+                        image={user.imageUrl}
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
 
-              <Grid item xs={12}>
-                <RsvpEvents userId={userId} />
-              </Grid>
-              <Grid item xs={12}>
-                <UserEvents userId={userId} />
+                <Grid container direction="row">
+                  <Grid item xs={12}>
+                    <br /> <br /> <br />
+                    <UserInterests userId={userId} /> <br />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <RsvpEvents userId={userId} />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <UserEvents userId={userId} />
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
           </Typography>
