@@ -52,7 +52,7 @@ export default function MainFeaturedPost(props) {
       {/* Increase the priority of the hero background image */}
       {<img style={{display: 'none'}} />}
       <div className={classes.overlay} />
-      <br /> <br /> <br />
+      <br />
       <Grid container>
         <Grid item md={6}>
           <div className={classes.mainFeaturedPostContent}>
