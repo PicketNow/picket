@@ -3,7 +3,17 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {login} from '../store/user'
 import Grid from '@material-ui/core/Grid'
-
+import Box from '@material-ui/core/Box'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Typography from './Typography'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Paper from '@material-ui/core/Paper'
+import Checkbox from '@material-ui/core/Checkbox'
+import Link from '@material-ui/core/Link'
 /**
  * COMPONENT
  */
@@ -11,39 +21,60 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <Grid>
-      <form onSubmit={handleSubmit} name={name}>
-        <Grid>
-          <Grid>
+    <div
+      style={{
+        margin: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}
+    >
+      <Avatar style={{margin: 1}}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography variant="h4" marked="center" align="center" component="h4">
+        Sign in
+      </Typography>
+      <form
+        style={{width: '100%', marginTop: 1}}
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <Grid
+          container
+          style={{margin: 2, display: 'flex', alignItems: 'center'}}
+          spacing={2}
+        >
+          <Grid item xs={12} sm={6}>
             <label htmlFor="email">
-              <small>Email</small>
+              <medium>Email</medium>
             </label>
-          </Grid>
-          <Grid>
             <input name="email" type="text" />
           </Grid>
-        </Grid>
-        <Grid>
-          <Grid>
+          <Grid item xs={12} sm={6}>
             <label htmlFor="password">
-              <small>Password</small>
+              <medium>Password</medium>
             </label>
-          </Grid>
-          <Grid>
             <input name="password" type="password" />
           </Grid>
         </Grid>
-        <Grid>
-          <Grid>
+        <Grid
+          container
+          style={{margin: 2, display: 'flex', alignItems: 'center'}}
+          spacing={2}
+        >
+          <Grid item xs={12} sm={6}>
             <button className="form-buttons" type="submit">
               <strong>{displayName}</strong>
             </button>
           </Grid>
+          <Grid item xs={12} sm={6}>
+            <a href="/auth/google">Just do it with Google!</a>
+          </Grid>
         </Grid>
         {error && error.response && <Grid> {error.response.data} </Grid>}
       </form>
-      {/* <a href="/auth/google">Just do it with Google!</a> */}
-    </Grid>
+    </div>
   )
 }
 
