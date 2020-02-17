@@ -16,16 +16,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="main-app">
-        {mobile ? (
-          <Route path="/" component={NavMobile} />
-        ) : (
-          <Route path="/" component={Navbar} />
-        )}
         {mobile ? null : (
           <button id="btnAdd">
             <strong>Install Picket!</strong>
           </button>
         )}
+        {mobile ? (
+          <Route path="/" component={NavMobile} />
+        ) : (
+          <Route path="/" component={Navbar} />
+        )}
+
         <Route path="/" component={Routes} />
         <br />
         <br />
