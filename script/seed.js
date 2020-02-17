@@ -55,11 +55,11 @@ async function seed() {
   const interest4 = await Interest.create({name: 'Anti-war'})
   const interest5 = await Interest.create({name: 'Immigration'})
   const interest6 = await Interest.create({name: 'Drug Reform'})
-  const interest7 = await Interest.create({name: 'Policing Reform'})
+  const interest7 = await Interest.create({name: 'Animal Rights'})
   const interest8 = await Interest.create({name: 'Voting Rights'})
   const interest9 = await Interest.create({name: 'Judicial Activism'})
   const interest10 = await Interest.create({name: 'Criminal Justice'})
-  const interest11 = await Interest.create({name: 'Women'})
+  const interest11 = await Interest.create({name: "Women's"})
   const interest12 = await Interest.create({name: 'Economic'})
   const interest13 = await Interest.create({name: 'Anti-poverty'})
   const interest14 = await Interest.create({name: 'Childrens Rights'})
@@ -163,100 +163,116 @@ async function seed() {
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event9 = await Event.create({
-    title: 'Judicial Activism Event',
+    title: 'Repeal Judge Jeanne Martin',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "Please join us at our judicial activism event to protest Judge Jeanne Martin's ruling in favor of putting pitbulls in cages. Help us gather signatures so we can get vote to repeal this dog-hating lady come election day.",
     stAddress: '1 First St NE',
     city: 'Washington',
     state: 'DC',
     zipcode: '20543',
     organizerId: 2,
-    date: 'Fri Feb 14 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Feb 21 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://abovethelaw.com/uploads/2015/08/Judge-Maryanne-Trump-Barry-sister-of-Donald-Trump.png'
   })
   const event10 = await Event.create({
-    title: 'Criminal Justice Event',
+    title: 'Bail Reform',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "Poverty is not a crime. No one should be sitting in jail just because they don't have the resources to post bail before they can prove their innocence. Join us to show your support for ending this inhumane practice.",
     stAddress: '315 Hudson Street',
     city: 'New York',
     state: 'NY',
     zipcode: '10013',
     organizerId: 1,
-    date: 'Thu Feb 13 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Thu Feb 27 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://cdn.vox-cdn.com/thumbor/Me4lHjJrjGy5jaU4On-EYLhF0tg=/0x0:1800x1013/1200x675/filters:focal(756x363:1044x651)/cdn.vox-cdn.com/uploads/chorus_image/image/61778115/bail_reform_art_3.0.jpg'
   })
   const event11 = await Event.create({
-    title: 'Economic Event',
+    title: 'Raise the Federal Minimum Wage',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "Who can survive on a wage of $7.25 an hour? Even though New York has adopted a $15 an hour minimum wage, there are millions of Americans in other states who are still struggling to get by. Work with us to ensure that all Americans get a fair wage for an honest day's work.",
     stAddress: '1 New York Plaza',
     city: 'New York',
     state: 'NY',
     zipcode: '10004',
     organizerId: 6,
-    date: 'Wed Feb 12 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Wed Feb 19 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://getpayroll.com/wp-content/uploads/2019/05/minimum-wage-750x464.png'
   })
   const event12 = await Event.create({
-    title: 'Anti-Poverty Event',
+    title: 'Fix Our Homeless Shelters',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "The homeless shelters in New York City are in a sad state. These buildings, which shelter our most vulnerable brothers and sisters, are unsafe and desperately in need of reform. Please help us raise awareness about this crucial issue affecting our city's most overlooked citizens.",
     stAddress: "St. Patrick's Cathedral",
     city: 'New York',
     state: 'NY',
     zipcode: '10022',
     organizerId: 5,
-    date: 'Tue Feb 11 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Tue Feb 25 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://media.graytvinc.com/images/690*388/springs-rescue-mission-shelter-beds.JPG'
   })
   const event13 = await Event.create({
-    title: 'Childrens Rights Event',
+    title: 'Early Childhood Education',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "Early childhood education shouldn't be a privilege reserved only for the sons and daughters of the wealthy. Access to education in the early years of development is essential for children's future success. Access to early childhood education must be universal.",
     stAddress: '65 Court St',
     city: 'Brooklyn',
     state: 'NY',
     zipcode: '11201',
     organizerId: 4,
-    date: 'Mon Feb 10 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Mon Feb 24 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://cdn-blob-prd.azureedge.net/prd-pws/images/default-source/default-album/3-k-student-1220px.jpg?sfvrsn=bd299c99_4'
   })
   const event14 = await Event.create({
-    title: 'Healthcare Event',
+    title: 'We Need A Public Option',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      "Whatever your vision may be for America's healthcare system, we can all agree that healthcare costs need to go down. A robust public option will force companies to price healthcare more competively and will help all Americans. Join us to protest!",
     stAddress: '26 Federal Plaza',
     city: 'New York',
     state: 'NY',
     zipcode: '10278',
     organizerId: 3,
-    date: 'Sun Feb 09 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sun Feb 23 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://static.politico.com/dims4/default/011e9e5/2147483647/resize/403x%3E/quality/90/?url=http%3A%2F%2Fs3-origin-images.politico.com%2Fnews%2F090928_public_option_ap_223.jpg'
   })
   const event15 = await Event.create({
-    title: 'Education Event',
+    title: 'Free Community College',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      'Student debt is outrageous. It is strangling our economy and suffocating a generation of Americans. Help us save the next generation from suffering. Free Community College for All.',
     stAddress: '1605 Amsterdam Ave',
     city: 'New York',
     state: 'NY',
     zipcode: '10031',
     organizerId: 2,
-    date: 'Sat Feb 08 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Sat Feb 22 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://static01.nyt.com/images/2017/08/11/opinion/11salgado/01salgado-articleLarge.jpg?quality=75&auto=webp&disable=upscale'
   })
   const event16 = await Event.create({
-    title: 'Policing Event',
+    title: 'Save The Oysters',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      'Who will think of the oysters? They have a right to a clean home, so that they can be maximally delicious once farmed for our nightly happy hours. Save the oysters!',
     stAddress: 'Zuccotti Park',
     city: 'New York',
     state: 'NY',
     zipcode: '10006',
     organizerId: 1,
-    date: 'Fri Feb 07 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Feb 28 2020',
+    time: '00:00:00 GMT-0500 (Eastern Standard Time)',
+    imageUrl:
+      'https://bloximages.newyork1.vip.townnews.com/fredericknewspost.com/content/tncms/assets/v3/editorial/1/23/12377876-39c3-5120-a36b-7af8024a6226/5c7dcd3a1285c.image.jpg?resize=1200%2C800'
   })
 
   await event1.setInterest(interest11)
