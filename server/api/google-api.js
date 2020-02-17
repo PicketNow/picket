@@ -13,7 +13,7 @@ const formatUrl = async eventId => {
     const city = event.city.split(' ').join('%20')
     const input = [address, city, event.state].join('%20')
     const infix = '&inputtype=textquery&fields=geometry&key='
-    const reqUrl = `${prefix}${input}${infix}${process.env.GOOGLE_MAP_KEY}`
+    const reqUrl = `${prefix}${input}${infix}${'AIzaSyAU64wVY261h-ooQRX7VrJ5gi_KdoSe560'}`
     return reqUrl
   } catch (error) {
     console.log(error)

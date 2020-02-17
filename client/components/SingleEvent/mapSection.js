@@ -23,7 +23,7 @@ const MapSection = props => {
 
       <LoadScript
         id="script-loader"
-        googleMapsApiKey={process.env.GOOGLE_MAP_KEY}
+        googleMapsApiKey="AIzaSyAU64wVY261h-ooQRX7VrJ5gi_KdoSe560"
       >
         <GoogleMap
           id="google-map"
