@@ -1,47 +1,34 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logout} from '../store'
 import AppBar from '@material-ui/core/AppBar'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import PropTypes from 'prop-types'
+import {fade, makeStyles} from '@material-ui/core/styles'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import {Link} from 'react-router-dom'
-import Button from '@material-ui/core/Button'
+import AllInterestsLink from './navbar/allInterestsLink'
 
 const useStyles = makeStyles(theme => ({
-  text: {
-    padding: theme.spacing(2, 2, 0)
+  root: {
+    flexGrow: 1,
+    color: 'inherit'
   },
-  paper: {
-    paddingBottom: 50
+
+  menuButton: {
+    marginRight: theme.spacing(2)
   },
-  list: {
-    marginBottom: theme.spacing(2)
-  },
-  subheader: {
-    backgroundColor: theme.palette.background.paper
-  },
-  appBar: {
-    top: 'auto',
-    bottom: 0
-  },
-  grow: {
+  title: {
     flexGrow: 1
-  },
-  fabButton: {
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto'
   }
 }))
 
-export default function BottomAppBar({handleClick, isLoggedIn}) {
+const Navibar = ({handleClick, isLoggedIn}) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const isMenuOpen = Boolean(anchorEl)
@@ -72,7 +59,7 @@ export default function BottomAppBar({handleClick, isLoggedIn}) {
             onClick={renderMenu}
           >
             <MenuItem onClick={handleMenuClose}>
-              <Link to="/home"> Profile </Link>
+              <Link to="/userhome"> Profile </Link>
             </MenuItem>
 
             <MenuItem onClick={handleMenuClose}>
@@ -114,11 +101,10 @@ export default function BottomAppBar({handleClick, isLoggedIn}) {
         ))
   }
 
+  // eslint-disable-next-line no-return-assign
   return (
-    <React.Fragment>
-      <CssBaseline />
-
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+    <div className={classes.root}>
+      <AppBar position="sticky">
         <Toolbar className="toolbar">
           <IconButton
             edge="end"
@@ -157,11 +143,33 @@ export default function BottomAppBar({handleClick, isLoggedIn}) {
         </Toolbar>
       </AppBar>
       {renderMenu}
-    </React.Fragment>
+    </div>
   )
 }
 
-BottomAppBar.propTypes = {
+/**
+ * CONTAINER
+ */
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.user.id
+  }
+}
+
+const mapDispatch = dispatch => {
+  return {
+    handleClick() {
+      dispatch(logout())
+    }
+  }
+}
+
+export default connect(mapState, mapDispatch)(Navibar)
+
+/**
+ * PROP TYPES
+ */
+Navibar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
