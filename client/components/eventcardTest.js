@@ -14,7 +14,8 @@ import Carousel from 'react-material-ui-carousel'
 
 const useStyles = makeStyles({
   card: {
-    display: 'flex'
+    display: 'flex',
+    height: 260
   },
   cardDetails: {
     flex: 1
@@ -46,7 +47,7 @@ export default function FeaturedEvent(props) {
                           </Typography>
                           <Typography variant="subtitle1" color="textSecondary">
                             <Moment format="D MMM YYYY" withTitle>
-                              {events.date}
+                              {event.date}
                             </Moment>
                           </Typography>
                           <Typography variant="subtitle1" paragraph>
@@ -94,7 +95,7 @@ export default function FeaturedEvent(props) {
                               color="textSecondary"
                             >
                               <Moment format="D MMM YYYY" withTitle>
-                                {events.date}
+                                {event.date}
                               </Moment>
                             </Typography>
                             <Typography variant="subtitle1" paragraph>

@@ -159,8 +159,8 @@ function ProductCategories(props) {
     },
     {
       url:
-        'https://static01.nyt.com/images/2017/12/07/nyregion/00monitor1/merlin_131004104_83162474-5d45-4a8c-90ed-b47700a36613-articleLarge.jpg?quality=75&auto=webp&disable=upscale',
-      title: 'Policing',
+        'https://nationalpostcom.files.wordpress.com/2019/06/0717_biz_tb_dairy-e1559922356162.jpg?quality=80&strip=all&w=780',
+      title: 'Animal Rights',
       width: '38%',
       href: 'events/category/7'
     },

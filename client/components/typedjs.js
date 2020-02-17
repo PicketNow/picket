@@ -7,16 +7,18 @@ export default class TypedReactTagline extends React.Component {
     // your desired props to this destructuring assignment.
     // const { strings } = this.props;
     const strings = [
-      'Be a <strong>warrior</strong> not a worrier',
+      '<strong>Warriors</strong> > worriers',
       'Give a <i>S*#T?</i> ...Picket!',
-      'The personal is political',
-      'Stand up and be heard'
+      'Make your future',
+      'Stand up and shout',
+      'Unite and fight'
     ]
     // You can pass other options here, such as typing speed, back speed, etc.
     const options = {
       strings: strings,
       typeSpeed: 50,
-      backSpeed: 50
+      backSpeed: 60,
+      loop: true
     }
     // this.el refers to the <span> in the render() method
     this.typed = new Typed(this.el, options)
