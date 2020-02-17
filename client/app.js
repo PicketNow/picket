@@ -8,9 +8,9 @@ const App = () => {
   let mobile
 
   if (window.matchMedia('(display-mode: standalone)').matches) {
-    mobile = true
-  } else {
     mobile = false
+  } else {
+    mobile = true
   }
 
   return (
