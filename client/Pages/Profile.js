@@ -4,13 +4,14 @@ import {Login} from '../components/auth-form'
 import {Signup} from '../components/auth-form-su'
 import UserHome from '../components/ProfileComponents/user-home'
 import Jumbo from '../components/Jumbo'
+import Homepage from './Homepage'
 
 class Profile extends React.Component {
   render() {
     if (this.props.isLoggedIn) {
       return (
         <div>
-          <UserHome />
+          <Homepage />
         </div>
       )
     } else {

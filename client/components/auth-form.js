@@ -69,6 +69,7 @@ const mapDispatch = dispatch => {
       const email = evt.target.email.value
       const password = evt.target.password.value
       dispatch(login(email, password))
+      history.push('/')
     }
   }
 }
