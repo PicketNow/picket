@@ -72,7 +72,7 @@ export default function BottomAppBar({handleClick, isLoggedIn}) {
             onClick={renderMenu}
           >
             <MenuItem onClick={handleMenuClose}>
-              <Link to="/home"> Profile </Link>
+              <Link to="/userhome"> Profile </Link>
             </MenuItem>
 
             <MenuItem onClick={handleMenuClose}>
