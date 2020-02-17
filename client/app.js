@@ -21,6 +21,11 @@ const App = () => {
         ) : (
           <Route path="/" component={Navbar} />
         )}
+        {mobile ? null : (
+          <button id="btnAdd">
+            <strong>Install Picket!</strong>
+          </button>
+        )}
         <Route path="/" component={Routes} />
         <br />
         <br />
