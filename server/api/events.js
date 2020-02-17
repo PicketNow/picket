@@ -9,8 +9,12 @@ const Op = Sequelize.Op
 module.exports = router
 
 router.get('/', async (req, res, next) => {
+  const today = new Date()
   try {
-    const allEvents = await Events.findAll()
+    const allEvents = await Events.findAll({
+      where: {date: {[Op.gt]: today}},
+      order: [['date', 'ASC']]
+    })
     res.send(allEvents)
   } catch (error) {
     next(error)
