@@ -4,15 +4,17 @@ import {Login} from '../components/auth-form'
 import {Signup} from '../components/auth-form-su'
 import UserHome from '../components/ProfileComponents/user-home'
 import Jumbo from '../components/Jumbo'
+import Homepage from './Homepage'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+
 
 class Profile extends React.Component {
   render() {
     if (this.props.isLoggedIn) {
       return (
         <div>
-          <UserHome />
+          <Homepage />
         </div>
       )
     } else {

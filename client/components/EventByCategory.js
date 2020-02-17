@@ -36,15 +36,27 @@ export class EventsByCategory extends React.Component {
   }
 
   isSubscribed() {
+    const categoriesHT = {
+      1: 'Human Rights',
+      2: 'LGBTQIA',
+      3: 'Environment',
+      4: 'Anti-war',
+      5: 'Immigration',
+      6: 'Drug Reform',
+      7: 'Policing',
+      8: 'Voting Rights',
+      9: 'Judicial Activism',
+      10: 'Criminal Justice',
+      11: 'Women',
+      12: 'Economic',
+      13: 'Anti-Poverty',
+      14: 'Childrens Rights',
+      15: 'Healthcare',
+      16: 'Education'
+    }
     const interestId = this.props.match.params.eventCategory
     const userInterests = this.props.userInterests
-    let interests = []
-    this.props.interests.forEach(function(elem) {
-      if (userInterests.includes(elem.name)) {
-        interests.push(elem.id.toString())
-      }
-    })
-    if (interests.includes(interestId)) {
+    if (userInterests.includes(categoriesHT[interestId].toString())) {
       return true
     } else return false
   }
@@ -64,7 +76,7 @@ export class EventsByCategory extends React.Component {
         </Link>
         {this.props.user.id ? (
           <div id="subscribe-button-container">
-            {this.isSubscribed() ? (
+            {this.isSubscribed() === true ? (
               <button
                 onClick={this.handleSubscribe}
                 type="button"

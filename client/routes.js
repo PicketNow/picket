@@ -29,6 +29,7 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/userhome" component={UserHome} />
         <Route exact path="/profile" component={UserHome} />
         <Route exact path="/events" component={AllEvents} />
         <Route exact path="/events/:eventId" component={SingleEvent} />
