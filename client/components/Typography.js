@@ -20,7 +20,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   markedH4Center: {
-    height: 4,
+    height: 3,
     width: 55,
     display: 'block',
     margin: `${theme.spacing(1)}px auto 0`,
