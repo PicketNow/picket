@@ -70,7 +70,6 @@ Event.findByRsvpArr = async function(rsvpArr) {
   for (let i = 0; i < rsvpArr.length; i++) {
     let elem = rsvpArr[i]
     let key = elem.eventId
-
     let item = await Event.findByPk(key)
     array.push(item)
   }

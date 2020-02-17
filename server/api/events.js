@@ -12,7 +12,6 @@ router.get('/', async (req, res, next) => {
   try {
     const allEvents = await Events.findAll()
     res.send(allEvents)
-    console.log(allEvents)
   } catch (error) {
     next(error)
   }
@@ -43,7 +42,6 @@ router.get('/zip/:zip', async (req, res, next) => {
 router.get('/:eventId', async (req, res, next) => {
   try {
     const event = await Events.findByPk(req.params.eventId)
-
     res.send(event)
   } catch (error) {
     next(error)
@@ -52,7 +50,6 @@ router.get('/:eventId', async (req, res, next) => {
 
 router.post('/:eventId', async (req, res, next) => {
   try {
-    console.log(req.user)
     const event = await Events.findByPk(req.params.eventId)
     const user = await User.findByPk(req.user.id)
     user.addRsvp(event)
@@ -84,7 +81,6 @@ router.get('/subscribed/:userId', async (req, res, next) => {
     const subscribed = await Events.findAll({
       where: {interestId: interests}
     })
-    console.log(user[0])
     res.send(subscribed)
   } catch (err) {
     next(err)
@@ -93,7 +89,6 @@ router.get('/subscribed/:userId', async (req, res, next) => {
 
 router.get('/category/:eventCategory', async (req, res, next) => {
   try {
-    console.log('here')
     const category = req.params.eventCategory
     const categoryEvents = await Events.findByInterest(category)
     res.send(categoryEvents)
@@ -150,8 +145,53 @@ router.post('/', async (req, res, next) => {
       organizerId,
       interestId
     })
-    console.log(newEvent)
     res.json(newEvent)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/', async (req, res, next) => {
+  try {
+    const {
+      id,
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId,
+      interestId
+    } = req.body
+    const event = await Events.findByPk(id)
+    await event.update({
+      title,
+      description,
+      stAddress,
+      city,
+      state,
+      zipcode,
+      date,
+      organizerId,
+      interestId
+    })
+    await event.save()
+    res.json(event)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.delete('/:eventId', async (req, res, next) => {
+  try {
+    await Events.destroy({
+      where: {
+        id: req.params.eventId
+      }
+    })
+    res.json()
   } catch (err) {
     next(err)
   }

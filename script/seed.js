@@ -127,40 +127,46 @@ async function seed() {
     time: '00:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event6 = await Event.create({
-    title: 'Immigration Event',
+    title: 'No Business with ICE - Midtown',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '185 Ave D',
+      'We call on the diverse groups of immigrant people in the United States to join together for a collective struggle. We have to help each other free ourselves of the chains of fear. Because although there are laws that limit us, it is fear that keeps us quiet and weakens us as a community.',
+    stAddress: '459 5th Ave',
     city: 'New York',
     state: 'NY',
-    zipcode: '10009',
+    zipcode: '10016',
     organizerId: 5,
-    date: 'Mon Feb 17 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    imageUrl:
+      'https://images.squarespace-cdn.com/content/v1/58ba36fcc534a5c4ae3226de/1500338158331-ZSIA5AW8T9RQLYK1SWH6/ke17ZwdGBToddI8pDm48kD33KhhWEodMJvcytjXFyvFZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIXZi3p8TzzCd5LBww9rBU5Je7LlmHzK_8BCOYYXjEaPwKMshLAGzx4R3EDFOm1kBS/22.jpg?format=750w',
+    date: 'Mon Mar 02 2020',
+    time: '17:30:00 GMT-0500 (Eastern Standard Time)'
   })
   const event7 = await Event.create({
-    title: 'Drug Reform Event',
+    title: '2020 International Drug Policy Reform Conference',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '99 Gansevoort Street',
+      'The International Drug Policy Reform Conference is a biennial event that brings together people from around the world who believe that the war on drugs must end. More than 1,200 attendees representing over 50 countries joined us in St. Louis, MO in 2019. ',
+    stAddress: '131 West 33rd Street, 15th Floor',
     city: 'New York',
     state: 'NY',
-    zipcode: '10014',
+    zipcode: '10001',
     organizerId: 4,
-    date: 'Sun Feb 16 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    imageUrl:
+      'http://www.reformconference.org/sites/reformconference.org/files/styles/drugpolicy_banner_retina_large/public/2018-07/abouthero-3.jpg?itok=6tuf8wAw',
+    date: 'Sat Nov 14 2020',
+    time: '10:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event8 = await Event.create({
-    title: 'Voting Rights Event',
+    title: 'The Fight for Fair Elections: Expanding the Vote in 2020',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
-    stAddress: '206 Washington St SW',
-    city: 'Atlanta',
-    state: 'GA',
-    zipcode: '30334',
+      'Given the especially high stakes of the 2020 election, the need for broad and unobstructed voter participation could not be greater. Yet the past decade has seen a plethora of legal curtailments on voting rights.',
+    stAddress: '25 W 43rd Street',
+    city: 'New York',
+    state: 'NY',
+    zipcode: '10036',
+    imageUrl:
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/10/19/10/dark-web-voting-records-elections.jpg?w968h681',
     organizerId: 3,
-    date: 'Sat Feb 15 2020',
-    time: '00:00:00 GMT-0500 (Eastern Standard Time)'
+    date: 'Fri Feb 21 2020',
+    time: '09:00:00 GMT-0500 (Eastern Standard Time)'
   })
   const event9 = await Event.create({
     title: 'Repeal Judge Jeanne Martin',

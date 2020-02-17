@@ -1,7 +1,6 @@
 import React from 'react'
 import {getFilteredEvents} from '../store/event'
 import {connect} from 'react-redux'
-//import event card
 import {
   getUserInterests,
   subscribeToInterest,
@@ -12,6 +11,7 @@ import EventCard from './eventcardTest'
 import Jumbo from './Jumbo'
 import CategorySearch from '../components/searchComps/categorySearch'
 import {me} from '../store/user'
+import Typography from './Typography'
 
 export class EventsByCategory extends React.Component {
   constructor(props) {
@@ -36,15 +36,27 @@ export class EventsByCategory extends React.Component {
   }
 
   isSubscribed() {
+    const categoriesHT = {
+      1: 'Human Rights',
+      2: 'LGBTQIA',
+      3: 'Environment',
+      4: 'Anti-war',
+      5: 'Immigration',
+      6: 'Drug Reform',
+      7: 'Animal Rights',
+      8: 'Voting Rights',
+      9: 'Judicial Activism',
+      10: 'Criminal Justice',
+      11: 'Women',
+      12: 'Economic',
+      13: 'Anti-Poverty',
+      14: 'Childrens Rights',
+      15: 'Healthcare',
+      16: 'Education'
+    }
     const interestId = this.props.match.params.eventCategory
     const userInterests = this.props.userInterests
-    let interests = []
-    this.props.interests.forEach(function(elem) {
-      if (userInterests.includes(elem.name)) {
-        interests.push(elem.id.toString())
-      }
-    })
-    if (interests.includes(interestId)) {
+    if (userInterests.includes(categoriesHT[interestId].toString())) {
       return true
     } else return false
   }
@@ -64,7 +76,7 @@ export class EventsByCategory extends React.Component {
         </Link>
         {this.props.user.id ? (
           <div id="subscribe-button-container">
-            {this.isSubscribed() ? (
+            {this.isSubscribed() === true ? (
               <button
                 onClick={this.handleSubscribe}
                 type="button"
@@ -89,9 +101,10 @@ export class EventsByCategory extends React.Component {
             </p>
           </div>
         )}
-
-        <h1> All {firstElem && firstElem.interest.name} Events</h1>
-
+        <Typography variant="h4" marked="center" align="center" component="h2">
+          All {firstElem && firstElem.interest.name} Events
+        </Typography>
+        <h3 />
         <div>{events.length > 0 && <EventCard events={events} />}</div>
       </div>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Grid, Card, CardMedia} from '@material-ui/core'
-import moment from 'moment'
 
 const EventCard = props => {
   let events = props.events

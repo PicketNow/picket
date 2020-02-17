@@ -72,7 +72,7 @@ export class UpdateForm extends React.Component {
                 value={this.state.imageUrl}
                 onChange={this.handleChange}
               />
-              <button className="buttons" type="submit">
+              <button className="form-buttons" type="submit">
                 Submit
               </button>
             </form>

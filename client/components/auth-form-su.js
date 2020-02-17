@@ -2,7 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Typography from './Typography'
+import Avatar from '@material-ui/core/Avatar'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 /**
  * COMPONENT
  */
@@ -10,42 +15,70 @@ const AuthFormSu = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="firstName">
-            <small>First Name:</small>
-          </label>
-          <input name="firstName" type="firstName" />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="lastName">
-            <small>Last Name:</small>
-          </label>
-          <input name="lastName" type="lastName" />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <br />
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
+    <div
+      style={{
+        margin: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}
+    >
+      <Avatar style={{margin: 1}}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography variant="h4" marked="center" align="center" component="h4">
+        Sign up
+      </Typography>
+      <form
+        style={{width: '100%', marginTop: 1}}
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <Grid
+          container
+          style={{margin: 2, display: 'flex', alignItems: 'center'}}
+          spacing={2}
+        >
+          <Grid item xs={12} sm={6}>
+            <label htmlFor="firstName">
+              <medium>First Name:</medium>
+            </label>
+            <input name="firstName" type="firstName" />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <label htmlFor="lastName">
+              <medium>Last Name:</medium>
+            </label>
+            <input name="lastName" type="lastName" />
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          style={{margin: 2, display: 'flex', alignItems: 'center'}}
+          spacing={2}
+        >
+          <Grid item xs={12} sm={6}>
+            <label htmlFor="email">
+              <medium>Email</medium>
+            </label>
+            <input name="email" type="text" />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <label htmlFor="password">
+              <medium>Password</medium>
+            </label>
+            <input name="password" type="password" />
+          </Grid>
+        </Grid>
+        <Grid>
+          <Grid>
+            <button className="form-buttons" type="submit">
+              <strong>{displayName}</strong>
+            </button>
+          </Grid>
+        </Grid>
+        {error && error.response && <Grid> {error.response.data} </Grid>}
       </form>
-      {/* <a href="/auth/google">{displayName} with Google</a> */}
     </div>
   )
 }
@@ -58,13 +91,13 @@ const AuthFormSu = props => {
  *   can stay DRY with interfaces that are very similar to each other!
  */
 
-const mapLogin = state => {
-  return {
-    name: 'login',
-    displayName: 'Login',
-    error: state.user.error
-  }
-}
+// const mapLogin = state => {
+//   return {
+//     name: 'login',
+//     displayName: 'Login',
+//     error: state.user.error
+//   }
+// }
 
 const mapSignup = state => {
   return {

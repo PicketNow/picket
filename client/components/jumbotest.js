@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import Button from '@material-ui/core/Button'
+import TypedReactTagline from './typedjs'
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
@@ -51,6 +52,7 @@ export default function MainFeaturedPost(props) {
       {/* Increase the priority of the hero background image */}
       {<img style={{display: 'none'}} />}
       <div className={classes.overlay} />
+      <br />
       <Grid container>
         <Grid item md={6}>
           <div className={classes.mainFeaturedPostContent}>
@@ -63,10 +65,10 @@ export default function MainFeaturedPost(props) {
               Picket
             </Typography>
             <Typography variant="h4" color="inherit" paragraph>
-              Give a shit? ...Picket!
+              <TypedReactTagline />
             </Typography>
 
-            <Button variant="contained" color="default" href="/signup">
+            <Button variant="contained" color="default" href="/home">
               Signup
             </Button>
           </div>
