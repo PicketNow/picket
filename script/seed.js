@@ -97,7 +97,7 @@ async function seed() {
   const event3 = await Event.create({
     title: 'Uyghur Human Rights Rally',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis eu odio tincidunt mattis quis eu neque. Nam nec enim suscipit, aliquam arcu et, semper turpis.',
+      'People should be able to practice their religion and celebrate their culture in every country. Fight for Uyghur rights!',
     stAddress: '8 Jane Street',
     city: 'New York',
     state: 'NY',
@@ -125,7 +125,7 @@ async function seed() {
   const event5 = await Event.create({
     title: 'National Day of Action',
     description:
-      'On Saturday, January 4 the ANSWER Coalition, CODEPINK, Muslim Peace Fellowship, Veterans for Peace, United AntiWar Coalition (UNAC), United for Peace & Justice (UFPJ), Feminist Foreign Policy, World Beyond War, Popular Resistance and Voices for Creative Nonviolence are calling on people from around the United States to organize local demonstrations to demand: NO MORE U.S. TROOPS TO IRAQ OR THE MIDDLE EAST! U.S. OUT OF IRAQ NOW! and NO WAR/NO SANCTIONS ON IRAN!',
+      'Calling on people from around the United States to organize local demonstrations to demand: NO MORE U.S. TROOPS TO IRAQ OR THE MIDDLE EAST! U.S. OUT OF IRAQ NOW! and NO WAR/NO SANCTIONS ON IRAN!',
     stAddress: '205 E 7th Street',
     city: 'New York',
     state: 'NY',
@@ -139,7 +139,7 @@ async function seed() {
   const event6 = await Event.create({
     title: 'No Business with ICE - Midtown',
     description:
-      'We call on the diverse groups of immigrant people in the United States to join together for a collective struggle. We have to help each other free ourselves of the chains of fear. Because although there are laws that limit us, it is fear that keeps us quiet and weakens us as a community.',
+      'Let us join together for a collective struggle. We have to help each other free ourselves of the chains of fear. Though there are laws that limit us, it is fear keeps us quiet and weakens us as a community.',
     stAddress: '459 5th Ave',
     city: 'New York',
     state: 'NY',
@@ -153,7 +153,7 @@ async function seed() {
   const event7 = await Event.create({
     title: '2020 International Drug Policy Reform Conference',
     description:
-      'The International Drug Policy Reform Conference is a biennial event that brings together people from around the world who believe that the war on drugs must end. More than 1,200 attendees representing over 50 countries joined us in St. Louis, MO in 2019. ',
+      'The International Drug Policy Reform Conference is a biennial event that brings together people from around the world who believe that the war on drugs must end. More than 1,200 attendees representing over 50 countries joined us in St. Louis, MO in 2019.',
     stAddress: '131 West 33rd Street, 15th Floor',
     city: 'New York',
     state: 'NY',
@@ -209,7 +209,7 @@ async function seed() {
   const event11 = await Event.create({
     title: 'Raise the Federal Minimum Wage',
     description:
-      "Who can survive on a wage of $7.25 an hour? Even though New York has adopted a $15 an hour minimum wage, there are millions of Americans in other states who are still struggling to get by. Work with us to ensure that all Americans get a fair wage for an honest day's work.",
+      "Who can survive on a wage of $7.25 an hour? Millions of Americans are struggling to get by. All Americans deserve a fair wage for an honest day's work.",
     stAddress: '1 New York Plaza',
     city: 'New York',
     state: 'NY',
@@ -223,7 +223,7 @@ async function seed() {
   const event12 = await Event.create({
     title: 'Fix Our Homeless Shelters',
     description:
-      "The homeless shelters in New York City are in a sad state. These buildings, which shelter our most vulnerable brothers and sisters, are unsafe and desperately in need of reform. Please help us raise awareness about this crucial issue affecting our city's most overlooked citizens.",
+      'The homeless shelters in New York City are in a sad state. These buildings, which shelter our most vulnerable brothers and sisters, are unsafe and desperately in need of reform. Please help us raise awareness.',
     stAddress: "St. Patrick's Cathedral",
     city: 'New York',
     state: 'NY',
@@ -237,7 +237,7 @@ async function seed() {
   const event13 = await Event.create({
     title: 'Early Childhood Education',
     description:
-      "Early childhood education shouldn't be a privilege reserved only for the sons and daughters of the wealthy. Access to education in the early years of development is essential for children's future success. Access to early childhood education must be universal.",
+      "Early childhood education shouldn't be a privilege reserved only for the sons and daughters of the wealthy. Access to education in the early years of development is essential for children's future success.",
     stAddress: '65 Court St',
     city: 'Brooklyn',
     state: 'NY',
@@ -251,7 +251,7 @@ async function seed() {
   const event14 = await Event.create({
     title: 'We Need A Public Option',
     description:
-      "Whatever your vision may be for America's healthcare system, we can all agree that healthcare costs need to go down. A robust public option will force companies to price healthcare more competively and will help all Americans. Join us to protest!",
+      "Whatever your vision may be for America's healthcare system, we can all agree that healthcare costs need to go down. A robust public option will force companies to price healthcare more competively and will help all Americans.",
     stAddress: '26 Federal Plaza',
     city: 'New York',
     state: 'NY',
