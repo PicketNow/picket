@@ -43,7 +43,7 @@ export class EventsByCategory extends React.Component {
       4: 'Anti-war',
       5: 'Immigration',
       6: 'Drug Reform',
-      7: 'Policing',
+      7: 'Animal Rights',
       8: 'Voting Rights',
       9: 'Judicial Activism',
       10: 'Criminal Justice',

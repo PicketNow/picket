@@ -131,7 +131,7 @@ function EventForm(props) {
                 <MenuItem value={4}>Anti-War</MenuItem>
                 <MenuItem value={5}>Immigration</MenuItem>
                 <MenuItem value={6}>Drug Reform</MenuItem>
-                <MenuItem value={7}>Policing</MenuItem>
+                <MenuItem value={7}>Animal Rights</MenuItem>
                 <MenuItem value={8}>Voting Rights</MenuItem>
                 <MenuItem value={9}>Judicial Activism</MenuItem>
                 <MenuItem value={10}>Criminal Justice</MenuItem>

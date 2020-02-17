@@ -8,7 +8,6 @@ import Homepage from './Homepage'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
-
 class Profile extends React.Component {
   render() {
     if (this.props.isLoggedIn) {
