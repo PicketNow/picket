@@ -48,7 +48,7 @@
     "@material-ui/styles": "^4.9.0",
     "@react-google-maps/api": "^1.8.3",
     "@types/date-fns": "^2.6.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "date-fns": "^2.9.0",
